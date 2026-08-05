@@ -1,11 +1,10 @@
 import './Home.css'
+import { SpaceBackground } from './SpaceBackground'
 
 export function Home(_props: { path?: string }) {
   return (
     <div class="home">
-      <div class="stars stars--far" aria-hidden="true" />
-      <div class="stars stars--near" aria-hidden="true" />
-      <div class="nebula" aria-hidden="true" />
+      <SpaceBackground />
       <div class="vignette" aria-hidden="true" />
 
       <main class="hero">
