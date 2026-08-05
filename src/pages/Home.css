@@ -9,71 +9,43 @@
   isolation: isolate;
 }
 
-.starfield {
+.nebula {
   position: absolute;
   inset: 0;
   z-index: 0;
   overflow: hidden;
 }
 
-.depth {
+.nebula-img {
   position: absolute;
-  inset: -20%;
-  width: 140%;
-  height: 140%;
+  max-width: 45vw;
+  max-height: 55vh;
+  mix-blend-mode: screen;
+  opacity: 0.6;
+  pointer-events: none;
+  user-select: none;
+  -webkit-mask-image: radial-gradient(circle, black 30%, transparent 70%);
+  mask-image: radial-gradient(circle, black 30%, transparent 70%);
 }
 
-.depth svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.depth--nebula {
-  --dx: -1.2%;
-  --dy: 0.8%;
-  animation: drift 260s ease-in-out infinite alternate;
-}
-
-.depth--far {
-  --dx: -2.5%;
-  --dy: 1.8%;
-  animation: drift 150s ease-in-out infinite alternate, twinkle 7s ease-in-out infinite alternate;
-}
-
-.depth--near {
-  --dx: -4.5%;
-  --dy: 3.2%;
-  animation: drift 80s ease-in-out infinite alternate, twinkle 5s ease-in-out infinite alternate-reverse;
-}
-
-.nebula-patch {
+.stars {
   position: absolute;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  filter: blur(40px);
+  inset: -10%;
+  z-index: 0;
+  background-image: url('/stars.svg');
+  background-repeat: repeat;
 }
 
-.nebula-patch--violet {
-  background: var(--accent);
+.stars--far {
+  background-size: 260px 260px;
+  opacity: 0.45;
+  animation: drift 180s linear infinite, twinkle 7s ease-in-out infinite alternate;
 }
 
-.nebula-patch--cyan {
-  background: var(--accent-2);
-}
-
-.depth--streaks {
-  position: absolute;
-  inset: 0;
-}
-
-.shooting-star {
-  position: absolute;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, white);
-  border-radius: 2px;
-  opacity: 0;
-  animation: shoot linear infinite;
+.stars--near {
+  background-size: 480px 480px;
+  opacity: 0.8;
+  animation: drift 90s linear infinite reverse, twinkle 5s ease-in-out infinite alternate-reverse;
 }
 
 .vignette {
@@ -127,12 +99,24 @@
   opacity: 0.7;
 }
 
+.credit {
+  position: absolute;
+  z-index: 2;
+  right: 0.9rem;
+  bottom: 0.7rem;
+  margin: 0;
+  font-size: 0.65rem;
+  letter-spacing: 0.03em;
+  color: var(--text);
+  opacity: 0.55;
+}
+
 @keyframes drift {
   from {
     transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translate3d(var(--dx), var(--dy), 0);
+    transform: translate3d(-260px, -260px, 0);
   }
 }
 
@@ -145,30 +129,9 @@
   }
 }
 
-@keyframes shoot {
-  0%,
-  94% {
-    opacity: 0;
-    transform: translateX(0) rotate(var(--angle));
-  }
-  95% {
-    opacity: 1;
-  }
-  96% {
-    opacity: 1;
-    transform: translateX(120px) rotate(var(--angle));
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(120px) rotate(var(--angle));
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .depth--nebula,
-  .depth--far,
-  .depth--near,
-  .shooting-star {
+  .stars--far,
+  .stars--near {
     animation: none;
   }
 }
