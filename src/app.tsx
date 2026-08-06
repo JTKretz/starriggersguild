@@ -5,6 +5,7 @@ import { InnovativeOrdinance } from './pages/InnovativeOrdinance'
 import { Fury } from './pages/Fury'
 import { Concentration } from './pages/Concentration'
 import { Marksmanship } from './pages/Marksmanship'
+import { Sharpshooter } from './pages/Sharpshooter'
 
 export function App() {
   return (
@@ -15,6 +16,7 @@ export function App() {
       <Fury path="/fury" />
       <Concentration path="/concentration" />
       <Marksmanship path="/marksmanship" />
+      <Sharpshooter path="/sharpshooter" />
     </Router>
   )
 }
