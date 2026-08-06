@@ -1,7 +1,7 @@
 /**
  * Fury — Rotation Standard
  * ---------------------------------------------------------------------------
- * Built from a single StarParse detail log (no second parse to compare).
+ * Built from two independent StarParse detail logs (two different players).
  * Ability icons live as separate files under /public/icons/marauder.
  */
 
@@ -168,33 +168,34 @@ const CSS = `
   footer p{max-width:78ch}
 `;
 
-/* ---- reference-grid data: 17 macro-cycles anchored on Ravage, from the log ---- */
+/* ---- reference-grid data: 17 macro-cycles anchored on Ravage, from parse 2 (the reference log) ---- */
 type Cell = { n: string; mark?: 'scc' | 'rc' } | null;
 type CycleRow = { cyc: string; cells: Cell[]; off: string[]; len: string; slots: number; flag?: boolean; best?: boolean };
 
 const g = (n: string, mark?: 'scc' | 'rc'): Cell => ({ n, mark });
 
-const P1: Cell[] = [g('Ravage'), g('Force Scream'), g('Vicious Slash'), g('Furious Strike'), g('Obliterate'), g('Vicious Slash'), g('Battering Assault'), g('Force Crush'), null, g('Furious Strike'), g('Obliterate')];
-const P2: Cell[] = [g('Ravage'), g('Force Scream'), g('Vicious Throw'), g('Furious Strike'), g('Obliterate'), g('Vicious Slash'), g('Battering Assault'), g('Force Crush'), null, g('Furious Strike'), g('Obliterate')];
+const Q1: Cell[] = [g('Ravage'), g('Force Scream'), g('Vicious Slash'), g('Furious Strike'), g('Obliterate'), g('Battering Assault'), g('Vicious Slash'), g('Force Crush'), null, g('Furious Strike'), g('Obliterate')];
+const Q2: Cell[] = [g('Ravage'), g('Force Scream'), g('Vicious Throw'), g('Furious Strike'), g('Obliterate'), g('Battering Assault'), g('Vicious Slash'), g('Force Crush'), null, g('Furious Strike'), g('Obliterate')];
+const Q3: Cell[] = [g('Ravage'), g('Vicious Throw'), g('Force Scream'), g('Furious Strike'), g('Obliterate'), g('Battering Assault'), g('Vicious Slash'), g('Force Crush'), null, g('Furious Strike'), g('Obliterate')];
 
 const CYCLES: CycleRow[] = [
-  { cyc: '1', cells: P1, off: ['Raging Burst', 'Berserk', 'Raging Burst', 'Frenzy', 'Berserk'], len: '17.09', slots: 11, flag: true },
-  { cyc: '2', cells: P1, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '17.00', slots: 11 },
-  { cyc: '3', cells: P1, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '17.32', slots: 11 },
-  { cyc: '4', cells: P1, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '17.04', slots: 11, best: true },
-  { cyc: '5', cells: P1, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '17.02', slots: 11, best: true },
-  { cyc: '6', cells: P1, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '17.17', slots: 11 },
-  { cyc: '7', cells: P1, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '17.14', slots: 11 },
-  { cyc: '8', cells: P1, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '17.19', slots: 11 },
-  { cyc: '9', cells: P1, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '17.12', slots: 11 },
-  { cyc: '10', cells: P1, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '17.07', slots: 11, best: true },
-  { cyc: '11', cells: P1, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '17.13', slots: 11 },
-  { cyc: '12', cells: P1, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '17.07', slots: 11, best: true },
-  { cyc: '13', cells: [g('Ravage'), g('Force Scream'), g('Vicious Throw'), g('Furious Strike'), g('Obliterate'), g('Vicious Slash'), g('Battering Assault'), g('Force Crush'), null, g('Furious Strike'), g('Obliterate')], off: ['Raging Burst', 'Raging Burst', 'Frenzy', 'Berserk', 'Adrenal', 'Bloodthirst'], len: '17.07', slots: 12, flag: true },
-  { cyc: '14', cells: P2, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '17.29', slots: 12 },
-  { cyc: '15', cells: P2, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '17.03', slots: 12, best: true },
-  { cyc: '16', cells: P2, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '17.28', slots: 12 },
-  { cyc: '17', cells: P2, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '17.11', slots: 12, best: true },
+  { cyc: '1', cells: Q1, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '16.91', slots: 11 },
+  { cyc: '2', cells: Q1, off: ['Raging Burst', 'Force Camouflage', 'Raging Burst', 'Berserk'], len: '16.89', slots: 11, flag: true },
+  { cyc: '3', cells: Q1, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '16.80', slots: 11, best: true },
+  { cyc: '4', cells: Q1, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '16.92', slots: 11 },
+  { cyc: '5', cells: Q1, off: ['Raging Burst', 'Force Camouflage', 'Raging Burst', 'Berserk'], len: '16.81', slots: 11, flag: true },
+  { cyc: '6', cells: Q1, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '16.88', slots: 11 },
+  { cyc: '7', cells: Q1, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '16.91', slots: 11 },
+  { cyc: '8', cells: Q1, off: ['Raging Burst', 'Force Camouflage', 'Raging Burst', 'Berserk'], len: '16.80', slots: 11, flag: true },
+  { cyc: '9', cells: Q1, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '16.91', slots: 11 },
+  { cyc: '10', cells: Q1, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '16.83', slots: 11, best: true },
+  { cyc: '11', cells: Q1, off: ['Raging Burst', 'Force Camouflage', 'Adrenal', 'Raging Burst', 'Berserk'], len: '16.80', slots: 11, flag: true, best: true },
+  { cyc: '12', cells: Q1, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '17.11', slots: 11 },
+  { cyc: '13', cells: Q2, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '16.83', slots: 12, best: true },
+  { cyc: '14', cells: Q2, off: ['Raging Burst', 'Force Camouflage', 'Raging Burst', 'Berserk'], len: '16.81', slots: 12, flag: true, best: true },
+  { cyc: '15', cells: Q3, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '16.89', slots: 12 },
+  { cyc: '16', cells: Q2, off: ['Raging Burst', 'Raging Burst', 'Berserk'], len: '16.80', slots: 12, best: true },
+  { cyc: '17', cells: Q3, off: ['Raging Burst', 'Frenzy', 'Berserk', 'Raging Burst'], len: '17.00', slots: 12, flag: true },
 ];
 
 export default function FuryRotation({ theme }: { theme?: 'dark' | 'light' }) {
@@ -221,16 +222,16 @@ export default function FuryRotation({ theme }: { theme?: 'dark' | 'light' }) {
       <div className="wrap">
 
       <div className="mast">
-        <p className="eyebrow">Marauder / Fury · single parse · 27,879 DPS</p>
+        <p className="eyebrow">Marauder / Fury · parse 2 as reference · 33,725 DPS</p>
         <h1>Two half-cycles, one alternating burst</h1>
-        <p className="standfirst">A five-to-six-GCD half-cycle that alternates <strong>Berserk and Force Crush as the source of Destruction</strong>, every other half feeding an off-GCD Raging Burst. Two halves make one 17-second macro-cycle, repeated seventeen times.</p>
+        <p className="standfirst">A five-to-six-GCD half-cycle that alternates <strong>Berserk and Force Crush as the source of Destruction</strong>, every other half feeding an off-GCD Raging Burst. Two independent players ran the identical structure — parse 2 just executed it at 94% efficiency against parse 1's 84%.</p>
         <dl className="facts">
-          <div className="fact"><dt>DPS</dt><dd>27,879<span className="was">summed logged damage / 301.9 s</span></dd></div>
-          <div className="fact"><dt>GCD</dt><dd>1.2717<small>s</small><span className="was">alacrity 17.95%</span></dd></div>
-          <div className="fact"><dt>Efficiency</dt><dd>84.39<small>%</small><span className="was">47.0 s net drift</span></dd></div>
-          <div className="fact"><dt>Macro-cycle</dt><dd>17.1<small>s med</small><span className="was">2 halves, 11–12 slots</span></dd></div>
-          <div className="fact"><dt>DoT uptime</dt><dd>100<small>%</small><span className="was">Bloody Slashes + Bleeding</span></dd></div>
-          <div className="fact"><dt>Off-GCD weave</dt><dd>2<small>/half</small><span className="was">Raging Burst + Berserk</span></dd></div>
+          <div className="fact"><dt>DPS</dt><dd>33,725<span className="was">was: parse 1: 27,879</span></dd></div>
+          <div className="fact"><dt>GCD</dt><dd>1.3973<small>s</small><span className="was">alacrity 7.35% · was: 17.95%</span></dd></div>
+          <div className="fact"><dt>Efficiency</dt><dd>94.13<small>%</small><span className="was">17.4 s net drift · was: 47.0 s</span></dd></div>
+          <div className="fact"><dt>Macro-cycle</dt><dd>16.9<small>s med</small><span className="was">2 halves, 11–12 slots, both parses</span></dd></div>
+          <div className="fact"><dt>DoT uptime</dt><dd>100<small>%</small><span className="was">Bloody Slashes + Bleeding, both parses</span></dd></div>
+          <div className="fact"><dt>Off-GCD weave</dt><dd>2<small>/half</small><span className="was">Raging Burst + Berserk, confirmed twice</span></dd></div>
         </dl>
       </div>
 
@@ -245,21 +246,21 @@ export default function FuryRotation({ theme }: { theme?: 'dark' | 'light' }) {
         <div className="keyrow"><span className="ic" data-n="Force Scream" role="img" aria-label="Force Scream"><svg viewBox="0 0 50 50"><use href="#f-scr"/></svg></span><div><b>Force Scream</b><span>Consumes Battle Cry</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Ravage" role="img" aria-label="Ravage"><svg viewBox="0 0 50 50"><use href="#f-rv"/></svg></span><div><b>Ravage</b><span>Free · builds Fury, applies Bloody Slashes</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Battering Assault" role="img" aria-label="Battering Assault"><svg viewBox="0 0 50 50"><use href="#f-ba"/></svg></span><div><b>Battering Assault</b><span>Rage generator</span></div></div>
-        <div className="keyrow"><span className="ic" data-n="Vicious Slash" role="img" aria-label="Vicious Slash"><svg viewBox="0 0 50 50"><use href="#f-vs"/></svg></span><div><b>Vicious Slash</b><span>Filler · where the drift sits</span></div></div>
+        <div className="keyrow"><span className="ic" data-n="Vicious Slash" role="img" aria-label="Vicious Slash"><svg viewBox="0 0 50 50"><use href="#f-vs"/></svg></span><div><b>Vicious Slash</b><span>Filler · where the drift sits, both parses</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Vicious Throw" role="img" aria-label="Vicious Throw"><svg viewBox="0 0 50 50"><use href="#f-vt"/></svg></span><div><b>Vicious Throw</b><span>Sub-30% · replaces Vicious Slash</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Berserk" role="img" aria-label="Berserk"><svg viewBox="0 0 50 50"><use href="#f-bz"/></svg></span><div><b>Berserk</b><span>Off-GCD · needs 30 Fury, grants Destruction</span></div></div>
-        <div className="keyrow"><span className="ic" data-n="Force Charge" role="img" aria-label="Force Charge"><svg viewBox="0 0 50 50"><use href="#f-chg"/></svg></span><div><b>Force Charge</b><span>Gap closer · opener only here</span></div></div>
+        <div className="keyrow"><span className="ic" data-n="Force Charge" role="img" aria-label="Force Charge"><svg viewBox="0 0 50 50"><use href="#f-chg"/></svg></span><div><b>Force Charge</b><span>Gap closer · opener only, both parses</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Fury" role="img" aria-label="Fury"><svg viewBox="0 0 50 50"><use href="#f-fur"/></svg></span><div><b>Fury</b><span>0–30 stacking resource, spent on Berserk</span></div></div>
       </div>
       </section>
 
       {/* ===== 01 OPENER ===== */}
       <section>
-        <h2><span className="num">01</span> The opener</h2>
-        <p className="lede">Deliberately paced, not a clean N-GCD template: the log shows a real gap after Force Crush, timed to land the Adrenal right before the first Raging Burst — exactly what the ability guide recommends.</p>
+        <h2><span className="num">01</span> The opener — same shape, different priorities</h2>
+        <p className="lede">Both parses open Force Charge into Force Crush, pause for roughly the same 2.8 s window, then start the first steady half-cycle at Furious Strike. What each player stuffs into that window is where they differ.</p>
 
         <figure>
-          <svg viewBox="0 0 820 220" role="img" aria-label="Opener: Force Charge, Force Crush, then a paced gap for the Adrenal, Raging Burst and Berserk off-GCD, then Furious Strike, Obliterate, Ravage into the first steady cycle.">
+          <svg viewBox="0 0 820 240" role="img" aria-label="Parse 2 opener: Force Charge, Bloodthirst immediately after, Force Crush, then a 2.8 second window packing Frenzy, Adrenal, Raging Burst and Berserk off-GCD, before Furious Strike starts the first steady cycle.">
             <g className="sv-num" textAnchor="middle">
               <text x="84" y="56">1</text><text x="220" y="56">2</text><text x="400" y="56">3</text><text x="480" y="56">4</text><text x="560" y="56">5</text>
             </g>
@@ -269,31 +270,34 @@ export default function FuryRotation({ theme }: { theme?: 'dark' | 'light' }) {
             <g><title>Furious Strike</title><use href="#f-fs" x="376" y="66" width="48" height="48"/></g>
             <g><title>Obliterate</title><use href="#f-ob" x="456" y="66" width="48" height="48"/></g>
             <g><title>Ravage</title><use href="#f-rv" x="536" y="66" width="48" height="48"/></g>
-            <line x1="322" y1="60" x2="322" y2="122" stroke="var(--brass)" strokeWidth="3"/>
-            <g><title>Raging Burst (off-GCD)</title><use href="#f-rb" x="270" y="126" width="24" height="24"/></g>
-            <g><title>Berserk (off-GCD)</title><use href="#f-bz" x="300" y="126" width="24" height="24"/></g>
-            <g><title>Adrenal (off-GCD)</title><use href="#f-adr" x="330" y="126" width="24" height="24"/></g>
-            <text className="sv-label" x="322" y="164" textAnchor="middle" fill="var(--brass)">off‑GCD</text>
+            <g><title>Bloodthirst (off-GCD)</title><use href="#f-fur" x="20" y="20" width="26" height="26"/></g>
+            <text className="sv-note" x="50" y="38">Bloodthirst at 0.39 s — before Force Crush even lands</text>
+            <line x1="322" y1="60" x2="322" y2="140" stroke="var(--brass)" strokeWidth="3"/>
+            <g><title>Frenzy (off-GCD)</title><use href="#f-adr" x="260" y="126" width="22" height="22"/></g>
+            <g><title>Adrenal (off-GCD)</title><use href="#f-adr" x="288" y="126" width="22" height="22"/></g>
+            <g><title>Raging Burst (off-GCD)</title><use href="#f-rb" x="316" y="126" width="22" height="22"/></g>
+            <g><title>Berserk (off-GCD)</title><use href="#f-bz" x="344" y="126" width="22" height="22"/></g>
+            <text className="sv-label" x="322" y="164" textAnchor="middle" fill="var(--brass)">off‑GCD ×4</text>
             <g className="sv-note">
-              <line className="sv-tick" x1="84" y1="122" x2="84" y2="176"/>
-              <text x="40" y="192">generates 3 Rage,</text><text x="40" y="206">closes the gap</text>
+              <line className="sv-tick" x1="84" y1="122" x2="84" y2="196"/>
+              <text x="40" y="212">generates 3 Rage</text>
               <line className="sv-tick" x1="220" y1="122" x2="220" y2="196"/>
-              <text x="176" y="212">2.8 s paced gap — lands Adrenal</text>
-              <line className="sv-tick" x1="560" y1="122" x2="560" y2="176"/>
-              <text x="516" y="192">first cycle</text><text x="516" y="206">starts here</text>
+              <text x="176" y="212">2.80 s paced gap — same width as parse 1's</text>
+              <line className="sv-tick" x1="560" y1="122" x2="560" y2="196"/>
+              <text x="516" y="212">first cycle starts here</text>
             </g>
           </svg>
-          <figcaption>Real timestamps: Force Charge 0.02 · Force Crush 1.51 · Raging Burst 2.91 (off-GCD) · Berserk 3.42 (off-GCD) · Adrenal 3.92 (off-GCD) · Furious Strike 4.32 · Obliterate 5.73 · Ravage 7.34 — the first steady cycle. <b>The guide's own advice explains the gap</b>: activate the Adrenal right after Force Crush and right before the next Raging Burst.</figcaption>
+          <figcaption>Parse 2 timestamps: Force Charge 0.02 · Bloodthirst 0.39 (off-GCD) · Force Crush 1.50 · Frenzy 1.80 (off-GCD) · Adrenal 1.99 (off-GCD) · Raging Burst 2.90 (off-GCD) · Berserk 3.31 (off-GCD) · Furious Strike 4.30. <b>Parse 1 saved Bloodthirst for a single mid-fight use around the two-thirds mark instead</b> — same opener skeleton, genuinely different raid-buff timing decision.</figcaption>
         </figure>
       </section>
 
       {/* ===== 02 CYCLE ===== */}
       <section>
         <h2><span className="num">02</span> The cycle — two halves, one macro</h2>
-        <p className="lede">Every half-cycle ends the same way: whichever of Berserk or Force Crush granted Destruction gets spent on an off-GCD Raging Burst. The halves alternate which one does it.</p>
+        <p className="lede">Every half-cycle ends the same way in both parses: whichever of Berserk or Force Crush granted Destruction gets spent on an off-GCD Raging Burst. Only the internal order of Half B's two fillers differs between players.</p>
 
         <figure>
-          <svg viewBox="0 0 820 300" role="img" aria-label="Half A opens on Ravage and is capped by Berserk feeding Raging Burst. Half B runs Vicious Slash, Battering Assault, Force Crush, and is capped by Force Crush feeding the next Raging Burst.">
+          <svg viewBox="0 0 820 300" role="img" aria-label="Half A opens on Ravage and is capped by Berserk feeding Raging Burst. Half B runs Battering Assault then Vicious Slash then Force Crush, capped by Force Crush feeding the next Raging Burst.">
             <text className="sv-label" x="20" y="24" fill="var(--brass)">HALF A — Berserk half</text>
             <g><title>Ravage</title><use href="#f-rv" x="20" y="34" width="42" height="42"/></g>
             <g><title>Force Scream</title><use href="#f-scr" x="72" y="34" width="42" height="42"/></g>
@@ -305,11 +309,11 @@ export default function FuryRotation({ theme }: { theme?: 'dark' | 'light' }) {
             <g><title>Raging Burst (off-GCD, autocrit + free)</title><use href="#f-rb" x="480" y="34" width="42" height="42"/></g>
             <text className="sv-note" x="530" y="60">autocrit, free — closes Half A</text>
             <line className="sv-tick" x1="20" y1="90" x2="600" y2="90"/>
-            <text className="sv-numb" x="20" y="106">~8.6 s = 5 on-GCD slots + 1.7 GCDs of Vicious Slash drift</text>
+            <text className="sv-numb" x="20" y="106">~8.4 s = 5 on-GCD slots — identical order in both parses</text>
 
             <text className="sv-label" x="20" y="154" fill="var(--cb-f)">HALF B — Force Crush half</text>
-            <g><title>Vicious Slash</title><use href="#f-vs" x="20" y="164" width="42" height="42"/></g>
-            <g><title>Battering Assault</title><use href="#f-ba" x="72" y="164" width="42" height="42"/></g>
+            <g><title>Battering Assault</title><use href="#f-ba" x="20" y="164" width="42" height="42"/></g>
+            <g><title>Vicious Slash</title><use href="#f-vs" x="72" y="164" width="42" height="42"/></g>
             <rect x="124" y="164" width="90" height="42" rx="6" fill="none" stroke="var(--cb-f)" strokeWidth="1.6" strokeDasharray="4 3"/>
             <g><title>Force Crush (2 GCDs, alternate Destruction source)</title><use href="#f-fc" x="132" y="164" width="42" height="42"/></g>
             <text className="sv-flex" x="169" y="220" textAnchor="middle" fill="var(--cb-f)">2 GCD</text>
@@ -318,26 +322,26 @@ export default function FuryRotation({ theme }: { theme?: 'dark' | 'light' }) {
             <g><title>Raging Burst (off-GCD, autocrit + free)</title><use href="#f-rb" x="480" y="164" width="42" height="42"/></g>
             <text className="sv-note" x="530" y="190">autocrit, free — closes Half B</text>
             <line className="sv-tick" x1="20" y1="220" x2="600" y2="220"/>
-            <text className="sv-numb" x="20" y="236">~8.6 s = 6 on-GCD slots (Force Crush weighs 2)</text>
+            <text className="sv-numb" x="20" y="236">~8.4 s = 6 on-GCD slots (Force Crush weighs 2)</text>
 
-            <text className="sv-label" x="600" y="270" textAnchor="middle" fill="var(--brass)">= one 17.1 s macro-cycle, 11 on-GCD slots</text>
+            <text className="sv-label" x="600" y="270" textAnchor="middle" fill="var(--brass)">= one 16.9 s macro-cycle, 11 on-GCD slots</text>
           </svg>
-          <figcaption>Both halves end in the same off-GCD Raging Burst — the guide's "alternating with Force Crush" language means <b>which ability supplies Destruction</b>, not that Raging Burst only fires every other half. It fires every half, weaved for free.</figcaption>
+          <figcaption>Parse 2 runs Half B as <b>Battering Assault then Vicious Slash</b>; parse 1 ran the same two abilities in the opposite order. Neither changes the slot count or the timing — it is a genuine stylistic difference between the two players, not a correctness question.</figcaption>
         </figure>
       </section>
 
       {/* ===== 03 WHY RAGING BURST NEVER MISSES ===== */}
       <section>
         <h2><span className="num">03</span> Why Raging Burst never goes out unbuffed</h2>
-        <p className="lede">Destruction is one-at-a-time — measured zero overlaps across 36 procs — so the two sources (Berserk, Force Crush) never step on each other. Whichever fires, the next Raging Burst is free and an autocrit.</p>
+        <p className="lede">Destruction is one-at-a-time in both parses — zero overlaps across 36 procs each — so the two sources (Berserk, Force Crush) never step on each other. Whichever fires, the next Raging Burst is free and an autocrit.</p>
 
         <div className="tw">
         <table>
           <thead><tr><th>Source</th><th colSpan={2}>Grants</th><th className="n">Procs</th><th>Consumed by</th></tr></thead>
           <tbody>
-            <tr className="hi"><td className="n">Berserk</td><td className="icc"><span className="ic" data-n="Berserk" role="img" aria-label="Berserk"><svg viewBox="0 0 50 50"><use href="#f-bz"/></svg></span></td><td>Destruction</td><td className="n">18</td><td>Raging Burst, next off-GCD weave — <b>zero overlaps</b></td></tr>
-            <tr className="hi"><td className="n">Force Crush</td><td className="icc"><span className="ic" data-n="Force Crush" role="img" aria-label="Force Crush"><svg viewBox="0 0 50 50"><use href="#f-fc"/></svg></span></td><td>Destruction</td><td className="n">18</td><td>Raging Burst, next off-GCD weave — <b>zero overlaps</b></td></tr>
-            <tr><td className="n">Furious Strike</td><td className="icc"><span className="ic" data-n="Furious Strike" role="img" aria-label="Furious Strike"><svg viewBox="0 0 50 50"><use href="#f-fs"/></svg></span></td><td>Furious Rage</td><td className="n">35</td><td>Raging Burst — held median 5.7 GCDs</td></tr>
+            <tr className="hi"><td className="n">Berserk</td><td className="icc"><span className="ic" data-n="Berserk" role="img" aria-label="Berserk"><svg viewBox="0 0 50 50"><use href="#f-bz"/></svg></span></td><td>Destruction</td><td className="n">18</td><td>Raging Burst, next off-GCD weave — <b>zero overlaps, both parses</b></td></tr>
+            <tr className="hi"><td className="n">Force Crush</td><td className="icc"><span className="ic" data-n="Force Crush" role="img" aria-label="Force Crush"><svg viewBox="0 0 50 50"><use href="#f-fc"/></svg></span></td><td>Destruction</td><td className="n">18</td><td>Raging Burst, next off-GCD weave — <b>zero overlaps, both parses</b></td></tr>
+            <tr><td className="n">Furious Strike</td><td className="icc"><span className="ic" data-n="Furious Strike" role="img" aria-label="Furious Strike"><svg viewBox="0 0 50 50"><use href="#f-fs"/></svg></span></td><td>Furious Rage</td><td className="n">35</td><td>Raging Burst — held median 5.1 GCDs</td></tr>
             <tr><td className="n">Force Charge / Obliterate</td><td className="icc"><span className="ic" data-n="Obliterate" role="img" aria-label="Obliterate"><svg viewBox="0 0 50 50"><use href="#f-ob"/></svg></span></td><td>Battle Cry</td><td className="n">18</td><td>Force Scream — always, <b>correctly on-GCD in the log</b></td></tr>
           </tbody>
         </table>
@@ -345,112 +349,113 @@ export default function FuryRotation({ theme }: { theme?: 'dark' | 'light' }) {
 
         <div className="call flag">
           <h4>Correction: the log's "consumed by" pointed at the wrong ability</h4>
-          <p>An automated pass credited Destruction, Furious Rage and Fury to whichever <em>on-GCD</em> ability happened to sit nearest the effect's removal — Force Crush, Vicious Slash, Vicious Throw. All three are actually consumed by <b>off-GCD Raging Burst or Berserk</b>, confirmed by checking removal timestamps directly against those activations (gap under 0.2 s). Battle Cry's attribution to Force Scream was correct — Force Scream is on-GCD, so the automated pass could see it.</p>
+          <p>An automated pass credited Destruction, Furious Rage and Fury to whichever <em>on-GCD</em> ability happened to sit nearest the effect's removal — Force Crush, Vicious Slash, Vicious Throw. All three are actually consumed by <b>off-GCD Raging Burst or Berserk</b>, confirmed in parse 1 by checking removal timestamps directly against those activations (gap under 0.2 s), and the same off-GCD-weave relationship holds in parse 2. Battle Cry's attribution to Force Scream was correct in both — Force Scream is on-GCD, so the automated pass could see it.</p>
         </div>
       </section>
 
       {/* ===== 04 CORRECTION: OFF-GCD ===== */}
       <section>
         <h2><span className="num">04</span> Correction: Raging Burst and Berserk cost no GCD</h2>
-        <p className="lede">Neither the ability guide nor casual reading of "Raging Burst and Smash" as your two rotational burst attacks flags this. The log is unambiguous: both weave in for free.</p>
+        <p className="lede">Neither the ability guide nor casual reading of "Raging Burst and Smash" as your two rotational burst attacks flags this. Both logs are unambiguous: both weave in for free.</p>
 
         <figure>
-          <svg viewBox="0 0 820 200" role="img" aria-label="Comparing on-GCD ability spacing with and without Raging Burst and Berserk present: identical gaps either way, confirming both fire off-GCD.">
-            <text className="sv-label" x="20" y="24">Neighbours around Raging Burst / Berserk, sampled from the log</text>
+          <svg viewBox="0 0 820 200" role="img" aria-label="Comparing on-GCD ability spacing with and without Raging Burst and Berserk present, in both parses: identical gaps either way, confirming both fire off-GCD.">
+            <text className="sv-label" x="20" y="24">Neighbours around Raging Burst / Berserk, sampled from each log</text>
             <g className="sv-num" textAnchor="start">
-              <text x="20" y="70">Force Crush (1.51) → Raging Burst (2.91, off) → Berserk (3.42, off) → Adrenal (3.92, off) → Furious Strike (4.32)</text>
-              <text x="20" y="100">Ravage (218.14) → Force Scream (219.68, next) — 1.4 s later, one clean GCD, despite Raging Burst firing in between</text>
+              <text x="20" y="60">Parse 1 — Force Crush (1.51) → Raging Burst (2.91, off) → Berserk (3.42, off) → Adrenal (3.92, off) → Furious Strike (4.32)</text>
+              <text x="20" y="86">Parse 2 — Force Crush (1.50) → Frenzy, Adrenal, Raging Burst, Berserk (four off-GCD) → Furious Strike (4.30)</text>
+              <text x="20" y="112">Both gaps measure ≈2.8 s — one player weaves 3 off-GCD actions through it, the other weaves 4</text>
             </g>
-            <line className="sv-tick" x1="20" y1="130" x2="780" y2="130"/>
-            <text className="sv-note" x="20" y="150">If Raging Burst consumed a GCD slot, that second gap would be ~2.7 s (two GCDs). It measures one.</text>
+            <line className="sv-tick" x1="20" y1="140" x2="780" y2="140"/>
+            <text className="sv-note" x="20" y="160">If any of these cost a GCD slot, the gap would grow with each one added. It doesn't, in either log.</text>
           </svg>
-          <figcaption>35 Raging Bursts and 19 Berserks, every one weaved between on-GCD casts with no measurable delay added — the off-GCD detection heuristic (do this ability's neighbours sit one GCD apart with or without it?) flags both with zero ambiguity.</figcaption>
+          <figcaption>35 Raging Bursts and 19 Berserks in each parse, every one weaved between on-GCD casts with no measurable delay added regardless of how many other off-GCD actions share the same window.</figcaption>
         </figure>
       </section>
 
       {/* ===== 05 GCD AT ANY ALACRITY ===== */}
       <section>
-        <h2><span className="num">05</span> Where 17.95% alacrity comes from</h2>
-        <p className="lede">Ten independent mechanics — five cooldown floors, two re-proc floors, three effect durations — agree on the same scaling factor to within a few thousandths.</p>
+        <h2><span className="num">05</span> Where 7.35% alacrity comes from</h2>
+        <p className="lede">Fourteen independent mechanics — cooldown floors, re-proc floors — agree on the same scaling factor to within a few thousandths. Parse 1 measured a different scale (17.95% alacrity) from the same set of mechanics — different gear, not a different technique.</p>
 
         <div className="tw">
         <table>
           <thead><tr><th>Mechanic</th><th className="n">Base</th><th className="n">Measured</th><th className="n">Scale</th></tr></thead>
           <tbody>
-            <tr><td>Force Crush cooldown</td><td className="n">20 s</td><td className="n">16.955</td><td className="n">0.8478</td></tr>
-            <tr><td>Ravage cooldown</td><td className="n">20 s</td><td className="n">16.997</td><td className="n">0.8499</td></tr>
-            <tr><td>Force Scream cooldown</td><td className="n">20 s</td><td className="n">16.923</td><td className="n">0.8462</td></tr>
-            <tr><td>Battering Assault cooldown</td><td className="n">20 s</td><td className="n">16.903</td><td className="n">0.8452</td></tr>
-            <tr><td>Vicious Throw cooldown</td><td className="n">20 s</td><td className="n">17.025</td><td className="n">0.8513</td></tr>
-            <tr><td>Force Scream re-proc floor</td><td className="n">20 s</td><td className="n">16.923</td><td className="n">0.8462</td></tr>
-            <tr><td>Vicious Throw re-proc floor</td><td className="n">20 s</td><td className="n">17.041</td><td className="n">0.8521</td></tr>
-            <tr><td>Destruction duration</td><td className="n">10 s</td><td className="n">8.489</td><td className="n">0.8489</td></tr>
-            <tr><td>Furious Rage duration</td><td className="n">9 s</td><td className="n">7.591</td><td className="n">0.8434</td></tr>
+            <tr><td>Berserker's Call re-proc floor</td><td className="n">18 s</td><td className="n">16.702</td><td className="n">0.9279</td></tr>
+            <tr><td>Force Crush cooldown</td><td className="n">18 s</td><td className="n">16.792</td><td className="n">0.9329</td></tr>
+            <tr><td>Ravage cooldown</td><td className="n">18 s</td><td className="n">16.798</td><td className="n">0.9332</td></tr>
+            <tr><td>Battering Assault cooldown</td><td className="n">18 s</td><td className="n">16.793</td><td className="n">0.9329</td></tr>
+            <tr><td>Raging Burst re-proc floor</td><td className="n">9 s</td><td className="n">8.345</td><td className="n">0.9272</td></tr>
+            <tr><td>Furious Defense re-proc floor</td><td className="n">9 s</td><td className="n">8.386</td><td className="n">0.9318</td></tr>
+            <tr><td>Furious Rage re-proc floor</td><td className="n">9 s</td><td className="n">8.386</td><td className="n">0.9318</td></tr>
+            <tr><td>Blood Fury re-proc floor</td><td className="n">9 s</td><td className="n">8.385</td><td className="n">0.9317</td></tr>
+            <tr><td>Raging Burst cooldown</td><td className="n">9 s</td><td className="n">8.395</td><td className="n">0.9328</td></tr>
+            <tr><td>Furious Strike cooldown</td><td className="n">9 s</td><td className="n">8.386</td><td className="n">0.9318</td></tr>
+            <tr><td>Obliterate cooldown</td><td className="n">9 s</td><td className="n">8.378</td><td className="n">0.9309</td></tr>
           </tbody>
         </table>
         </div>
-        <p style={{ marginTop: '16px' }}>Mean scale <span className="mono">0.8478</span> ⇒ GCD <span className="mono">1.2717 s</span>, alacrity <span className="mono">17.95%</span>. That is a high-alacrity build — every cooldown and duration above compresses by the same fifth, which is exactly why an integer-GCD cycle length holds regardless of gear.</p>
+        <p style={{ marginTop: '16px' }}>Mean scale <span className="mono">0.9315</span> ⇒ GCD <span className="mono">1.3973 s</span>, alacrity <span className="mono">7.35%</span>. Same identity as parse 1 — every cooldown and duration compresses by one factor — just a smaller factor here, which is exactly why parse 2's macro-cycle (16.9 s) is close to parse 1's (17.1 s) despite the two players running noticeably different gear.</p>
       </section>
 
       {/* ===== 06 SCORECARD ===== */}
       <section>
         <h2><span className="num">06</span> Execution scorecard</h2>
-        <p className="lede">All measured from effect apply/remove events, corrected for the off-GCD attribution bug above.</p>
+        <p className="lede">All measured from effect apply/remove events, corrected for the off-GCD attribution bug above. Parse 2 values shown; parse 1 was close on every discipline metric and far behind only on raw GCD efficiency.</p>
         <div className="meters">
           <div className="meter"><span className="lbl">Destruction procs, zero overlaps (one-at-a-time)</span><span className="val">36 / 36</span><span className="track"><span className="fill" style={{ width: '100%' }}></span></span></div>
           <div className="meter"><span className="lbl">Battle Cry consumed by Force Scream, every time</span><span className="val">18 / 18</span><span className="track"><span className="fill" style={{ width: '100%' }}></span></span></div>
           <div className="meter"><span className="lbl">Bloody Slashes uptime (Ravage DoT)</span><span className="val">100%</span><span className="track"><span className="fill" style={{ width: '100%' }}></span></span></div>
           <div className="meter"><span className="lbl">Bleeding (Cauterized Coronary) uptime — gear DoT</span><span className="val">100%</span><span className="track"><span className="fill" style={{ width: '100%' }}></span></span></div>
           <div className="meter"><span className="lbl">Raging Burst weaved off-GCD, no drift added</span><span className="val">35 / 35</span><span className="track"><span className="fill" style={{ width: '100%' }}></span></span></div>
-          <div className="meter"><span className="lbl">Furious Rage held before consumption (5.7 GCDs)</span><span className="val">85.5%</span><span className="track"><span className="fill warn" style={{ width: '85.5%' }}></span></span></div>
-          <div className="meter"><span className="lbl">Force Crush uptime on target — periodic, low by design</span><span className="val">16.9%</span><span className="track"><span className="fill warn" style={{ width: '16.9%' }}></span></span></div>
-          <div className="meter lag"><span className="lbl">GCD efficiency (ideal slots ÷ actual span)</span><span className="val">84.39%</span><span className="track"><span className="fill bad" style={{ width: '84.39%' }}></span></span></div>
+          <div className="meter"><span className="lbl">Furious Rage held before consumption (5.1 GCDs)</span><span className="val">85.2%</span><span className="track"><span className="fill warn" style={{ width: '85.2%' }}></span></span></div>
+          <div className="meter"><span className="lbl">Force Crush uptime on target — periodic, low by design</span><span className="val">17.1%</span><span className="track"><span className="fill warn" style={{ width: '17.1%' }}></span></span></div>
+          <div className="meter lag"><span className="lbl">GCD efficiency (ideal slots ÷ actual span) — parse 1 was 84.39%</span><span className="val">94.13%</span><span className="track"><span className="fill" style={{ width: '94.13%' }}></span></span></div>
         </div>
       </section>
 
       {/* ===== 07 DRIFT ===== */}
       <section>
-        <h2><span className="num">07</span> Where the 47 seconds sits</h2>
-        <p className="lede">Net drift across the parse is 47.0 s — 37 GCDs — against a 254.3 s ideal. Almost half of it is one ability.</p>
+        <h2><span className="num">07</span> Where the 17 seconds sits</h2>
+        <p className="lede">Net drift across parse 2 is 17.4 s — 12.5 GCDs — against a 279.5 s ideal. Vicious Slash alone accounts for slightly <b>more</b> than the whole total; every other ability nets out at or ahead of ideal pace.</p>
         <figure>
-          <svg viewBox="0 0 780 280" role="img" aria-label="Net drift by ability. Vicious Slash accounts for 21.7 of the 47.0 second total, followed by Obliterate, Furious Strike, Force Crush, Ravage, Force Scream and Battering Assault at under 6 seconds each.">
-            <line className="sv-axis" x1="220" y1="24" x2="220" y2="240"/>
+          <svg viewBox="0 0 780 260" role="img" aria-label="Net drift by ability in parse 2. Vicious Slash accounts for 17.6 seconds against a 17.4 second total, followed by Force Scream at 2.9 seconds and everything else under half a second.">
+            <line className="sv-axis" x1="220" y1="24" x2="220" y2="220"/>
             <g className="sv-num" textAnchor="middle">
-              <text x="220" y="256">0</text><text x="410" y="256">+10 s</text><text x="600" y="256">+20 s</text>
+              <text x="220" y="236">0</text><text x="410" y="236">+10 s</text><text x="600" y="236">+20 s</text>
             </g>
             <g className="sv-label" fill="currentColor">
-              <text x="30" y="42">Vicious Slash (29)</text><text x="30" y="72">Obliterate (35)</text>
-              <text x="30" y="102">Furious Strike (35)</text><text x="30" y="132">Force Crush (18)</text>
-              <text x="30" y="162">Ravage (18)</text><text x="30" y="192">Force Scream (18)</text>
-              <text x="30" y="222">Battering Assault (17)</text>
+              <text x="30" y="42">Vicious Slash (29)</text><text x="30" y="72">Force Scream (18)</text>
+              <text x="30" y="102">Furious Strike (35)</text><text x="30" y="132">Ravage (18)</text>
+              <text x="30" y="162">Force Crush (18)</text><text x="30" y="192">Obliterate (35)</text>
             </g>
-            <rect x="220" y="26" width="412" height="16" fill="var(--brass)"/>
-            <rect x="220" y="56" width="108" height="16" fill="var(--hs-f)"/>
-            <rect x="220" y="86" width="102" height="16" fill="var(--hs-f)"/>
-            <rect x="220" y="116" width="88" height="16" fill="var(--hs-f)"/>
-            <rect x="220" y="146" width="59" height="16" fill="var(--hs-f)"/>
-            <rect x="220" y="176" width="51" height="16" fill="var(--hs-f)"/>
-            <rect x="220" y="206" width="46" height="16" fill="var(--hs-f)"/>
+            <rect x="220" y="26" width="335" height="16" fill="var(--brass)"/>
+            <rect x="220" y="56" width="55" height="16" fill="var(--hs-f)"/>
+            <rect x="220" y="86" width="8" height="16" fill="var(--hs-f)"/>
+            <rect x="220" y="116" width="7" height="16" fill="var(--hs-f)"/>
+            <rect x="220" y="146" width="4" height="16" fill="var(--hs-f)"/>
+            <rect x="220" y="176" width="3" height="16" fill="var(--hs-f)"/>
             <g className="sv-numb">
-              <text x="640" y="39" fill="var(--brass)">+21.70</text>
-              <text x="336" y="69">+5.67</text><text x="330" y="99">+5.35</text><text x="296" y="129">+4.62</text>
-              <text x="267" y="159">+3.08</text><text x="259" y="189">+2.67</text><text x="254" y="219">+2.44</text>
+              <text x="565" y="39" fill="var(--brass)">+17.63</text>
+              <text x="285" y="69">+2.91</text><text x="238" y="99">+0.32</text><text x="237" y="129">+0.30</text>
+              <text x="234" y="159">+0.19</text><text x="233" y="189">+0.12</text>
             </g>
-            <text className="sv-label" x="750" y="20" textAnchor="end" fill="var(--brass)">46% of the total</text>
+            <text className="sv-label" x="750" y="20" textAnchor="end" fill="var(--brass)">101% of net total</text>
           </svg>
-          <figcaption>Vicious Slash alone contributes <b>21.7 s of the 47.0 s</b> — an average of <b>0.75 s of hesitation per cast</b>, roughly six-tenths of a GCD, on the rotation's lowest-priority filler. Every locked-cooldown ability (Force Crush, Ravage, Force Scream, Battering Assault) drifts by well under a third of that per use.</figcaption>
+          <figcaption>0.61 s average hesitation per Vicious Slash cast (29 uses) — lower than parse 1's 0.75 s, but still the entire story: every locked-cooldown ability in parse 2 runs within three-tenths of a second of its ideal pace across the whole fight.</figcaption>
         </figure>
       </section>
 
       {/* ===== 08 GRID ===== */}
       <section>
-        <h2><span className="num">08</span> Reference grid — 17 macro-cycles, Ravage anchored</h2>
-        <p className="lede">Each row is one 17-second macro-cycle: Half A (Berserk) then Half B (Force Crush). Hover any icon for its name. The empty column marks the Half A / Half B seam.</p>
+        <h2><span className="num">08</span> Reference grid — 17 macro-cycles, Ravage anchored (parse 2)</h2>
+        <p className="lede">Each row is one 16.9-second macro-cycle: Half A (Berserk) then Half B (Force Crush). Hover any icon for its name. The empty column marks the Half A / Half B seam. Compare the Half B order to parse 1's grid: Battering Assault leads here, Vicious Slash led there.</p>
         <div className="gridwrap">
           <div className="cgrid">
             <div className="crow chead">
               <div>#</div><div>RV</div><div>F1</div><div>F2</div><div>FS</div><div>OB</div>
-              <div>VS</div><div>BA</div><div>FC</div><div>·</div><div>FS</div><div>OB</div>
+              <div>BA</div><div>VS</div><div>FC</div><div>·</div><div>FS</div><div>OB</div>
               <div>Len</div><div>Off</div>
             </div>
             {CYCLES.map((row) => (
@@ -472,9 +477,9 @@ export default function FuryRotation({ theme }: { theme?: 'dark' | 'light' }) {
           </div>
         </div>
         <div className="markkey">
-          <span style={{ opacity: '.75' }}>Off column: count of off-GCD weaves that cycle (Raging Burst ×2, Berserk ×1, plus any Frenzy / Adrenal / Bloodthirst). Flagged rows carry an extra off-GCD action; green rows are the tightest-length cycles measured.</span>
+          <span style={{ opacity: '.75' }}>Off column: count of off-GCD weaves that cycle (Raging Burst ×2, Berserk ×1, plus any Force Camouflage / Adrenal / Frenzy). Flagged rows carry an extra off-GCD action; green rows are the tightest-length cycles measured.</span>
         </div>
-        <p style={{ marginTop: '20px' }}>Cycles 14–17 show the sub-30% swap: <b>Vicious Throw replaces Half A's Vicious Slash</b>, not Force Scream as the guide describes. Force Scream stays in its normal slot throughout. Cycle 13 is the parse's only Bloodthirst, paired with the Adrenal and an extra Frenzy, matching the guide's suggested pairing almost exactly.</p>
+        <p style={{ marginTop: '20px' }}>Cycles 13, 14 and 16 show Vicious Throw landing after Force Scream; cycles 15 and 17 show it landing <b>before</b> Force Scream instead — even within one player's execution, its exact position varies. In both placements it replaces Half A's Vicious Slash, never Force Scream as the guide describes, matching parse 1 exactly.</p>
       </section>
 
       {/* ===== 09 ===== */}
@@ -482,32 +487,33 @@ export default function FuryRotation({ theme }: { theme?: 'dark' | 'light' }) {
         <h2><span className="num">09</span> Still on the table</h2>
 
         <div className="call flag">
-          <h4>1 · Obliterate generates 8 Fury, not 4</h4>
-          <p>The guide states every Rage-spending attack generates 4 Fury (2 base, +2 from Short Fuse). The log's <span className="mono">ModifyCharges : Fury</span> events show Raging Burst, Furious Strike and Vicious Throw all landing +4 as expected — but <b>Obliterate lands +8, every time, 17 for 17</b>. Whether that is a discipline interaction not mentioned in the guide or a gear/tactical effect is not resolvable from this log alone; it is consistent enough across the parse to treat as real rather than noise.</p>
-        </div>
-
-        <div className="call flag">
-          <h4>2 · The sub-30% swap doesn't match the guide</h4>
-          <p>The guide describes moving Force Scream out of the Berserk half and using Vicious Throw where Force Scream would have gone. The log shows Force Scream staying exactly where it always sits, with <b>Vicious Throw simply replacing Half A's Vicious Slash</b> instead. Only one parse reaches sub-30%, so this is one data point, not a pattern — but it is what the player actually did four cycles in a row.</p>
+          <h4>1 · The sub-30% swap doesn't match the guide, in either parse</h4>
+          <p>The guide describes moving Force Scream out of the Berserk half and using Vicious Throw where Force Scream would have gone. Both logs show Force Scream staying in Half A, with <b>Vicious Throw simply replacing Half A's Vicious Slash</b> instead — nine cycles total across two independent players, zero cycles matching the guide's description. This is no longer one data point.</p>
         </div>
 
         <div className="call">
-          <h4>3 · Vicious Slash carries 46% of the parse's drift</h4>
-          <p>0.75 s average hesitation per cast, against every other filler running under a third of that. It is the lowest-priority ability in the kit by design, so some of this may be deliberate — deciding whether to spend it or hold for Vicious Throw sub-30% — but it is the single largest lever available for tightening the rotation.</p>
+          <h4>2 · Half B's internal order is a real style difference</h4>
+          <p>Parse 1 runs Vicious Slash then Battering Assault; parse 2 runs Battering Assault then Vicious Slash. Both land the same 6 on-GCD slots in the same total time, so neither is "more correct" — it's the one piece of this rotation that looks like genuine personal preference rather than a mechanical constraint.</p>
+        </div>
+
+        <div className="call">
+          <h4>3 · Vicious Slash is still the single largest lever</h4>
+          <p>46% of parse 1's much larger drift, and effectively all of parse 2's much smaller drift. The absolute hesitation per cast dropped from 0.75 s to 0.61 s between the two players — real, but modest — which means most of the efficiency gap between an 84%-efficient parse and a 94%-efficient one comes from everything else running almost exactly on pace, not from Vicious Slash improving dramatically.</p>
         </div>
 
         <h3>Closed — nothing left to win</h3>
         <ul>
-          <li><b>Destruction</b> — 36 procs from two sources, zero overlaps, always spent on the next off-GCD Raging Burst.</li>
-          <li><b>Battle Cry</b> — 18 procs, 18 consumed by Force Scream, no exceptions.</li>
-          <li><b>Bloody Slashes / Bleeding</b> — both DoTs, 100% uptime, zero gaps.</li>
-          <li><b>Off-GCD weave</b> — Raging Burst and Berserk both confirmed free, every activation.</li>
-          <li><b>GCD</b> — 1.2717 s / 17.95% alacrity, agreed by ten independent mechanics.</li>
+          <li><b>Obliterate generates 8 Fury, not the guide's baseline 4</b> — confirmed 17/17 in parse 1 and 17/17 in parse 2. Two independent logs, same number, every time.</li>
+          <li><b>Destruction</b> — 36 procs from two sources in each parse, zero overlaps, always spent on the next off-GCD Raging Burst.</li>
+          <li><b>Battle Cry</b> — 18 procs, 18 consumed by Force Scream, no exceptions, either parse.</li>
+          <li><b>Bloody Slashes / Bleeding</b> — both DoTs, 100% uptime, zero gaps, both parses.</li>
+          <li><b>Off-GCD weave</b> — Raging Burst and Berserk both confirmed free, every activation, both parses.</li>
+          <li><b>GCD</b> — pinned independently in each log (1.2717 s / 1.3973 s) from ten-plus agreeing mechanics each time.</li>
         </ul>
       </section>
 
       <footer>
-        <p>Single StarParse detail log: 2,567 lines, EnterCombat 0 to ExitCombat 301.90 s, no target HP pool or Death event present in this export, so DPS is computed from summed logged <span className="mono">Damage</span> effect values rather than an HP/time calculation. No second parse exists to compare against, so every "this is where the time goes" claim in §7 and §9 is this one player's execution, not a pattern across runs. Gear- and tactical-sourced procs seen in the raw log (Cascading Domination, Gravity Vortex, Mastery Surge, Dark Synergy, Power Surge, Blood Fury, Fearless Victor, Thirst for Rage, Sprint, Satiated) are this character's specific loadout, not core Fury mechanics, and are excluded from the model above — Bleeding (Cauterized Coronary) is one such gear DoT, included in the uptime scorecard only because it happened to run at 100%. Bloodthirst's off-GCD status is assumed from general game knowledge, not measured — it fired only once in this parse, too few to verify algorithmically. Ability icons are the in-game art, supplied by the user.</p>
+        <p>Two StarParse detail logs from two different players. Parse 1: 2,567 lines, EnterCombat 0 to ExitCombat 301.90 s, no target HP pool or Death event, DPS from summed logged <span className="mono">Damage</span> values. Parse 2 (reference): 2,575 lines, EnterCombat 0 to a real <span className="mono">Death</span> event at 297.50 s, DPS computed the same way but cross-checked against the kill timestamp. Gear- and tactical-sourced procs present in both raw logs (Cascading Domination, Gravity Vortex, Mastery Surge, Dark Synergy, Power Surge, Blood Fury, Fearless Victor, Thirst for Rage, Sprint, Satiated) are each character's specific loadout, not core Fury mechanics, and are excluded from the model above — Bleeding (Cauterized Coronary) is one such gear DoT in both logs, included in the uptime scorecard only because it happened to run at 100% in both. Parse 2 also logs a defensive Force Camouflage (5 uses) and an "Advanced Kyrprax Critical Adrenal" not present in parse 1 — situational, not part of the core model. Bloodthirst fired once in each parse; its off-GCD status is assumed from general game knowledge, not measured, since one activation per log is too few to verify algorithmically. Ability icons are the in-game art, supplied by the user.</p>
       </footer>
 
       </div>
