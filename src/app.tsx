@@ -6,6 +6,7 @@ import { Fury } from './pages/Fury'
 import { Concentration } from './pages/Concentration'
 import { Marksmanship } from './pages/Marksmanship'
 import { Sharpshooter } from './pages/Sharpshooter'
+import { Hatred } from './pages/Hatred'
 
 export function App() {
   return (
@@ -17,6 +18,7 @@ export function App() {
       <Concentration path="/concentration" />
       <Marksmanship path="/marksmanship" />
       <Sharpshooter path="/sharpshooter" />
+      <Hatred path="/hatred" />
     </Router>
   )
 }
