@@ -275,31 +275,81 @@ export default function SerenityRotation({ theme }: { theme?: 'dark' | 'light' }
 
       {/* ===== 02 CYCLE ===== */}
       <section>
-        <h2><span className="num">02</span> The cycle — same fixed pieces, reshuffled order</h2>
-        <p className="lede">Both parses fix Sever Force and Force Breach as slots 1–2 and Squelch as slots 4, 8 and 12. Where they genuinely differ: parse 1 places Force in Balance right after the opening DoTs (slot 5); parse 2 delays it all the way to slot 10, right before the cycle's third Squelch.</p>
+        <h2><span className="num">02</span> The cycle — six fixed slots, six filled by priority</h2>
+        <p className="lede">Six of the twelve slots never change ability, lap after lap: Sever Force, Force Breach, three copies of Squelch, and Force in Balance. The other six aren't random — they're filled by a strict priority order, and most of the "which ability goes here" variance in the reference grid comes from just one of those six slots.</p>
 
         <figure>
-          <svg viewBox="0 0 820 220" role="img" aria-label="Parse 2's twelve-slot cycle: Sever Force, Force Breach, Spinning Strike, Squelch, Serenity Strike, Serenity Strike, Spinning Strike, Squelch, filler, Force in Balance, Spinning Strike, Squelch. Force in Balance sits at slot 10, not slot 5 as in parse 1.">
-            <text className="sv-label" x="20" y="24" fill="var(--brass)">FIXED IN BOTH PARSES</text>
-            <g><title>Sever Force</title><use href="#h-ct" x="20" y="34" width="38" height="38"/></g>
-            <g><title>Force Breach</title><use href="#h-dc" x="66" y="34" width="38" height="38"/></g>
-            <g><title>Squelch — slot 4, both parses</title><use href="#h-er" x="150" y="34" width="38" height="38"/></g>
-            <g><title>Squelch — slot 8, both parses</title><use href="#h-er" x="322" y="34" width="38" height="38"/></g>
-            <g><title>Squelch — slot 12, both parses</title><use href="#h-er" x="580" y="34" width="38" height="38"/></g>
-            <line className="sv-tick" x1="20" y1="86" x2="620" y2="86"/>
-            <text className="sv-numb" x="20" y="102">slots 1, 2, 4, 8, 12 — identical position, both parses</text>
+          <svg viewBox="0 0 820 230" role="img" aria-label="Twelve-slot cycle: Sever Force, Force Breach, then a flexible slot, Squelch, three more flexible slots, Squelch, a flexible slot, Force in Balance, a flexible slot, Squelch. Six slots are fixed and six are filled by priority: Spinning Strike first, then Serenity Strike, then Double Strike, then Saber Strike.">
+            <g className="sv-num" textAnchor="middle">
+              <text x="46" y="16">1</text><text x="112" y="16">2</text><text x="178" y="16">3</text><text x="244" y="16">4</text>
+              <text x="310" y="16">5</text><text x="376" y="16">6</text><text x="442" y="16">7</text><text x="508" y="16">8</text>
+              <text x="574" y="16">9</text><text x="640" y="16">10</text><text x="706" y="16">11</text><text x="772" y="16">12</text>
+            </g>
+            <g><title>Sever Force — fixed</title><use href="#h-ct" x="24" y="26" width="44" height="44"/></g>
+            <g><title>Force Breach — fixed</title><use href="#h-dc" x="90" y="26" width="44" height="44"/></g>
+            <rect x="156" y="26" width="44" height="44" rx="6" fill="none" stroke="var(--brass)" strokeWidth="1.6" strokeDasharray="4 3"/>
+            <text className="sv-flex" x="178" y="52" textAnchor="middle">F1</text>
+            <g><title>Squelch — fixed, slot 4</title><use href="#h-er" x="222" y="26" width="44" height="44"/></g>
+            <rect x="288" y="26" width="44" height="44" rx="6" fill="none" stroke="var(--brass)" strokeWidth="1.6" strokeDasharray="4 3"/>
+            <text className="sv-flex" x="310" y="52" textAnchor="middle">F2</text>
+            <rect x="354" y="26" width="44" height="44" rx="6" fill="none" stroke="var(--brass)" strokeWidth="1.6" strokeDasharray="4 3"/>
+            <text className="sv-flex" x="376" y="52" textAnchor="middle">F3</text>
+            <rect x="420" y="26" width="44" height="44" rx="6" fill="none" stroke="var(--brass)" strokeWidth="1.6" strokeDasharray="4 3"/>
+            <text className="sv-flex" x="442" y="52" textAnchor="middle">F4</text>
+            <g><title>Squelch — fixed, slot 8</title><use href="#h-er" x="486" y="26" width="44" height="44"/></g>
+            <rect x="552" y="26" width="44" height="44" rx="6" fill="none" stroke="var(--brass)" strokeWidth="1.6" strokeDasharray="4 3"/>
+            <text className="sv-flex" x="574" y="52" textAnchor="middle">F5</text>
+            <g><title>Force in Balance — fixed (slot 10 in parse 2, slot 5 in parse 1 — see the style-difference note below)</title><use href="#h-df" x="618" y="26" width="44" height="44"/></g>
+            <rect x="684" y="26" width="44" height="44" rx="6" fill="none" stroke="var(--brass)" strokeWidth="1.6" strokeDasharray="4 3"/>
+            <text className="sv-flex" x="706" y="52" textAnchor="middle">F6</text>
+            <g><title>Squelch — fixed, slot 12</title><use href="#h-er" x="750" y="26" width="44" height="44"/></g>
 
-            <text className="sv-label" x="20" y="146" fill="var(--ink-2)">PARSE 2 ONLY — Force in Balance moves to slot 10</text>
-            <g><title>Spinning Strike — proc-gated or sub-30%</title><use href="#h-as" x="20" y="156" width="34" height="34"/></g>
-            <g><title>Serenity Strike ×2</title><use href="#h-ls" x="62" y="156" width="34" height="34"/></g>
-            <g><title>Spinning Strike or Serenity Strike</title><use href="#h-as" x="104" y="156" width="34" height="34"/></g>
-            <g><title>Filler (Saber Strike or Double Strike)</title><use href="#h-ss" x="188" y="156" width="34" height="34"/></g>
-            <g><title>Force in Balance — slot 10, parse 2 only</title><use href="#h-df" x="360" y="152" width="42" height="42"/></g>
-            <g><title>Spinning Strike or filler</title><use href="#h-as" x="500" y="156" width="34" height="34"/></g>
-            <text className="sv-label" x="600" y="180" fill="var(--brass)">→ next Sever Force</text>
+            <g stroke="var(--brass)" strokeWidth="1.2" strokeDasharray="3 3" fill="none">
+              <path d="M178 90 L178 106"/><path d="M310 90 L310 106"/><path d="M376 90 L376 106"/>
+              <path d="M442 90 L442 106"/><path d="M574 90 L574 106"/><path d="M706 90 L706 106"/>
+              <path d="M178 106 L706 106"/><path d="M442 106 L442 120"/>
+            </g>
+            <text className="sv-label" x="442" y="136" textAnchor="middle" fill="var(--brass)">pick one for each flexible slot, in this order</text>
+
+            <g><title>Spinning Strike</title><use href="#h-as" x="182" y="150" width="42" height="42"/></g>
+            <text className="sv-numb" x="203" y="206" textAnchor="middle" fill="var(--er-f)">1st</text>
+            <g><title>Serenity Strike</title><use href="#h-ls" x="282" y="150" width="42" height="42"/></g>
+            <text className="sv-numb" x="303" y="206" textAnchor="middle">2nd</text>
+            <g><title>Double Strike</title><use href="#h-th" x="382" y="150" width="42" height="42"/></g>
+            <text className="sv-numb" x="403" y="206" textAnchor="middle">3rd</text>
+            <g><title>Saber Strike</title><use href="#h-ss" x="482" y="150" width="42" height="42"/></g>
+            <text className="sv-numb" x="503" y="206" textAnchor="middle">4th</text>
+            <text className="sv-note" x="560" y="176">the rebuild step</text>
+            <text className="sv-note" x="560" y="192">(Force below ~45–50)</text>
           </svg>
-          <figcaption>Median lap length 17.09 s across 14 clean laps (was: parse 1's 17.25 s across 15). Neither position is more "correct" — both are internally 100% consistent within their own parse, which is what makes this a genuine style difference rather than an execution gap.</figcaption>
+          <figcaption>Solid icons are fixed — identical every lap, both parses. Dashed boxes (F1–F6) are each filled by whichever of the four priority abilities applies. Median lap length 17.09 s across 14 clean laps in parse 2 (was: parse 1's 17.25 s across 15). Force in Balance's own slot is fixed within each parse but not between them — parse 1 places it at slot 5, right after the opening DoTs; parse 2 delays it to slot 10. Neither is more "correct"; both are internally 100% consistent within their own parse, which is what makes it a style difference rather than an execution gap.</figcaption>
         </figure>
+
+        <p className="lede" style={{ marginBottom: '24px' }}><b>F1</b> is where most of the grid's variety actually lives — Spinning Strike whenever Crush Spirit is up or health allows it, Serenity Strike otherwise. <b>F2–F4</b> are almost always Serenity Strike, then Double Strike whenever Serenity Strike is still on its own cooldown. <b>F5</b> is Saber Strike in all but one of the 14 clean laps; <b>F6</b> splits close to evenly between Double Strike and Spinning Strike.</p>
+
+        <h3>Filler priority, in detail</h3>
+        <div className="tw">
+        <table>
+          <thead><tr><th className="n">#</th><th colSpan={2}>Filler</th><th className="n">Cost</th><th>Condition</th></tr></thead>
+          <tbody>
+            <tr className="hi"><td className="n">1</td><td className="icc"><span className="ic" data-n="Spinning Strike" role="img" aria-label="Spinning Strike"><svg viewBox="0 0 50 50"><use href="#h-as"/></svg></span></td><td>Spinning Strike</td><td className="n">20, 6s CD</td><td>Crush Spirit is up, or the target is below 30% health. Take it the moment it's available — a proc left sitting is priority lost, not banked.</td></tr>
+            <tr><td className="n">2</td><td className="icc"><span className="ic" data-n="Serenity Strike" role="img" aria-label="Serenity Strike"><svg viewBox="0 0 50 50"><use href="#h-ls"/></svg></span></td><td>Serenity Strike</td><td className="n">13–25, ~12s CD</td><td>The default filler, used on cooldown — its own ~12 s cooldown doesn't divide evenly into the ~17 s macro-cycle, which is why it isn't always up for both of a lap's usual two preferred slots. Cost drops 4 per active DoT, as low as 13 with all three up.</td></tr>
+            <tr><td className="n">3</td><td className="icc"><span className="ic" data-n="Double Strike" role="img" aria-label="Double Strike"><svg viewBox="0 0 50 50"><use href="#h-th"/></svg></span></td><td>Double Strike</td><td className="n">20, no CD</td><td>Fills in whenever Serenity Strike is still on cooldown and Force allows.</td></tr>
+            <tr className="no"><td className="n">4</td><td className="icc"><span className="ic" data-n="Saber Strike" role="img" aria-label="Saber Strike"><svg viewBox="0 0 50 50"><use href="#h-ss"/></svg></span></td><td>Saber Strike</td><td className="n">free, +3</td><td>Force below roughly 45–50. Restores Force on hit — the rebuild step, not a real filler choice.</td></tr>
+          </tbody>
+        </table>
+        </div>
+
+        <div className="call">
+          <h4>Why Spinning Strike shows up once some laps, twice others</h4>
+          <p>Spinning Strike's own cooldown is short — measured at a median 5.6–5.7 s below 30% health, in the same range as Squelch's. Above 30%, though, it can only fire when Crush Spirit is up, and Crush Spirit's own gate runs on a completely different clock: a ~15 s internal cooldown (measured 14.0–17.9 s between procs across both parses) plus whatever random delay it takes for the 30%-chance roll to land on a periodic tick after that cooldown clears.</p>
+          <p>A ~14–18 s proc cycle doesn't divide evenly into a ~17 s macro-cycle. Some laps get exactly one window where a proc is ready; others get none until late, then two clear close together. That mismatch — not inconsistent play — is the entire reason Spinning Strike's slot count swings between one and two per lap above 30% health, and it's also why the swing disappears completely below 30%, where Spinning Strike runs on its own clock alone.</p>
+        </div>
+
+        <div className="call fix">
+          <h4>Serenity Strike: on cooldown, with one exception</h4>
+          <p>Delaying it for a third DoT stack isn't worth it — a GCD held back can cost a whole extra use later. The one real exception is a Shadowcraft window: since Serenity Strike heals for as much as it damages, landing it inside a guaranteed-crit window doubles both halves at once. See section 03 — all four windows in parse 2 catch at least one.</p>
+        </div>
       </section>
 
       {/* ===== 03 SHADOWCRAFT ===== */}
@@ -324,7 +374,7 @@ export default function SerenityRotation({ theme }: { theme?: 'dark' | 'light' }
           <p>Every single damage instance inside the four Shadowcraft windows crit — 83 out of 83, measured directly from the <code>*</code> crit marker in the log. Outside the windows, the crit rate drops to a still-healthy 72.3%, which is the character's normal baseline. The four windows total 24.3 seconds — 9.2% of the fight — but at 1.5–1.75× the fight's average DPS each, they answer the question directly: part of parse 2's higher number is a real, repeatable technique, not just favorable rolls.</p>
         </div>
 
-        <p style={{ marginTop: '16px' }}>Each window opens the same way: Shadow Stride, then Spinning Strike immediately (Crush Spirit is always already up by the time the player re-engages), then Squelch, then Serenity Strike — a deliberate burst sequence queued to land inside the crit window, not a coincidence of normal priority.</p>
+        <p style={{ marginTop: '16px' }}>Each window opens the same way: Shadow Stride, then Spinning Strike immediately (Crush Spirit is always already up by the time the player re-engages), then Squelch, then Serenity Strike — a deliberate burst sequence, not a coincidence of normal priority. Serenity Strike in particular lands inside all four windows, twice in three of them — worth holding a GCD for, since a guaranteed crit doubles both its damage and its self-heal (section 02).</p>
       </section>
 
       {/* ===== 04 CORRECTIONS ===== */}
