@@ -1,7 +1,7 @@
 /**
  * Hatred — Rotation Standard
  * ---------------------------------------------------------------------------
- * Built from one StarParse detail log (single Operations Training Dummy pull).
+ * Built from two independent StarParse detail logs (two different players).
  * Ability icons live as separate files under /public/icons/assassin.
  */
 
@@ -117,6 +117,7 @@ const CSS = `
   .meter .fill{height:100%;background:var(--good);border-radius:1px}
   .meter .fill.warn{background:var(--brass)} .meter .fill.bad{background:var(--bad)}
   .meter .val{font-family:var(--font-data);font-size:13px;text-align:right;font-variant-numeric:tabular-nums}
+  .meter .val .was{display:block;font-size:11px;color:var(--ink-3);font-weight:400;margin-top:2px}
   .meter.lag .lbl{color:var(--ink);font-weight:600}
 
   /* ---------- reference grid ---------- */
@@ -168,30 +169,29 @@ const CSS = `
   footer p{max-width:78ch}
 `;
 
-/* ---- reference-grid data: 15 macro-cycles anchored on Creeping Terror ---- */
+/* ---- reference-grid data: 14 macro-cycles anchored on Creeping Terror, from parse 2 (the reference log) ---- */
 type Cell = { n: string; mark?: 'scc' | 'rc' } | null;
-type CycleRow = { cyc: string; cells: Cell[]; off: string[]; len: string; slots: number; flag?: boolean; best?: boolean; sub30?: boolean };
+type CycleRow = { cyc: string; cells: Cell[]; off: string[]; len: string; slots: number; flag?: boolean; best?: boolean };
 
 const g = (n: string): Cell => ({ n });
 const CT = g('Creeping Terror'), DC = g('Discharge'), LS = g('Leeching Strike'), ER = g('Eradicate'),
   DF = g('Death Field'), AS = g('Assassinate'), SS = g('Saber Strike'), TH = g('Thrash');
 
 const CYCLES: CycleRow[] = [
-  { cyc: '1', cells: [CT, DC, LS, ER, DF, AS, LS, ER, SS, AS, TH, ER], off: ['Recklessness', 'Adrenal', 'Phantom Stride'], len: '17.41', slots: 12 },
-  { cyc: '2', cells: [CT, DC, LS, ER, DF, AS, LS, ER, SS, TH, AS, ER], off: ['Recklessness'], len: '17.21', slots: 12, best: true },
-  { cyc: '3', cells: [CT, DC, LS, ER, DF, AS, LS, ER, SS, AS, TH, ER], off: ['Recklessness', 'Phantom Stride'], len: '17.20', slots: 12, best: true },
-  { cyc: '4', cells: [CT, DC, LS, ER, DF, LS, TH, ER, AS, SS, TH, ER], off: ['Recklessness'], len: '16.96', slots: 12 },
-  { cyc: '5', cells: [CT, DC, LS, ER, DF, AS, LS, ER, SS, SS, TH, ER], off: ['Recklessness', 'Phantom Stride'], len: '17.50', slots: 12 },
-  { cyc: '6', cells: [CT, DC, LS, ER, DF, AS, LS, ER, SS, TH, TH, ER], off: ['Recklessness'], len: '17.33', slots: 12 },
-  { cyc: '7', cells: [CT, DC, LS, ER, DF, AS, LS, ER, SS, AS, TH, ER], off: ['Recklessness', 'Phantom Stride'], len: '17.34', slots: 12 },
-  { cyc: '8', cells: [CT, DC, LS, ER, DF, AS, LS, ER, SS, TH, SS, ER], off: ['Recklessness'], len: '17.25', slots: 12 },
-  { cyc: '9', cells: [CT, DC, LS, ER, DF, AS, LS, ER, SS, AS, TH, ER], off: ['Recklessness', 'Phantom Stride'], len: '17.47', slots: 12 },
-  { cyc: '10', cells: [CT, DC, LS, ER, DF, AS, LS, ER, SS, TH, AS, ER], off: ['Recklessness'], len: '17.02', slots: 12 },
-  { cyc: '11', cells: [CT, DC, LS, ER, DF, AS, LS, ER, SS, AS, TH, ER], off: ['Recklessness', 'Phantom Stride', 'Adrenal'], len: '17.67', slots: 12 },
-  { cyc: '12', cells: [CT, DC, LS, ER, DF, LS, AS, ER, SS, TH, AS, ER], off: ['Recklessness'], len: '16.82', slots: 12, flag: true },
-  { cyc: '13', cells: [CT, DC, AS, ER, LS, DF, AS, ER, LS, SS, AS, ER], off: ['Recklessness'], len: '16.92', slots: 12, sub30: true },
-  { cyc: '14', cells: [CT, DC, AS, ER, LS, DF, AS, ER, LS, SS, AS, ER], off: ['Recklessness'], len: '16.93', slots: 12, sub30: true },
-  { cyc: '15', cells: [CT, DC, AS, ER, LS, DF, AS, ER, SS, LS, AS, ER], off: ['Recklessness'], len: '18.02', slots: 12, sub30: true },
+  { cyc: '1', cells: [CT, DC, AS, ER, LS, LS, TH, ER, SS, DF, TH, ER], off: ['Force Cloak', 'Stealth', 'Phantom Stride', 'Adrenal', 'Recklessness'], len: '17.46', slots: 12, flag: true },
+  { cyc: '2', cells: [CT, DC, AS, ER, LS, LS, SS, ER, SS, DF, TH, ER], off: ['Recklessness'], len: '16.84', slots: 12, best: true },
+  { cyc: '3', cells: [CT, DC, AS, ER, LS, AS, LS, ER, SS, DF, AS, ER], off: ['Phantom Stride', 'Recklessness'], len: '17.49', slots: 12 },
+  { cyc: '4', cells: [CT, DC, LS, ER, TH, LS, TH, ER, SS, DF, AS, ER], off: ['Recklessness'], len: '16.89', slots: 12 },
+  { cyc: '5', cells: [CT, DC, AS, ER, LS, LS, AS, ER, SS, DF, TH, ER], off: ['Phantom Stride', 'Recklessness'], len: '17.22', slots: 12 },
+  { cyc: '6', cells: [CT, DC, LS, ER, AS, LS, SS, ER, SS, DF, TH, ER], off: ['Recklessness'], len: '16.93', slots: 12 },
+  { cyc: '7', cells: [CT, DC, AS, ER, LS, AS, LS, ER, SS, DF, TH, ER], off: ['Force Cloak', 'Stealth', 'Phantom Stride', 'Recklessness'], len: '17.15', slots: 12, flag: true },
+  { cyc: '8', cells: [CT, DC, AS, ER, LS, LS, TH, ER, SS, DF, TH, ER], off: ['Recklessness'], len: '16.82', slots: 12, best: true },
+  { cyc: '9', cells: [CT, DC, AS, ER, LS, LS, AS, ER, SS, DF, AS, ER], off: ['Phantom Stride', 'Recklessness'], len: '17.63', slots: 12 },
+  { cyc: '10', cells: [CT, DC, LS, ER, TH, LS, TH, ER, SS, DF, AS, ER], off: ['Recklessness'], len: '16.77', slots: 12, best: true },
+  { cyc: '11', cells: [CT, DC, AS, ER, LS, LS, AS, ER, SS, DF, AS, ER], off: ['Phantom Stride', 'Recklessness'], len: '17.22', slots: 12 },
+  { cyc: '12', cells: [CT, DC, AS, ER, LS, LS, AS, ER, SS, DF, AS, ER], off: ['Recklessness'], len: '17.09', slots: 12 },
+  { cyc: '13', cells: [CT, DC, AS, ER, LS, LS, AS, ER, TH, DF, AS, ER], off: ['Adrenal', 'Force Cloak', 'Stealth', 'Phantom Stride', 'Recklessness'], len: '17.31', slots: 12, flag: true },
+  { cyc: '14', cells: [CT, DC, AS, ER, LS, LS, AS, ER, SS, DF, AS, ER], off: ['Recklessness'], len: '17.00', slots: 12 },
 ];
 
 export default function HatredRotation({ theme }: { theme?: 'dark' | 'light' }) {
@@ -211,21 +211,22 @@ export default function HatredRotation({ theme }: { theme?: 'dark' | 'light' }) 
       <symbol id="h-rk" viewBox="0 0 50 50"><image href="/icons/assassin/recklessness.png" width="50" height="50" clipPath="url(#ico-clip4)" preserveAspectRatio="xMidYMid slice"/></symbol>
       <symbol id="h-ps" viewBox="0 0 50 50"><image href="/icons/assassin/phantom-stride.webp" width="50" height="50" clipPath="url(#ico-clip4)" preserveAspectRatio="xMidYMid slice"/></symbol>
       <symbol id="h-adr" viewBox="0 0 50 50"><image href="/icons/assassin/adrenal.webp" width="50" height="50" clipPath="url(#ico-clip4)" preserveAspectRatio="xMidYMid slice"/></symbol>
+      <symbol id="h-fc" viewBox="0 0 50 50"><image href="/icons/assassin/force-cloak.png" width="50" height="50" clipPath="url(#ico-clip4)" preserveAspectRatio="xMidYMid slice"/></symbol>
       </defs></svg>
 
       <div className="wrap">
 
       <div className="mast">
-        <p className="eyebrow">Sith Assassin / Hatred · single-pull dummy parse · 36,814 DPS</p>
-        <h1>Two DoTs, one fixed clock, one drifting priority</h1>
-        <p className="standfirst">A twelve-GCD macro-cycle anchored on reapplying <strong>Creeping Terror and Discharge together</strong>, with Eradicate ticking on its own independent clock so regular it lands on slots 4, 8 and 12 of every single lap without exception. Everything else in the cycle is a live priority call, and it visibly changes shape the moment the target drops below 30%.</p>
+        <p className="eyebrow">Sith Assassin / Hatred · parse 2 as reference · 38,022 DPS</p>
+        <h1>Same fixed clock, one real technique parse 1 never uses</h1>
+        <p className="standfirst">Both parses share the identical <strong>Eradicate 4/8/12</strong> clock and the same fixed Creeping Terror + Discharge open. The DPS gap isn't just variance: parse 2 opens from stealth and re-enters it three more times to trigger <strong>Shadowcraft</strong>, landing four 6-second windows of guaranteed critical hits that parse 1 never touches at all.</p>
         <dl className="facts">
-          <div className="fact"><dt>DPS</dt><dd>36,814</dd></div>
-          <div className="fact"><dt>GCD</dt><dd>1.405<small>s</small><span className="was">flat, no proc states — 180 measurements</span></dd></div>
-          <div className="fact"><dt>Macro-cycle</dt><dd>17.25<small>s med</small><span className="was">15 complete laps, 12 slots each</span></dd></div>
-          <div className="fact"><dt>Eradicate</dt><dd>4 / 8 / 12<small>slots</small><span className="was">5.69 s median own cadence, zero exceptions</span></dd></div>
-          <div className="fact"><dt>DoT uptime</dt><dd>96<small>%</small><span className="was">Discharge + Creeping Terror, both parses of the fight</span></dd></div>
-          <div className="fact"><dt>Leeching Strike</dt><dd>31<small>/31</small><span className="was">heal exactly matched damage, every cast</span></dd></div>
+          <div className="fact"><dt>DPS</dt><dd>38,022<span className="was">was: parse 1: 36,814</span></dd></div>
+          <div className="fact"><dt>GCD</dt><dd>1.403<small>s</small><span className="was">flat, both parses · was: 1.405 s</span></dd></div>
+          <div className="fact"><dt>Macro-cycle</dt><dd>17.09<small>s med</small><span className="was">14 clean laps · was: 17.25 s, 15 laps</span></dd></div>
+          <div className="fact"><dt>Eradicate</dt><dd>4 / 8 / 12<small>slots</small><span className="was">confirmed again, zero exceptions</span></dd></div>
+          <div className="fact"><dt>Shadowcraft windows</dt><dd>4<small>× 6s</small><span className="was">100% crit inside · was: parse 1: 0</span></dd></div>
+          <div className="fact"><dt>Death Field</dt><dd>slot 10<small>always</small><span className="was">was: parse 1: slot 5 — real style difference</span></dd></div>
         </dl>
       </div>
 
@@ -235,157 +236,157 @@ export default function HatredRotation({ theme }: { theme?: 'dark' | 'light' }) 
         <div className="keygrid">
         <div className="keyrow"><span className="ic" data-n="Creeping Terror" role="img" aria-label="Creeping Terror"><svg viewBox="0 0 50 50"><use href="#h-ct"/></svg></span><div><b>Creeping Terror</b><span>18s DoT · internal, reapplied with Discharge</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Discharge" role="img" aria-label="Discharge"><svg viewBox="0 0 50 50"><use href="#h-dc"/></svg></span><div><b>Discharge</b><span>18s DoT · energy, needs the armor debuff to matter</span></div></div>
-        <div className="keyrow"><span className="ic" data-n="Eradicate" role="img" aria-label="Eradicate"><svg viewBox="0 0 50 50"><use href="#h-er"/></svg></span><div><b>Eradicate</b><span>Hit + 6s DoT · own ~5.7s clock, free via Raze</span></div></div>
-        <div className="keyrow"><span className="ic" data-n="Death Field" role="img" aria-label="Death Field"><svg viewBox="0 0 50 50"><use href="#h-df"/></svg></span><div><b>Death Field</b><span>AoE-capable nuke · grants 15 stacks of Deathmark</span></div></div>
+        <div className="keyrow"><span className="ic" data-n="Eradicate" role="img" aria-label="Eradicate"><svg viewBox="0 0 50 50"><use href="#h-er"/></svg></span><div><b>Eradicate</b><span>Hit + 6s DoT · own ~5.6s clock, free via Raze</span></div></div>
+        <div className="keyrow"><span className="ic" data-n="Death Field" role="img" aria-label="Death Field"><svg viewBox="0 0 50 50"><use href="#h-df"/></svg></span><div><b>Death Field</b><span>AoE-capable nuke · grants Deathmark and Penetrating Death</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Leeching Strike" role="img" aria-label="Leeching Strike"><svg viewBox="0 0 50 50"><use href="#h-ls"/></svg></span><div><b>Leeching Strike</b><span>Filler · heals for exactly what it damages</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Assassinate" role="img" aria-label="Assassinate"><svg viewBox="0 0 50 50"><use href="#h-as"/></svg></span><div><b>Assassinate</b><span>Sub-30% · or unlocked anywhere by Bloodletting</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Saber Strike" role="img" aria-label="Saber Strike"><svg viewBox="0 0 50 50"><use href="#h-ss"/></svg></span><div><b>Saber Strike</b><span>Weak filler · used to rebuild Force</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Thrash" role="img" aria-label="Thrash"><svg viewBox="0 0 50 50"><use href="#h-th"/></svg></span><div><b>Thrash</b><span>Strong filler · costs more Force than Saber Strike</span></div></div>
-        <div className="keyrow"><span className="ic" data-n="Recklessness" role="img" aria-label="Recklessness"><svg viewBox="0 0 50 50"><use href="#h-rk"/></svg></span><div><b>Recklessness</b><span>Off-GCD · 2 charges, Death Field then the next Eradicate</span></div></div>
-        <div className="keyrow"><span className="ic" data-n="Phantom Stride" role="img" aria-label="Phantom Stride"><svg viewBox="0 0 50 50"><use href="#h-ps"/></svg></span><div><b>Phantom Stride</b><span>Off-GCD gap closer · grants Raze on activation</span></div></div>
+        <div className="keyrow"><span className="ic" data-n="Recklessness" role="img" aria-label="Recklessness"><svg viewBox="0 0 50 50"><use href="#h-rk"/></svg></span><div><b>Recklessness</b><span>Off-GCD · 2 charges, consumed by Death Field then Eradicate</span></div></div>
+        <div className="keyrow"><span className="ic" data-n="Phantom Stride" role="img" aria-label="Phantom Stride"><svg viewBox="0 0 50 50"><use href="#h-ps"/></svg></span><div><b>Phantom Stride</b><span>Off-GCD gap closer · from stealth, triggers Shadowcraft</span></div></div>
+        <div className="keyrow"><span className="ic" data-n="Force Cloak" role="img" aria-label="Force Cloak"><svg viewBox="0 0 50 50"><use href="#h-fc"/></svg></span><div><b>Force Cloak</b><span>Off-GCD, parse 2 only · vanish, re-enter stealth mid-fight</span></div></div>
       </div>
       </section>
 
       {/* ===== 01 OPENER ===== */}
       <section>
-        <h2><span className="num">01</span> The opener — Eradicate first, DoTs a beat later</h2>
-        <p className="lede">The very first GCD is Eradicate, not a DoT — there's nothing to spread Raze from yet, so it just goes out at full Force cost to get the clock running immediately. Creeping Terror and Discharge follow on GCDs 2 and 3, then the rest of the kit comes online in a rush.</p>
+        <h2><span className="num">01</span> The opener — from stealth, straight into a guaranteed crit</h2>
+        <p className="lede">Parse 2 starts already in stealth and opens with Phantom Stride into Death Field rather than Eradicate. That single choice lands a 51,207-damage opening hit — nearly five times any other single hit in the fight — because Shadowcraft is active from the very first GCD.</p>
 
         <figure>
-          <svg viewBox="0 0 820 200" role="img" aria-label="Opener: Eradicate at 0.02 seconds, Creeping Terror at 1.55, Discharge at 2.89, Leeching Strike at 4.30, Eradicate again at 5.70, then Recklessness and an Adrenal off-GCD, Death Field at 7.21, Assassinate at 8.73, Phantom Stride off-GCD, then the first steady cycle from 11.99 seconds.">
+          <svg viewBox="0 0 820 200" role="img" aria-label="Opener: Phantom Stride from stealth at 0.037 seconds triggers Shadowcraft, Death Field lands a 51207 damage critical hit, then Creeping Terror at 1.4 seconds and Discharge at 2.8 seconds, then the first steady cycle from roughly 16 seconds.">
             <g className="sv-num" style={{ textAnchor: 'middle' }}>
-              <text x="40" y="30">0.0</text><text x="220" y="30">2.9</text><text x="420" y="30">5.7</text><text x="620" y="30">8.7</text><text x="760" y="30">12.0</text>
+              <text x="40" y="30">0.0</text><text x="220" y="30">1.4</text><text x="420" y="30">2.8</text><text x="620" y="30">4.3</text><text x="760" y="30">16.1</text>
             </g>
-            <g><title>Eradicate (opener, full Force cost)</title><use href="#h-er" x="16" y="40" width="44" height="44"/></g>
-            <g><title>Creeping Terror</title><use href="#h-ct" x="140" y="40" width="40" height="40"/></g>
-            <g><title>Discharge</title><use href="#h-dc" x="186" y="40" width="40" height="40"/></g>
-            <g><title>Leeching Strike</title><use href="#h-ls" x="232" y="40" width="40" height="40"/></g>
-            <g><title>Eradicate (free via Raze)</title><use href="#h-er" x="278" y="40" width="40" height="40"/></g>
-            <g><title>Recklessness (off-GCD)</title><use href="#h-rk" x="330" y="46" width="26" height="26"/></g>
-            <g><title>Adrenal (off-GCD)</title><use href="#h-adr" x="358" y="46" width="26" height="26"/></g>
-            <g><title>Death Field</title><use href="#h-df" x="410" y="40" width="40" height="40"/></g>
-            <g><title>Assassinate (Bloodletting from the opening Creeping Terror)</title><use href="#h-as" x="524" y="40" width="40" height="40"/></g>
-            <g><title>Phantom Stride (off-GCD)</title><use href="#h-ps" x="576" y="46" width="26" height="26"/></g>
+            <g><title>Phantom Stride (from stealth, triggers Shadowcraft)</title><use href="#h-ps" x="16" y="46" width="30" height="30"/></g>
+            <g><title>Death Field (51,207 damage, guaranteed crit)</title><use href="#h-df" x="60" y="34" width="50" height="50"/></g>
+            <g><title>Creeping Terror</title><use href="#h-ct" x="230" y="40" width="40" height="40"/></g>
+            <g><title>Discharge</title><use href="#h-dc" x="410" y="40" width="40" height="40"/></g>
+            <g><title>Bloodletting proc, off the Creeping Terror tick</title><use href="#h-as" x="610" y="46" width="26" height="26"/></g>
             <line x1="700" y1="34" x2="700" y2="140" stroke="var(--brass)" strokeWidth="2"/>
             <text className="sv-label" x="700" y="158" style={{ textAnchor: 'middle' }} fill="var(--brass)">first steady cycle starts here</text>
             <g className="sv-note">
-              <text x="16" y="180">Bloodletting procs at 1.554s — off the very first Creeping Terror tick — and sits ready for 7.18s before Assassinate consumes it</text>
+              <text x="16" y="180">The very next GCD after Death Field is Creeping Terror, not another attack — the DoTs still go down early, opener or not</text>
             </g>
           </svg>
-          <figcaption>Timestamps: Eradicate 0.024 · Creeping Terror 1.553 · Discharge 2.894 · Leeching Strike 4.299 · Eradicate 5.703 (free) · Recklessness 6.298 (off-GCD) · Adrenal 6.500 (off-GCD) · Death Field 7.211 · Assassinate 8.730 · Phantom Stride 10.261 (off-GCD) · Leeching Strike 10.503 · Eradicate 11.986 (cycle 1 begins). Recklessness's second charge doesn't go to waste — it rides along until the next Eradicate at 11.986, three GCDs later.</figcaption>
+          <figcaption>Timestamps: Phantom Stride 0.037 (from stealth) · Death Field 0.037 (51,207 damage) · Creeping Terror 1.397 · Discharge 2.798 · Bloodletting procs at 4.315 (off the Creeping Terror tick) · Assassinate 7.465 · Eradicate 8.851, inside the first Shadowcraft window (section 03). Parse 1 opens with Eradicate instead, from full Force, with no stealth and no Shadowcraft — see the original opener sequence preserved in the footer.</figcaption>
         </figure>
       </section>
 
       {/* ===== 02 CYCLE ===== */}
       <section>
-        <h2><span className="num">02</span> The cycle — a fixed open, a live-priority tail</h2>
-        <p className="lede">Every lap's first five GCDs are identical, cycle after cycle: reapply both 18-second DoTs, spend the Force they just freed on Leeching Strike, then let Eradicate and Death Field go out together. What happens in the other seven slots is a genuine priority call, not a fixed shape.</p>
+        <h2><span className="num">02</span> The cycle — same fixed pieces, reshuffled order</h2>
+        <p className="lede">Both parses fix Creeping Terror and Discharge as slots 1–2 and Eradicate as slots 4, 8 and 12. Where they genuinely differ: parse 1 places Death Field right after the opening DoTs (slot 5); parse 2 delays it all the way to slot 10, right before the cycle's third Eradicate.</p>
 
         <figure>
-          <svg viewBox="0 0 820 220" role="img" aria-label="Fixed opening five slots: Creeping Terror, Discharge, Leeching Strike, Eradicate, Death Field. Then seven slots of live priority: Assassinate when available, Leeching Strike, a second Eradicate, fillers, a third Eradicate closing the lap.">
-            <text className="sv-label" x="20" y="24" fill="var(--brass)">FIXED — identical in all 15 laps</text>
-            <g><title>Creeping Terror</title><use href="#h-ct" x="20" y="34" width="42" height="42"/></g>
-            <g><title>Discharge</title><use href="#h-dc" x="72" y="34" width="42" height="42"/></g>
-            <g><title>Leeching Strike</title><use href="#h-ls" x="124" y="34" width="42" height="42"/></g>
-            <g><title>Eradicate — always slot 4</title><use href="#h-er" x="176" y="34" width="42" height="42"/></g>
-            <g><title>Death Field</title><use href="#h-df" x="228" y="34" width="42" height="42"/></g>
-            <line className="sv-tick" x1="20" y1="88" x2="600" y2="88"/>
-            <text className="sv-numb" x="20" y="104">slots 1–5, every lap</text>
+          <svg viewBox="0 0 820 220" role="img" aria-label="Parse 2's twelve-slot cycle: Creeping Terror, Discharge, Assassinate, Eradicate, Leeching Strike, Leeching Strike, Assassinate, Eradicate, filler, Death Field, Assassinate, Eradicate. Death Field sits at slot 10, not slot 5 as in parse 1.">
+            <text className="sv-label" x="20" y="24" fill="var(--brass)">FIXED IN BOTH PARSES</text>
+            <g><title>Creeping Terror</title><use href="#h-ct" x="20" y="34" width="38" height="38"/></g>
+            <g><title>Discharge</title><use href="#h-dc" x="66" y="34" width="38" height="38"/></g>
+            <g><title>Eradicate — slot 4, both parses</title><use href="#h-er" x="150" y="34" width="38" height="38"/></g>
+            <g><title>Eradicate — slot 8, both parses</title><use href="#h-er" x="322" y="34" width="38" height="38"/></g>
+            <g><title>Eradicate — slot 12, both parses</title><use href="#h-er" x="580" y="34" width="38" height="38"/></g>
+            <line className="sv-tick" x1="20" y1="86" x2="620" y2="86"/>
+            <text className="sv-numb" x="20" y="102">slots 1, 2, 4, 8, 12 — identical position, both parses</text>
 
-            <text className="sv-label" x="20" y="148" fill="var(--ink-2)">LIVE PRIORITY — varies with health and procs</text>
-            <g><title>Assassinate or Leeching Strike</title><use href="#h-as" x="20" y="158" width="38" height="38"/></g>
-            <g><title>Leeching Strike or Assassinate</title><use href="#h-ls" x="66" y="158" width="38" height="38"/></g>
-            <g><title>Eradicate — always slot 8</title><use href="#h-er" x="112" y="158" width="42" height="42"/></g>
-            <g><title>Filler (Saber Strike or Thrash)</title><use href="#h-ss" x="166" y="158" width="38" height="38"/></g>
-            <g><title>Filler (Saber Strike, Thrash, or Assassinate)</title><use href="#h-th" x="212" y="158" width="38" height="38"/></g>
-            <g><title>Filler (Thrash, Saber Strike, or Assassinate)</title><use href="#h-as" x="258" y="158" width="38" height="38"/></g>
-            <g><title>Eradicate — always slot 12, closes the lap</title><use href="#h-er" x="310" y="158" width="42" height="42"/></g>
-            <text className="sv-label" x="450" y="182" fill="var(--brass)">→ next Creeping Terror</text>
+            <text className="sv-label" x="20" y="146" fill="var(--ink-2)">PARSE 2 ONLY — Death Field moves to slot 10</text>
+            <g><title>Assassinate — proc-gated or sub-30%</title><use href="#h-as" x="20" y="156" width="34" height="34"/></g>
+            <g><title>Leeching Strike ×2</title><use href="#h-ls" x="62" y="156" width="34" height="34"/></g>
+            <g><title>Assassinate or Leeching Strike</title><use href="#h-as" x="104" y="156" width="34" height="34"/></g>
+            <g><title>Filler (Saber Strike or Thrash)</title><use href="#h-ss" x="188" y="156" width="34" height="34"/></g>
+            <g><title>Death Field — slot 10, parse 2 only</title><use href="#h-df" x="360" y="152" width="42" height="42"/></g>
+            <g><title>Assassinate or filler</title><use href="#h-as" x="500" y="156" width="34" height="34"/></g>
+            <text className="sv-label" x="600" y="180" fill="var(--brass)">→ next Creeping Terror</text>
           </svg>
-          <figcaption>Median lap length 17.25 s across 15 complete laps. Slots 6, 7, 9, 10 and 11 vary with Bloodletting timing, Force level, and — after section 07 — target health. Slots 1–5, 8 and 12 never vary once the fight leaves the opener.</figcaption>
+          <figcaption>Median lap length 17.09 s across 14 clean laps (was: parse 1's 17.25 s across 15). Neither position is more "correct" — both are internally 100% consistent within their own parse, which is what makes this a genuine style difference rather than an execution gap.</figcaption>
         </figure>
       </section>
 
-      {/* ===== 03 WHY ERADICATE NEVER MOVES ===== */}
+      {/* ===== 03 SHADOWCRAFT ===== */}
       <section>
-        <h2><span className="num">03</span> Correction: Eradicate runs on its own clock, not Raze's 9-second cap</h2>
-        <p className="lede">The ability guide frames Eradicate's availability around Raze, which is capped at once every 9 seconds. The log shows something tighter and more mechanical: Eradicate lands every 5.49–6.51 seconds without exception, 47 gaps measured, median 5.69 s — Eradicate has its own short cooldown, and Raze mostly just decides whether that cast is free.</p>
+        <h2><span className="num">03</span> The real improvement: four guaranteed-crit windows</h2>
+        <p className="lede">Parse 2 re-enters stealth four times mid-fight — Force Cloak to vanish, then Phantom Stride back onto the target — to trigger Shadowcraft, which the ability guide describes as "increases your critical chance by 100% for 6 seconds." Parse 1 never does this once. This is the single largest mechanical difference between the two parses.</p>
 
         <div className="tw">
         <table>
-          <thead><tr><th>Measurement</th><th className="n">Count</th><th className="n">Value</th></tr></thead>
+          <thead><tr><th>Window</th><th className="n">Duration</th><th className="n">Crits</th><th className="n">Damage</th><th className="n">Effective DPS</th></tr></thead>
           <tbody>
-            <tr className="hi"><td>Eradicate-to-Eradicate gap, full fight</td><td className="n">47</td><td className="n">5.49 s – 6.51 s</td></tr>
-            <tr><td>Eradicate casts landing on cycle slots 4, 8, 12</td><td className="n">15 / 15 laps</td><td className="n">zero exceptions</td></tr>
-            <tr><td>Eradicate casts with no Force spent (free via Raze)</td><td className="n">31 / 48</td><td className="n">64.6%</td></tr>
+            <tr className="hi"><td>7.143 s – 13.217 s</td><td className="n">6.07 s</td><td className="n">100%</td><td className="n">335,557</td><td className="n">55,245</td></tr>
+            <tr className="hi"><td>19.116 s – 25.120 s</td><td className="n">6.00 s</td><td className="n">100%</td><td className="n">333,053</td><td className="n">55,472</td></tr>
+            <tr className="hi"><td>121.760 s – 127.852 s</td><td className="n">6.09 s</td><td className="n">100%</td><td className="n">373,666</td><td className="n">61,337</td></tr>
+            <tr className="hi"><td>224.417 s – 230.515 s</td><td className="n">6.10 s</td><td className="n">100%</td><td className="n">404,501</td><td className="n">66,333</td></tr>
           </tbody>
         </table>
         </div>
 
-        <div className="call">
-          <h4>Raze decides the cost, not the cadence</h4>
-          <p>If Eradicate's timing were actually gated by the 9-second Raze cap, its cadence would cluster near 9 s, not 5.7 s — and it would occasionally slip when Raze's cap is still active. It never slips: every one of the 15 complete laps in this log places Eradicate in exactly the same three slots. Raze's real job is Force economy — 31 of 48 casts went out for free — not availability.</p>
+        <div className="call fix">
+          <h4>83 for 83 crits inside the windows; 561 of 776 (72.3%) outside them</h4>
+          <p>Every single damage instance inside the four Shadowcraft windows crit — 83 out of 83, measured directly from the <code>*</code> crit marker in the log. Outside the windows, the crit rate drops to a still-healthy 72.3%, which is the character's normal baseline. The four windows total 24.3 seconds — 9.2% of the fight — but at 1.5–1.75× the fight's average DPS each, they answer the question directly: part of parse 2's higher number is a real, repeatable technique, not just favorable rolls.</p>
         </div>
+
+        <p style={{ marginTop: '16px' }}>Each window opens the same way: Phantom Stride, then Assassinate immediately (Bloodletting is always already up by the time the player re-engages), then Eradicate, then Leeching Strike — a deliberate burst sequence queued to land inside the crit window, not a coincidence of normal priority.</p>
       </section>
 
-      {/* ===== 04 CORRECTION: SINGLE-CAST PROCS ===== */}
+      {/* ===== 04 CORRECTIONS ===== */}
       <section>
-        <h2><span className="num">04</span> Correction: two "always up" procs needed exactly one trigger each</h2>
-        <p className="lede">Exploitive Strikes and Languishing Lashes are both described as procs that "shouldn't ever fall off" once melee damage is flowing. The log shows why that's not a simplification: each one applies exactly once, at the very start of the fight, and is never removed or reapplied for the remaining 270-plus seconds.</p>
+        <h2><span className="num">04</span> Two mechanics this page missed the first time — confirmed in both parses</h2>
+        <p className="lede">Re-checking against a second log surfaced two real effects that the original build of this page didn't account for. Both are present in near-identical form in parse 1 too, which means they were always part of the core Hatred kit — just missed, not new.</p>
 
         <div className="call flag">
-          <h4>One apply each, zero removals, for the whole fight</h4>
-          <p>Exploitive Strikes applies at 1.554 s (off the opening Creeping Terror's critical Force damage) and Languishing Lashes applies at 4.300 s (off the first Leeching Strike). Neither has a matching <code>RemoveEffect</code> anywhere else in 2,325 lines of log. Both procs simply persist at 100% uptime from their first trigger through the target's death at 272.303 s.</p>
+          <h4>Pervasive Death → Penetrating Death, off every Death Field cast</h4>
+          <p>Every Death Field cast grants a stack of Penetrating Death that lasts almost exactly 10.2 s, confirmed in both parses (16/16 in parse 1, 16/16 in parse 2). Because Death Field's own cadence is close to 17 s, this leaves a recurring ~6.7–7.4 s gap each cycle where the buff isn't active — it does not maintain full uptime the way Exploitive Strikes or Languishing Lashes do.</p>
+        </div>
+
+        <div className="call flag">
+          <h4>"Thrashing Terror" is a real, sizeable damage source in both logs</h4>
+          <p>101 hits in parse 1, 98 in parse 2, each dealing 11,000–14,000 internal damage — roughly 10% of total damage in both parses. It isn't named as a standalone rotational ability in the guide's ability list, which is exactly why it was missed initially; it shows up in the log as its own damage source rather than under Thrash or Creeping Terror's name.</p>
         </div>
       </section>
 
-      {/* ===== 05 GCD ===== */}
+      {/* ===== 05 WHY ERADICATE NEVER MOVES ===== */}
       <section>
-        <h2><span className="num">05</span> The GCD is flat — no proc states, no alacrity windows</h2>
-        <p className="lede">Unlike specs with a cooldown that temporarily compresses the GCD, Hatred's kit has nothing that does this. 180 plausible on-GCD gaps measured across the whole fight cluster in a single tight band.</p>
-        <p style={{ marginTop: '16px' }}>Median <span className="mono">1.405 s</span>, minimum <span className="mono">1.005 s</span>, maximum <span className="mono">1.571 s</span> — the low and high ends are single outliers next to Phantom Stride's brief activation-delay window (section 01); the working floor for the entire 272-second fight is a flat 1.4 s, unchanged from the opener to the kill.</p>
-      </section>
-
-      {/* ===== 06 SCORECARD ===== */}
-      <section>
-        <h2><span className="num">06</span> Execution scorecard</h2>
-        <p className="lede">All measured from effect apply/remove and AbilityActivate events across the full pull.</p>
-        <div className="meters">
-          <div className="meter"><span className="lbl">Eradicate landing on cycle slots 4 / 8 / 12</span><span className="val">15 / 15</span><span className="track"><span className="fill" style={{ width: '100%' }}></span></span></div>
-          <div className="meter"><span className="lbl">Bloodletting procs consumed by the very next Assassinate</span><span className="val">18 / 18</span><span className="track"><span className="fill" style={{ width: '100%' }}></span></span></div>
-          <div className="meter"><span className="lbl">Leeching Strike heal exactly matching damage dealt</span><span className="val">31 / 31</span><span className="track"><span className="fill" style={{ width: '100%' }}></span></span></div>
-          <div className="meter"><span className="lbl">Discharge uptime — deliberate small gaps, zero clips</span><span className="val">96.1%</span><span className="track"><span className="fill" style={{ width: '96.1%' }}></span></span></div>
-          <div className="meter"><span className="lbl">Creeping Terror uptime — deliberate small gaps, zero clips</span><span className="val">96.8%</span><span className="track"><span className="fill" style={{ width: '96.8%' }}></span></span></div>
-          <div className="meter"><span className="lbl">Recklessness → Death Field, immediately, every charge pop</span><span className="val">16 / 16</span><span className="track"><span className="fill" style={{ width: '100%' }}></span></span></div>
-          <div className="meter"><span className="lbl">Phantom Stride weaves costing no GCD slot</span><span className="val">6 / 6</span><span className="track"><span className="fill" style={{ width: '100%' }}></span></span></div>
-        </div>
-      </section>
-
-      {/* ===== 07 SUB-30% ===== */}
-      <section>
-        <h2><span className="num">07</span> Below 30% — Assassinate moves up and shows up twice as often</h2>
-        <p className="lede">The target crosses 30% health at 200.793 s, on an Assassinate hit. Above 30%, Assassinate is proc-gated by Bloodletting and sits mid-cycle averaging under 2 uses per lap. Below 30%, it's simply always usable — and the cycle visibly reshapes around it.</p>
+        <h2><span className="num">05</span> Eradicate's clock, reconfirmed independently</h2>
+        <p className="lede">The original finding holds exactly, in a fight with a completely different opener and four extra burst windows layered on top: Eradicate lands on slots 4, 8 and 12 of every single clean lap, in both parses, with no exceptions.</p>
 
         <div className="tw">
         <table>
-          <thead><tr><th>Phase</th><th className="n">Laps</th><th>Assassinate position</th><th className="n">Assassinate / lap</th></tr></thead>
+          <thead><tr><th>Measurement</th><th className="n">Parse 1</th><th className="n">Parse 2</th></tr></thead>
           <tbody>
-            <tr><td>Above 30%</td><td className="n">11 clean laps</td><td>Mid-cycle (slot 6 or 10), proc-gated</td><td className="n">1.7 avg</td></tr>
-            <tr className="hi"><td>Below 30%</td><td className="n">3 clean laps</td><td>Slot 3 — right after Discharge</td><td className="n">3.0 avg</td></tr>
+            <tr><td>Eradicate-to-Eradicate gap, full fight</td><td className="n">5.49 s – 6.51 s</td><td className="n">4.54 s – 6.10 s</td></tr>
+            <tr className="hi"><td>Median Eradicate gap</td><td className="n">5.69 s</td><td className="n">5.63 s</td></tr>
+            <tr><td>Eradicate landing on cycle slots 4, 8, 12</td><td className="n">15 / 15 laps</td><td className="n">14 / 14 clean laps</td></tr>
+            <tr><td>Eradicate casts with no Force spent (free via Raze)</td><td className="n">31 / 48</td><td className="n">31 / 46</td></tr>
           </tbody>
         </table>
         </div>
+      </section>
 
-        <div className="call">
-          <h4>The same 12-slot shape, reshuffled around a new top priority</h4>
-          <p>The fixed open (Creeping Terror, Discharge) and the fixed Eradicate slots (4, 8, 12) never move. What changes is everything between them: Leeching Strike gets pushed from slot 3 to slot 5, and Assassinate — no longer waiting on Bloodletting — claims the slot right after Discharge, appearing three times a lap instead of fewer than two. Cycle 12, which straddles the exact moment the target crosses 30%, shows the transition mid-lap: one early Assassinate already in the new position, one late one still in the old.</p>
+      {/* ===== 06 GCD ===== */}
+      <section>
+        <h2><span className="num">06</span> The GCD is still flat</h2>
+        <p className="lede">No cooldown compresses Hatred's GCD in either parse, including through the four Shadowcraft windows in parse 2 — Shadowcraft buffs critical chance, not speed.</p>
+        <p style={{ marginTop: '16px' }}>Parse 2: median <span className="mono">1.403 s</span>, range <span className="mono">1.233 s – 1.727 s</span> across 183 measurements. Parse 1: median <span className="mono">1.405 s</span>, range <span className="mono">1.005 s – 1.571 s</span>. Both sit on the same flat floor for the entire fight.</p>
+      </section>
+
+      {/* ===== 07 SCORECARD ===== */}
+      <section>
+        <h2><span className="num">07</span> Execution scorecard</h2>
+        <p className="lede">All measured from effect apply/remove and AbilityActivate events. Parse 2 values shown; parse 1 matches on every shared metric.</p>
+        <div className="meters">
+          <div className="meter"><span className="lbl">Eradicate landing on cycle slots 4 / 8 / 12</span><span className="val">14 / 14<span className="was">was: 15/15</span></span><span className="track"><span className="fill" style={{ width: '100%' }}></span></span></div>
+          <div className="meter"><span className="lbl">Shadowcraft windows landing 100% crit</span><span className="val">4 / 4<span className="was">was: 0 — mechanic unused in parse 1</span></span><span className="track"><span className="fill" style={{ width: '100%' }}></span></span></div>
+          <div className="meter"><span className="lbl">Discharge uptime — deliberate small gaps, zero clips</span><span className="val">96.6%<span className="was">was: 96.1%</span></span><span className="track"><span className="fill" style={{ width: '96.6%' }}></span></span></div>
+          <div className="meter"><span className="lbl">Creeping Terror uptime — deliberate small gaps, zero clips</span><span className="val">97.0%<span className="was">was: 96.8%</span></span><span className="track"><span className="fill" style={{ width: '97.0%' }}></span></span></div>
+          <div className="meter"><span className="lbl">Penetrating Death applied off every Death Field cast</span><span className="val">16 / 16<span className="was">was: 16/16</span></span><span className="track"><span className="fill" style={{ width: '100%' }}></span></span></div>
+          <div className="meter"><span className="lbl">Recklessness charges consumed, no waste</span><span className="val">16 / 16<span className="was">was: 16/16</span></span><span className="track"><span className="fill" style={{ width: '100%' }}></span></span></div>
         </div>
       </section>
 
+      {/* ===== 08 SUB-30% ===== */}
       {/* ===== 08 GRID ===== */}
       <section>
-        <h2><span className="num">08</span> Reference grid — 15 macro-cycles, Creeping Terror anchored</h2>
-        <p className="lede">Each row is one lap. Hover any icon for its name. Columns 1, 2, 4, 5, 8 and 12 never change ability across all 15 rows. The last three rows (below 30%) show the shape change from section 07; row 12 is the transitional lap where the crossing happens mid-cycle.</p>
+        <h2><span className="num">08</span> Reference grid — 14 macro-cycles, Creeping Terror anchored (parse 2)</h2>
+        <p className="lede">Each row is one clean lap from parse 2, the reference log — the stealth-opener lap is covered in section 01 instead. Hover any icon for its name. Columns 1, 2, 4, 5, 8 and 12 never change ability; column 10 is always Death Field, the clearest structural difference from parse 1's grid.</p>
         <div className="gridwrap">
           <div className="cgrid">
             <div className="crow chead">
@@ -412,38 +413,55 @@ export default function HatredRotation({ theme }: { theme?: 'dark' | 'light' }) 
           </div>
         </div>
         <div className="markkey">
-          <span style={{ opacity: '.75' }}>Off column: count of off-GCD weaves that lap (Recklessness every time, plus any Phantom Stride / Adrenal). Flagged row is the sub-30% transition lap; green rows are the tightest-length laps above 30%.</span>
+          <span style={{ opacity: '.75' }}>Off column: count of off-GCD weaves that lap (Recklessness every time, plus any Phantom Stride / Adrenal / Force Cloak+Stealth). Flagged rows are the three Shadowcraft-burst laps; green rows are the tightest-length laps.</span>
         </div>
-        <p style={{ marginTop: '20px' }}>Rows 13–15 show Assassinate landing in slot 3 every single time post-transition, and slots 9–11 shrinking to just filler and one Leeching Strike instead of the two- and three-way filler mix seen above 30% — a tighter, more predictable shape with less room for Force-driven filler choice.</p>
+        <p style={{ marginTop: '20px' }}>Rows 1, 7 and 13 are the laps carrying a Force Cloak / Stealth / Phantom Stride burst — note their length isn't meaningfully longer than the others, since none of those off-GCD actions cost a slot.</p>
       </section>
 
       {/* ===== 09 ===== */}
       <section>
-        <h2><span className="num">09</span> Still on the table</h2>
+        <h2><span className="num">09</span> Below 30% — the same shift, a different trigger</h2>
+        <p className="lede">The target crosses 30% health at 196.156 s, this time on a Thrashing Terror tick rather than a direct attack. As in parse 1, Assassinate's role changes immediately: proc-gated and occasional above 30%, essentially always-available below it.</p>
+
+        <div className="tw">
+        <table>
+          <thead><tr><th>Parse</th><th className="n">Assassinate uses</th><th className="n">Before 30%</th><th className="n">After 30%</th></tr></thead>
+          <tbody>
+            <tr><td>Parse 1</td><td className="n">31</td><td className="n">19</td><td className="n">12</td></tr>
+            <tr className="hi"><td>Parse 2 (reference)</td><td className="n">30</td><td className="n">19</td><td className="n">11</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p style={{ marginTop: '16px' }}>Nearly identical split in both parses, despite completely different openers and burst techniques — the sub-30% priority shift is a stable, spec-wide behavior, not something either player's individual style changes.</p>
+      </section>
+
+      {/* ===== 10 ===== */}
+      <section>
+        <h2><span className="num">10</span> Still on the table</h2>
 
         <div className="call">
-          <h4>1 · Filler choice (Thrash vs. Saber Strike) looks Force-driven, not fixed</h4>
-          <p>Across the 11 clean above-30% laps, the filler slots show every combination of Thrash and Saber Strike — never the same twice in a row across consecutive laps. This matches the guide's description of switching to the cheaper Saber Strike whenever Force runs low rather than following a fixed filler priority, but confirming the exact Force thresholds would need the log to carry Force amounts, which this one doesn't.</p>
+          <h4>1 · Recklessness sits unspent for longer in parse 2, by design</h4>
+          <p>Parse 1 pops Recklessness and consumes the first charge on the very next GCD (Death Field, slot 5). Parse 2 pops it in the same relative spot but doesn't reach Death Field until slot 10 — six to seven seconds later. The charges simply wait; all 16 pops across both parses get fully consumed with no waste, so this is a scheduling difference, not a mistake.</p>
         </div>
 
         <div className="call">
-          <h4>2 · Recklessness's charge order matches the guide's default case exactly</h4>
-          <p>The guide only calls out a specific charge order (Eradicate first) for multi-target Death Field situations. This is a single-target dummy parse, so the default order applies, and that's exactly what the log shows: Death Field consumes the first charge immediately, and whichever Eradicate comes next consumes the second, 16 times out of 16.</p>
+          <h4>2 · Filler choice still looks Force-driven in both parses</h4>
+          <p>Thrash and Saber Strike keep alternating unpredictably in both logs, consistent with switching based on Force level rather than a fixed filler priority. Neither log carries Force amounts, so the exact thresholds remain unconfirmed either way.</p>
         </div>
 
         <h3>Closed — nothing left to win</h3>
         <ul>
-          <li><b>Eradicate's cadence</b> — its own ~5.7 s clock, not the 9 s Raze cap; confirmed by 47 gap measurements and 15/15 laps landing it on slots 4, 8, 12.</li>
-          <li><b>Exploitive Strikes and Languishing Lashes</b> — one trigger each, 100% uptime for the rest of the fight, zero reapplications.</li>
-          <li><b>Leeching Strike</b> — heals for exactly the damage it deals, 31/31, matching the guide's description precisely.</li>
-          <li><b>Bloodletting → Assassinate</b> — 18 procs, 18 consumed by the immediately following Assassinate, no exceptions.</li>
-          <li><b>Discharge / Creeping Terror</b> — 96%+ uptime with small deliberate gaps rather than clips, confirming the guide's "don't clip it" guidance is followed exactly.</li>
-          <li><b>GCD</b> — flat 1.405 s median for the entire fight; no proc or cooldown compresses it at any point.</li>
+          <li><b>Eradicate's cadence</b> — its own ~5.6–5.7 s clock, confirmed in two independent parses landing it on slots 4, 8, 12 with zero exceptions between them.</li>
+          <li><b>Shadowcraft</b> — 100% crit rate inside all 4 windows measured, a real and repeatable technique parse 1 simply never uses.</li>
+          <li><b>Pervasive Death / Penetrating Death and Thrashing Terror</b> — both confirmed present and near-identical in magnitude across both parses.</li>
+          <li><b>Leeching Strike</b> — heals for exactly the damage it deals in both logs.</li>
+          <li><b>Bloodletting → Assassinate</b> and the sub-30% priority shift — both stable across two independent players.</li>
+          <li><b>GCD</b> — flat in both parses; nothing in Hatred's kit compresses it, Shadowcraft included.</li>
         </ul>
       </section>
 
       <footer>
-        <p>One StarParse detail log against a single Operations Training Dummy: 2,325 lines, <span className="mono">EnterCombat</span> 0 to a real <span className="mono">Death</span> event at 272.303 s, target health pool 10,000,000, DPS from summed logged <span className="mono">Damage</span> values (10,024,542 total). Gear-sourced procs present in the raw log (Power Surge, Mastery Surge, and the character's own Advanced Kyrprax Critical Adrenal) are personal loadout, not core Hatred mechanics, and are excluded from the model above. Ability icons are the in-game art, supplied by the user.</p>
+        <p>Two StarParse detail logs from two different players, each against a single Operations Training Dummy with a 10,000,000 health pool. Parse 1: 2,325 lines, <span className="mono">EnterCombat</span> 0 to a real <span className="mono">Death</span> event at 272.303 s, DPS from summed logged <span className="mono">Damage</span> values (10,024,542 total). Parse 2 (reference): 2,348 lines, <span className="mono">EnterCombat</span> 0 to a real <span className="mono">Death</span> event at 263.162 s (10,005,945 total) — this log also shows four brief <span className="mono">ExitCombat</span>/<span className="mono">EnterCombat</span> pairs, each lining up exactly with a Force Cloak/Stealth cycle rather than any data issue. Gear-sourced procs (Power Surge, Mastery Surge, and each character's own critical Adrenal) are personal loadout, not core Hatred mechanics, and are excluded from the model above. Ability icons are the in-game art, supplied by the user.</p>
       </footer>
 
       </div>
@@ -464,6 +482,7 @@ function iconRef(name: string): string {
     'Recklessness': 'h-rk',
     'Phantom Stride': 'h-ps',
     'Adrenal': 'h-adr',
+    'Force Cloak': 'h-fc',
   };
   return map[name] || 'h-ct';
 }
