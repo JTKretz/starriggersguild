@@ -8,6 +8,7 @@ import { Marksmanship } from './pages/Marksmanship'
 import { Sharpshooter } from './pages/Sharpshooter'
 import { Hatred } from './pages/Hatred'
 import { Serenity } from './pages/Serenity'
+import { HatredLeveling } from './pages/HatredLeveling'
 
 export function App() {
   return (
@@ -21,6 +22,7 @@ export function App() {
       <Sharpshooter path="/sharpshooter" />
       <Hatred path="/hatred" />
       <Serenity path="/serenity" />
+      <HatredLeveling path="/hatred-leveling" />
     </Router>
   )
 }
