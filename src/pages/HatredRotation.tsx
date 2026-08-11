@@ -218,14 +218,14 @@ export default function HatredRotation({ theme }: { theme?: 'dark' | 'light' }) 
 
       <div className="mast">
         <p className="eyebrow">Sith Assassin / Hatred · parse 2 as reference · 38,022 DPS</p>
-        <h1>Same fixed clock, one real technique parse 1 never uses</h1>
-        <p className="standfirst">Both parses share the identical <strong>Eradicate 4/8/12</strong> clock and the same fixed Creeping Terror + Discharge open. The DPS gap isn't just variance: parse 2 opens from stealth and re-enters it three more times to trigger <strong>Shadowcraft</strong>, landing four 6-second windows of guaranteed critical hits that parse 1 never touches at all.</p>
+        <h1>Same fixed clock — the rest is a dummy-only trick</h1>
+        <p className="standfirst">Both parses share the identical <strong>Eradicate 4/8/12</strong> clock and the same fixed Creeping Terror + Discharge open. The raw DPS gap isn't a better rotation: parse 2 repeatedly exploits a training-dummy-only quirk in Force Cloak to trigger Shadowcraft's guaranteed-crit window four times. Per the ability guide, Force Cloak doesn't actually exit combat against a real Operations boss — strip the four windows out, and parse 2's real execution runs essentially even with parse 1's clean number, not ahead of it.</p>
         <dl className="facts">
           <div className="fact"><dt>DPS</dt><dd>38,022<span className="was">was: parse 1: 36,814</span></dd></div>
           <div className="fact"><dt>GCD</dt><dd>1.403<small>s</small><span className="was">flat, both parses · was: 1.405 s</span></dd></div>
           <div className="fact"><dt>Macro-cycle</dt><dd>17.09<small>s med</small><span className="was">14 clean laps · was: 17.25 s, 15 laps</span></dd></div>
           <div className="fact"><dt>Eradicate</dt><dd>4 / 8 / 12<small>slots</small><span className="was">confirmed again, zero exceptions</span></dd></div>
-          <div className="fact"><dt>Shadowcraft windows</dt><dd>4<small>× 6s</small><span className="was">100% crit inside · was: parse 1: 0</span></dd></div>
+          <div className="fact"><dt>Unpadded DPS</dt><dd>~35,800<small>excl. 4 windows</small><span className="was">was: parse 1 (clean): 36,814 — not actually ahead</span></dd></div>
           <div className="fact"><dt>Death Field</dt><dd>slot 10<small>always</small><span className="was">was: parse 1: slot 5 — real style difference</span></dd></div>
         </dl>
       </div>
@@ -244,22 +244,21 @@ export default function HatredRotation({ theme }: { theme?: 'dark' | 'light' }) 
         <div className="keyrow"><span className="ic" data-n="Thrash" role="img" aria-label="Thrash"><svg viewBox="0 0 50 50"><use href="#h-th"/></svg></span><div><b>Thrash</b><span>Strong filler · costs more Force than Saber Strike</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Recklessness" role="img" aria-label="Recklessness"><svg viewBox="0 0 50 50"><use href="#h-rk"/></svg></span><div><b>Recklessness</b><span>Off-GCD · 2 charges, consumed by Death Field then Eradicate</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Phantom Stride" role="img" aria-label="Phantom Stride"><svg viewBox="0 0 50 50"><use href="#h-ps"/></svg></span><div><b>Phantom Stride</b><span>Off-GCD gap closer · from stealth, triggers Shadowcraft</span></div></div>
-        <div className="keyrow"><span className="ic" data-n="Force Cloak" role="img" aria-label="Force Cloak"><svg viewBox="0 0 50 50"><use href="#h-fc"/></svg></span><div><b>Force Cloak</b><span>Off-GCD, parse 2 only · vanish, re-enter stealth mid-fight</span></div></div>
+        <div className="keyrow"><span className="ic" data-n="Force Cloak" role="img" aria-label="Force Cloak"><svg viewBox="0 0 50 50"><use href="#h-fc"/></svg></span><div><b>Force Cloak</b><span>Off-GCD, parse 2 only · exits combat on a dummy; not against a real boss (section 03)</span></div></div>
       </div>
       </section>
 
       {/* ===== 01 OPENER ===== */}
       <section>
-        <h2><span className="num">01</span> The opener — from stealth, straight into a guaranteed crit</h2>
-        <p className="lede">Parse 2 starts already in stealth and opens with Phantom Stride into Death Field rather than Eradicate. That single choice lands a 51,207-damage opening hit — nearly five times any other single hit in the fight — because Shadowcraft is active from the very first GCD.</p>
+        <h2><span className="num">01</span> The opener — tagged Stealth, but no Shadowcraft yet</h2>
+        <p className="lede">Parse 2 starts flagged with the Stealth buff at pull, but opens directly with Death Field, not Phantom Stride — so Shadowcraft never triggers here. The 51,207-damage opening hit is a large crit, not a guaranteed one; no Shadowcraft buff is active in the log until 7.143 s, and only after a Force Cloak vanish and re-stealth mid-fight (section 03).</p>
 
         <figure>
-          <svg viewBox="0 0 820 200" role="img" aria-label="Opener: Phantom Stride from stealth at 0.037 seconds triggers Shadowcraft, Death Field lands a 51207 damage critical hit, then Creeping Terror at 1.4 seconds and Discharge at 2.8 seconds, then the first steady cycle from roughly 16 seconds.">
+          <svg viewBox="0 0 820 200" role="img" aria-label="Opener: Death Field cast directly at 0.037 seconds with no Shadowcraft active, then Creeping Terror at 1.4 seconds and Discharge at 2.8 seconds, then a Force Cloak vanish and re-stealth around 6.3 seconds leading into the first real Shadowcraft window at 7.1 seconds, covered in section 03.">
             <g className="sv-num" style={{ textAnchor: 'middle' }}>
               <text x="40" y="30">0.0</text><text x="220" y="30">1.4</text><text x="420" y="30">2.8</text><text x="620" y="30">4.3</text><text x="760" y="30">16.1</text>
             </g>
-            <g><title>Phantom Stride (from stealth, triggers Shadowcraft)</title><use href="#h-ps" x="16" y="46" width="30" height="30"/></g>
-            <g><title>Death Field (51,207 damage, guaranteed crit)</title><use href="#h-df" x="60" y="34" width="50" height="50"/></g>
+            <g><title>Death Field (51,207 damage — a large crit, but no Shadowcraft active yet)</title><use href="#h-df" x="16" y="34" width="50" height="50"/></g>
             <g><title>Creeping Terror</title><use href="#h-ct" x="230" y="40" width="40" height="40"/></g>
             <g><title>Discharge</title><use href="#h-dc" x="410" y="40" width="40" height="40"/></g>
             <g><title>Bloodletting proc, off the Creeping Terror tick</title><use href="#h-as" x="610" y="46" width="26" height="26"/></g>
@@ -267,9 +266,10 @@ export default function HatredRotation({ theme }: { theme?: 'dark' | 'light' }) 
             <text className="sv-label" x="700" y="158" style={{ textAnchor: 'middle' }} fill="var(--brass)">first steady cycle starts here</text>
             <g className="sv-note">
               <text x="16" y="180">The very next GCD after Death Field is Creeping Terror, not another attack — the DoTs still go down early, opener or not</text>
+              <text x="16" y="196">The first real Shadowcraft window opens at 7.143 s, right after a Force Cloak vanish at 6.26 s — see section 03</text>
             </g>
           </svg>
-          <figcaption>Timestamps: Phantom Stride 0.037 (from stealth) · Death Field 0.037 (51,207 damage) · Creeping Terror 1.397 · Discharge 2.798 · Bloodletting procs at 4.315 (off the Creeping Terror tick) · Assassinate 7.465 · Eradicate 8.851, inside the first Shadowcraft window (section 03). Parse 1 opens with Eradicate instead, from full Force, with no stealth and no Shadowcraft — see the original opener sequence preserved in the footer.</figcaption>
+          <figcaption>Timestamps: Death Field 0.037 (51,207 damage, no Shadowcraft active) · Creeping Terror 1.397 · Discharge 2.798 · Bloodletting procs at 4.315 (off the Creeping Terror tick) · Force Cloak 6.260 → Stealth 6.262 → Phantom Stride 7.143, the first genuine Shadowcraft trigger · Assassinate 7.465 · Eradicate 8.851, inside that first window (section 03). Parse 1 opens with Eradicate instead, from full Force, with no stealth and no Shadowcraft — see the original opener sequence preserved in the footer.</figcaption>
         </figure>
       </section>
 
@@ -347,15 +347,15 @@ export default function HatredRotation({ theme }: { theme?: 'dark' | 'light' }) 
         </div>
 
         <div className="call fix">
-          <h4>Leeching Strike: on cooldown, with one exception</h4>
-          <p>Delaying it for a third DoT stack isn't worth it — a GCD held back can cost a whole extra use later. The one real exception is a Shadowcraft window: since Leeching Strike heals for as much as it damages, landing it inside a guaranteed-crit window doubles both halves at once. See section 03 — all four windows in parse 2 catch at least one.</p>
+          <h4>Leeching Strike: on cooldown, with one exception — if you actually get it</h4>
+          <p>Delaying it for a third DoT stack isn't worth it — a GCD held back can cost a whole extra use later. The one real exception is a Shadowcraft window: since Leeching Strike heals for as much as it damages, landing it inside a guaranteed-crit window doubles both halves at once. All four windows in parse 2 catch at least one — but per section 03, three of those four windows depend on a training-dummy-only exploit. The one legitimate version of this exception is a real pre-pull stealth opener (Phantom Stride into combat), not a mid-fight repeat.</p>
         </div>
       </section>
 
       {/* ===== 03 SHADOWCRAFT ===== */}
       <section>
-        <h2><span className="num">03</span> The real improvement: four guaranteed-crit windows</h2>
-        <p className="lede">Parse 2 re-enters stealth four times mid-fight — Force Cloak to vanish, then Phantom Stride back onto the target — to trigger Shadowcraft, which the ability guide describes as "increases your critical chance by 100% for 6 seconds." Parse 1 never does this once. This is the single largest mechanical difference between the two parses.</p>
+        <h2><span className="num">03</span> Correction: the DPS gap is a dummy-only exploit, not a technique</h2>
+        <p className="lede">Parse 2 re-enters stealth four times over the fight — Force Cloak to vanish, then Phantom Stride back onto the target — to trigger Shadowcraft, "increases your critical chance by 100% for 6 seconds" per the ability guide. But the guide also says this, specifically about Force Cloak: <b>"Force Cloak now behaves differently in Operations. It still drops your threat to 0, you just don't actually exit combat anymore."</b> Against a real boss, none of this works — you can't re-enter stealth mid-fight if you never left combat. All four windows measured here depend on the training dummy letting Force Cloak do something it can't do in a real Operations pull.</p>
 
         <div className="tw">
         <table>
@@ -369,12 +369,17 @@ export default function HatredRotation({ theme }: { theme?: 'dark' | 'light' }) 
         </table>
         </div>
 
-        <div className="call fix">
-          <h4>83 for 83 crits inside the windows; 561 of 776 (72.3%) outside them</h4>
-          <p>Every single damage instance inside the four Shadowcraft windows crit — 83 out of 83, measured directly from the <code>*</code> crit marker in the log. Outside the windows, the crit rate drops to a still-healthy 72.3%, which is the character's normal baseline. The four windows total 24.3 seconds — 9.2% of the fight — but at 1.5–1.75× the fight's average DPS each, they answer the question directly: part of parse 2's higher number is a real, repeatable technique, not just favorable rolls.</p>
+        <div className="call flag">
+          <h4>Confirmed directly: the dummy actually exits combat; a real boss wouldn't let it</h4>
+          <p>Each of the four Force Cloak uses lines up exactly with a brief <code>ExitCombat</code> / <code>EnterCombat</code> pair in the raw log — the training dummy really did drop combat state each time, which is exactly the pre-Operations behavior the guide says no longer applies to a real boss fight. Every single damage instance inside the four windows crit (83 of 83), against a 72.3% baseline outside them — the mechanism is real and correctly measured. What it isn't is repeatable in the content this discipline is actually played in.</p>
         </div>
 
-        <p style={{ marginTop: '16px' }}>Each window opens the same way: Phantom Stride, then Assassinate immediately (Bloodletting is always already up by the time the player re-engages), then Eradicate, then Leeching Strike — a deliberate burst sequence, not a coincidence of normal priority. Leeching Strike in particular lands inside all four windows, twice in three of them — worth holding a GCD for, since a guaranteed crit doubles both its damage and its self-heal (section 02).</p>
+        <div className="call">
+          <h4>What parse 2 looks like with the exploit removed</h4>
+          <p>Stripping out both the damage and the time from all four windows: 8,559,168 damage over the remaining 238.90 s of the fight — <b>≈35,800 DPS</b>. Parse 1, which never touches this mechanic at all, ran the entire fight at a clean <b>36,814 DPS</b>. Once the padding is removed, parse 2's real execution is not ahead of parse 1 — if anything it's marginally behind. Nothing else examined on this page (Death Field's slot, the filler mix, GCD pacing) shows a genuine improvement once the exploit is set aside; the whole apparent DPS gap between the two parses was the four windows.</p>
+        </div>
+
+        <p style={{ marginTop: '16px' }}>Each window still opens the same deliberate way — Phantom Stride, then Assassinate immediately (Bloodletting is always already up by the time the player re-engages), then Eradicate, then Leeching Strike, which lands inside all four windows and twice in three of them. That sequencing is real skill; the setup that creates the opportunity for it is not something a real boss fight allows.</p>
       </section>
 
       {/* ===== 04 CORRECTIONS ===== */}
@@ -424,7 +429,7 @@ export default function HatredRotation({ theme }: { theme?: 'dark' | 'light' }) 
         <p className="lede">All measured from effect apply/remove and AbilityActivate events. Parse 2 values shown; parse 1 matches on every shared metric.</p>
         <div className="meters">
           <div className="meter"><span className="lbl">Eradicate landing on cycle slots 4 / 8 / 12</span><span className="val">14 / 14<span className="was">was: 15/15</span></span><span className="track"><span className="fill" style={{ width: '100%' }}></span></span></div>
-          <div className="meter"><span className="lbl">Shadowcraft windows landing 100% crit</span><span className="val">4 / 4<span className="was">was: 0 — mechanic unused in parse 1</span></span><span className="track"><span className="fill" style={{ width: '100%' }}></span></span></div>
+          <div className="meter"><span className="lbl">Shadowcraft windows landing 100% crit (dummy-only, section 03)</span><span className="val">4 / 4<span className="was">was: 0 — mechanic unused in parse 1</span></span><span className="track"><span className="fill" style={{ width: '100%' }}></span></span></div>
           <div className="meter"><span className="lbl">Discharge uptime — deliberate small gaps, zero clips</span><span className="val">96.6%<span className="was">was: 96.1%</span></span><span className="track"><span className="fill" style={{ width: '96.6%' }}></span></span></div>
           <div className="meter"><span className="lbl">Creeping Terror uptime — deliberate small gaps, zero clips</span><span className="val">97.0%<span className="was">was: 96.8%</span></span><span className="track"><span className="fill" style={{ width: '97.0%' }}></span></span></div>
           <div className="meter"><span className="lbl">Penetrating Death applied off every Death Field cast</span><span className="val">16 / 16<span className="was">was: 16/16</span></span><span className="track"><span className="fill" style={{ width: '100%' }}></span></span></div>
@@ -502,7 +507,7 @@ export default function HatredRotation({ theme }: { theme?: 'dark' | 'light' }) 
         <h3>Closed — nothing left to win</h3>
         <ul>
           <li><b>Eradicate's cadence</b> — its own ~5.6–5.7 s clock, confirmed in two independent parses landing it on slots 4, 8, 12 with zero exceptions between them.</li>
-          <li><b>Shadowcraft</b> — 100% crit rate inside all 4 windows measured, a real and repeatable technique parse 1 simply never uses.</li>
+          <li><b>Shadowcraft</b> — 100% crit rate inside all 4 windows measured, but confirmed dummy-only: it depends on Force Cloak exiting combat, which the ability guide says doesn't happen against a real boss. Parse 2's real, unpadded execution isn't actually ahead of parse 1's.</li>
           <li><b>Pervasive Death / Penetrating Death and Thrashing Terror</b> — both confirmed present and near-identical in magnitude across both parses.</li>
           <li><b>Leeching Strike</b> — heals for exactly the damage it deals in both logs.</li>
           <li><b>Bloodletting → Assassinate</b> and the sub-30% priority shift — both stable across two independent players.</li>
