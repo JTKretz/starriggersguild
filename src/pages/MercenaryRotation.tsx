@@ -440,6 +440,13 @@ export default function MercenaryRotation({ theme }: { theme?: 'dark' | 'light' 
           <p>That same parse fired a full Unload channel — both remaining flex slots at once — four times mid-fight, always with no Volatile Warhead proc up. Average damage across those four channels: <b>~56,000</b>, against roughly <b>~31,000</b> for what two ordinary proc-less fillers (Rapid Shots + Power Shot) would have done in the same window. Only one of the four coincides with a Vent Heat cast at all, and even that one lands at the exact instant Unload's channel finishes rather than before it starts (section 09) — this player pays the heat cost mostly unassisted. Unload still contributes 0 Supercharge — this doesn't change the cap math above — but as a pure damage fallback for a proc-down cycle, it beats the filler table's other two picks.</p>
         </div>
 
+        <div className="call">
+          <h4>How far does "use Unload more" actually go?</h4>
+          <p>Since Supercharge is a running total rather than a per-cycle budget, the right way to model heavier Unload use is: how much total generation would it remove from the fight, since total generation ÷ 10 ≈ total pops. Parse 3 generated 190 Supercharge points across 18 pops (180 consumed, ~10 leftover at death) — so removing 10 points of generation costs roughly <b>one pop</b>, worth about <b>121,000 damage</b> (Supercharged Burn is 21.8% of this parse's total).</p>
+          <p>The five cycles in the parse 3 grid (section 08) whose flex pair never sees a Missile Blast at all — rows 2, 3, 4, 12, 14 — generate <b>147,768</b> combined damage from ordinary fillers and <b>+10</b> Supercharge. Swap all five for Unload (avg 56,053 each): <b>280,265</b> damage, 0 Supercharge. Direct gain +132,497, against roughly one lost pop (−121,077). <b>Net: +11,420 over the whole fight</b> — a wash, well inside the crit-variance range already visible across the four real Unload instances.</p>
+          <p>Extend the swap into cycles that <em>do</em> have a Missile Blast available (ten more rows), and the math flips hard: about +130,000 direct gain, but 30 Supercharge points lost — roughly three pops, −363,000. <b>Net: roughly −233,000.</b> There's a real but narrow ceiling on "use Unload more" — it costs almost nothing right up until it starts displacing an actual proc'd Missile Blast, at which point it's a clear loss.</p>
+        </div>
+
         <div className="call fix">
           <h4>Excess procs cost nothing to defer</h4>
           <p>Supply reached three procs in one cycle exactly once. Parse 2, cycle 18: three generated, <b>two Missile Blasts fired</b>, the third carried into cycle 19 — which then fired two while generating only one of its own.</p>
