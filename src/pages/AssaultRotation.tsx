@@ -199,7 +199,7 @@ export default function AssaultRotation({ theme }: { theme?: 'dark' | 'light' })
       <div className="wrap">
 
       <div className="mast">
-        <p className="eyebrow">Commando / Assault Specialist · parse 2 as reference · 33,394 DPS</p>
+        <p className="eyebrow">Commando / Assault Specialist · parse 2 walkthrough · 33,394 DPS reference, 35,067 best (parse 3)</p>
         <h1>The rotation, and what it costs</h1>
         <p className="standfirst">An 11-GCD opener, then a <strong>ten-GCD cycle anchored on Incendiary Round</strong> repeated twenty times. Seven slots are locked. Three are yours.</p>
         <dl className="facts">
@@ -209,6 +209,7 @@ export default function AssaultRotation({ theme }: { theme?: 'dark' | 'light' })
           <div className="fact"><dt>Cycle</dt><dd>14.21<small>s med</small><span className="was">10 GCDs = 14.015</span></dd></div>
           <div className="fact"><dt>DoT uptime</dt><dd>100<small>%</small><span className="was">all five, zero gaps</span></dd></div>
           <div className="fact"><dt>Procs used</dt><dd>27/27<span className="was">none wasted</span></dd></div>
+          <div className="fact"><dt>Parse 3</dt><dd>35,067<span className="was">best seen — corrects §03's math</span></dd></div>
         </dl>
       </div>
 
@@ -223,7 +224,7 @@ export default function AssaultRotation({ theme }: { theme?: 'dark' | 'light' })
         <div className="keyrow"><span className="ic" data-n="Assault Plastique" role="img" aria-label="Assault Plastique"><svg viewBox="0 0 50 50"><use href="#i-ap"/></svg></span><div><b>Assault Plastique</b><span>Anchor · on cooldown</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Explosive Round" role="img" aria-label="Explosive Round"><svg viewBox="0 0 50 50"><use href="#i-er"/></svg></span><div><b>Explosive Round</b><span>Best filler · +2 Supercharge</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Hammer Shot" role="img" aria-label="Hammer Shot"><svg viewBox="0 0 50 50"><use href="#i-hs"/></svg></span><div><b>Hammer Shot</b><span>Energy breather · free</span></div></div>
-        <div className="keyrow"><span className="ic" data-n="Full Auto" role="img" aria-label="Full Auto"><svg viewBox="0 0 50 50"><use href="#i-fa"/></svg></span><div><b>Full Auto</b><span>Opener only · 2 GCDs</span></div></div>
+        <div className="keyrow"><span className="ic" data-n="Full Auto" role="img" aria-label="Full Auto"><svg viewBox="0 0 50 50"><use href="#i-fa"/></svg></span><div><b>Full Auto</b><span>Opener, plus a proc-down fallback · 2 GCDs</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Electro Net" role="img" aria-label="Electro Net"><svg viewBox="0 0 50 50"><use href="#i-en"/></svg></span><div><b>Electro Net</b><span>Cooldown · 84.55 s</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Supercharged Cell" role="img" aria-label="Supercharged Cell"><svg viewBox="0 0 50 50"><use href="#i-scc"/></svg></span><div><b>Supercharged Cell</b><span>Off-GCD · needs 10 stacks</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Recharge Cells" role="img" aria-label="Recharge Cells"><svg viewBox="0 0 50 50"><use href="#i-rc"/></svg></span><div><b>Recharge Cells</b><span>Off-GCD · energy reset</span></div></div>
@@ -352,11 +353,11 @@ export default function AssaultRotation({ theme }: { theme?: 'dark' | 'light' })
         <table>
           <thead><tr><th className="n">#</th><th colSpan={2}>Filler</th><th className="n">SC</th><th>Condition</th></tr></thead>
           <tbody>
-            <tr className="hi"><td className="n">1</td><td className="icc"><span className="ic" data-n="Explosive Round" role="img" aria-label="Explosive Round"><svg viewBox="0 0 50 50"><use href="#i-er"/></svg></span></td><td>Explosive Round</td><td className="n">+2</td><td>Whenever Hyper Assault Rounds is up. <strong>Maximum two per cycle.</strong></td></tr>
+            <tr className="hi"><td className="n">1</td><td className="icc"><span className="ic" data-n="Explosive Round" role="img" aria-label="Explosive Round"><svg viewBox="0 0 50 50"><use href="#i-er"/></svg></span></td><td>Explosive Round</td><td className="n">+2</td><td>Whenever Hyper Assault Rounds is up. <strong>Maximum two per cycle</strong> — landing even one already covers most of the flex requirement once Serrated Bolt's own Supercharge is counted (section 03).</td></tr>
             <tr><td className="n">2</td><td className="icc"><span className="ic" data-n="Charged Bolts" role="img" aria-label="Charged Bolts"><svg viewBox="0 0 50 50"><use href="#i-cb"/></svg></span></td><td>Charged Bolts</td><td className="n">+1</td><td>The remaining slot, whenever energy can fund it.</td></tr>
             <tr><td className="n">3</td><td className="icc"><span className="ic" data-n="Hammer Shot" role="img" aria-label="Hammer Shot"><svg viewBox="0 0 50 50"><use href="#i-hs"/></svg></span></td><td>Hammer Shot</td><td className="n">+1</td><td>The energy breather. Free, and keeps you out of the low regeneration tier.</td></tr>
             <tr className="no"><td className="n">—</td><td className="icc"><span className="ic" data-n="Electro Net" role="img" aria-label="Electro Net"><svg viewBox="0 0 50 50"><use href="#i-en"/></svg></span></td><td>Electro Net</td><td className="n">0</td><td>On cooldown (84.55 s) only. Take the Hammer Shot slot, never an Explosive Round.</td></tr>
-            <tr className="no"><td className="n">—</td><td className="icc"><span className="ic" data-n="Full Auto" role="img" aria-label="Full Auto"><svg viewBox="0 0 50 50"><use href="#i-fa"/></svg></span></td><td>Full Auto</td><td className="n">0</td><td>Opener only. Two GCDs for zero Supercharge.</td></tr>
+            <tr><td className="n">4</td><td className="icc"><span className="ic" data-n="Full Auto" role="img" aria-label="Full Auto"><svg viewBox="0 0 50 50"><use href="#i-fa"/></svg></span></td><td>Full Auto</td><td className="n">0</td><td>Opener, or as a fallback when Hyper Assault Rounds is down for both remaining flex slots at once — outdamages two ordinary proc-less fillers combined (section 03). Pair with Recharge Cells for the cost.</td></tr>
           </tbody>
         </table>
         </div>
@@ -364,11 +365,11 @@ export default function AssaultRotation({ theme }: { theme?: 'dark' | 'light' })
 
       {/* ===== 03 TWO-ER CEILING ===== */}
       <section>
-        <h2><span className="num">03</span> Why two Explosive Rounds, never three</h2>
-        <p className="lede">Energy is the obvious limit. The Supercharge cap is the one that makes it unambiguous.</p>
+        <h2><span className="num">03</span> Correction: the locked total is six, not five</h2>
+        <p className="lede">A third parse — 35,067 DPS, the best of the three — reaches the Supercharge cap in 18 of 20 cycles instead of 8. It isn't landing more Explosive Rounds. It's that Serrated Bolt generates a stack of its own, which this section's math never counted.</p>
 
         <figure>
-          <svg viewBox="0 0 820 262" role="img" aria-label="Four filler combinations as stacked bars against the ten-stack cap. Three Explosive Rounds reaches eleven and wastes one. Two Explosive Rounds plus Hammer Shot or Charged Bolts reaches exactly ten. One Explosive Round reaches only nine.">
+          <svg viewBox="0 0 820 262" role="img" aria-label="Four filler combinations as stacked bars against the ten-stack cap, now including Serrated Bolt's own contribution. Three Explosive Rounds reaches twelve and wastes two. Two Explosive Rounds plus Hammer Shot or Charged Bolts reaches eleven and wastes one. One Explosive Round plus two cheap fillers reaches exactly ten.">
             <line x1="680" y1="20" x2="680" y2="218" stroke="var(--brass)" strokeWidth="1.5" strokeDasharray="4 3"/>
             <text className="sv-label" x="680" y="14" textAnchor="middle" fill="var(--brass)">cap = 10</text>
 
@@ -385,37 +386,48 @@ export default function AssaultRotation({ theme }: { theme?: 'dark' | 'light' })
             <g><title>Hammer Shot</title><use href="#i-hs" x="64" y="184" width="26" height="26"/></g>
             <g><title>Hammer Shot</title><use href="#i-hs" x="94" y="184" width="26" height="26"/></g>
 
-            <rect x="150" y="28" width="265" height="26" fill="currentColor" opacity=".2"/>
-            <rect x="415" y="28" width="106" height="26" fill="var(--er-f)"/>
-            <rect x="521" y="28" width="106" height="26" fill="var(--er-f)"/>
-            <rect x="627" y="28" width="106" height="26" fill="var(--er-f)"/>
-            <rect x="680" y="28" width="53" height="26" fill="var(--bad)" opacity=".62"/>
-            <text className="sv-numb" x="742" y="46" fill="var(--bad)">11</text>
+            <rect x="150" y="28" width="318" height="26" fill="currentColor" opacity=".2"/>
+            <rect x="468" y="28" width="106" height="26" fill="var(--er-f)"/>
+            <rect x="574" y="28" width="106" height="26" fill="var(--er-f)"/>
+            <rect x="680" y="28" width="106" height="26" fill="var(--bad)" opacity=".62"/>
+            <text className="sv-numb" x="800" y="46" fill="var(--bad)">12</text>
 
-            <rect x="150" y="80" width="265" height="26" fill="currentColor" opacity=".2"/>
-            <rect x="415" y="80" width="106" height="26" fill="var(--er-f)"/>
-            <rect x="521" y="80" width="106" height="26" fill="var(--er-f)"/>
-            <rect x="627" y="80" width="53" height="26" fill="var(--hs-f)"/>
-            <text className="sv-numb" x="742" y="98" fill="var(--good)">10</text>
+            <rect x="150" y="80" width="318" height="26" fill="currentColor" opacity=".2"/>
+            <rect x="468" y="80" width="106" height="26" fill="var(--er-f)"/>
+            <rect x="574" y="80" width="106" height="26" fill="var(--er-f)"/>
+            <rect x="680" y="80" width="53" height="26" fill="var(--bad)" opacity=".62"/>
+            <text className="sv-numb" x="745" y="98" fill="var(--bad)">11</text>
 
-            <rect x="150" y="132" width="265" height="26" fill="currentColor" opacity=".2"/>
-            <rect x="415" y="132" width="106" height="26" fill="var(--er-f)"/>
-            <rect x="521" y="132" width="106" height="26" fill="var(--er-f)"/>
-            <rect x="627" y="132" width="53" height="26" fill="var(--cb-f)"/>
-            <text className="sv-numb" x="742" y="150" fill="var(--good)">10</text>
+            <rect x="150" y="132" width="318" height="26" fill="currentColor" opacity=".2"/>
+            <rect x="468" y="132" width="106" height="26" fill="var(--er-f)"/>
+            <rect x="574" y="132" width="106" height="26" fill="var(--er-f)"/>
+            <rect x="680" y="132" width="53" height="26" fill="var(--bad)" opacity=".62"/>
+            <text className="sv-numb" x="745" y="150" fill="var(--bad)">11</text>
 
-            <rect x="150" y="184" width="265" height="26" fill="currentColor" opacity=".2"/>
-            <rect x="415" y="184" width="106" height="26" fill="var(--er-f)"/>
-            <rect x="521" y="184" width="53" height="26" fill="var(--hs-f)"/>
+            <rect x="150" y="184" width="318" height="26" fill="currentColor" opacity=".2"/>
+            <rect x="468" y="184" width="106" height="26" fill="var(--er-f)"/>
             <rect x="574" y="184" width="53" height="26" fill="var(--hs-f)"/>
-            <text className="sv-numb" x="742" y="202">9</text>
+            <rect x="627" y="184" width="53" height="26" fill="var(--hs-f)"/>
+            <text className="sv-numb" x="694" y="202" fill="var(--good)">10</text>
 
-            <text className="sv-note" x="282" y="46" textAnchor="middle">locked slots = 5</text>
-            <text className="sv-note" x="706" y="70" textAnchor="middle" fill="var(--bad)">1 wasted</text>
-            <text className="sv-label" x="150" y="244">Grey = Assault Plastique 3 + Charged Bolts 1 + Charged Bolts 1</text>
+            <text className="sv-note" x="309" y="46" textAnchor="middle">locked slots = 6</text>
+            <text className="sv-note" x="733" y="70" textAnchor="middle" fill="var(--bad)">2 wasted</text>
+            <text className="sv-label" x="150" y="244">Grey = Assault Plastique 3 + Charged Bolts 1 + Charged Bolts 1 + Serrated Bolt 1</text>
           </svg>
-          <figcaption>A third Explosive Round pushes the cycle to <b>11 stacks against a cap of 10</b> — you pay the most expensive filler's energy for one usable stack, and lose the free slot that lets energy recover. <b>Two Explosive Rounds plus one cheap filler is the only combination landing exactly on 10.</b></figcaption>
+          <figcaption>Counting Serrated Bolt's own Supercharge stack, the locked total is <b>6</b>, not 5 — Assault Plastique 3, one Charged Bolts each on the two fixed casts, and Serrated Bolt's own 1. A single Explosive Round plus two ordinary fillers now lands exactly on <b>10</b>; a second Explosive Round already reaches the cap alone, and anything cast after that just overflows. <b>Two Explosive Rounds is the ceiling worth avoiding now, not the target to aim for.</b></figcaption>
         </figure>
+
+        <div className="call flag">
+          <h4>What this overturned</h4>
+          <p>Every reading above assumed Serrated Bolt's DoT recast was a zero-Supercharge action, like Incendiary Round. It isn't. Tracing the raw Supercharge stack counter in a third, higher parse (35,067 DPS) against the damage event landing at that instant shows Serrated Bolt granting exactly <b>+1 Supercharge on every measured cast</b> — clean, no exceptions.</p>
+          <p>It's also the reason that parse pops Supercharged Cell in <b>18 of 20 cycles (90%)</b> against this page's reference parse's 8 of 20 (40%) — despite averaging <em>fewer</em> Explosive Rounds per cycle, not more. The Supercharged Cell burn is that parse's single largest damage source, 21.8% of total damage, which makes this the biggest lever in the whole rotation.</p>
+          <p>Whether the two original parses show the same Serrated Bolt tick is worth checking directly — their raw logs weren't available to re-verify here (see section 09). If they do, this section's math has undercounted since the page's first draft.</p>
+        </div>
+
+        <div className="call">
+          <h4>A fifth option: Full Auto when the proc is down</h4>
+          <p>That same parse fired a full Full Auto channel — both remaining flex slots at once — four times mid-fight, always with no Hyper Assault Rounds proc up. Average damage across those four channels: <b>~56,000</b>, against roughly <b>~31,000</b> for what two ordinary proc-less fillers (Hammer Shot + Charged Bolts) would have done in the same window. Each was paired with a Recharge Cells shortly after to cover the cost. Full Auto still contributes 0 Supercharge — this doesn't change the cap math above — but as a pure damage fallback for a proc-down cycle, it beats the filler table's other two picks.</p>
+        </div>
 
         <div className="call fix">
           <h4>Excess procs cost nothing to defer</h4>
@@ -666,19 +678,26 @@ export default function AssaultRotation({ theme }: { theme?: 'dark' | 'light' })
           <p>Median 1.503 s against a 1.370 s floor already hit in this parse. About 2 GCDs.</p>
         </div>
 
+        <div className="call flag">
+          <h4>4 · Does Serrated Bolt's Supercharge tick apply to parses 1 and 2?</h4>
+          <p>Confirmed directly in a third parse (35,067 DPS): every Serrated Bolt cast grants +1 Supercharge, no exceptions (section 03). The original two parses' raw logs weren't available to re-check this. If they show the same tick, section 03's "5 locked" model has been under-counting since this page's first draft; if they don't, something about the third parse's gear or tactical is generating Supercharge Serrated Bolt normally doesn't.</p>
+        </div>
+
         <h3>Closed — nothing left to win</h3>
         <ul>
-          <li><b>Hyper Assault Rounds</b> — 27 procs, 27 Explosive Rounds, none wasted, none expired.</li>
+          <li><b>Hyper Assault Rounds</b> — 27 procs, 27 Explosive Rounds, none wasted, none expired. Confirmed again in a third parse: 24/24.</li>
           <li><b>Ionic Accelerator</b> — 42 of 43 Mag Bolts free; the dead zone never entered in either parse.</li>
           <li><b>Blazing Celerity</b> — 21 procs, all 21 on Charged Bolts. The documented desync never happened.</li>
           <li><b>DoT uptime</b> — 100% on all five, from effect events.</li>
           <li><b>Electro Net</b> — true cooldown 84.551 s; the best interval in the parse was 84.551 s.</li>
           <li><b>Cycle structure</b> — every cycle in both parses maps onto the same ten-GCD spine.</li>
+          <li><b>Full Auto as a proc-down fallback</b> — confirmed in a third parse: a full channel outdamages two ordinary fillers when Hyper Assault Rounds has no proc up (~56,000 vs ~31,000), paired with Recharge Cells for the energy cost (section 03).</li>
+          <li><b>Opener Adrenal</b> — the third parse fires an offensive Adrenal off-GCD in the opener, reused ~193 s later. Pure cooldown access, not a rotation decision, but worth slotting into your own opener if you have one available.</li>
         </ul>
       </section>
 
       <footer>
-        <p>Ability icons are the in-game art, supplied by the user. Parse 2 detail log: 2,870 events, 245 activations, EnterCombat 0 to ExitCombat 299.451 s, Operations Training Dummy at 10,000,000 HP, death 299.472 s. Parse 1: 241 events, 220 on‑GCD, span 321.81 s, assumed to share parse 2's gear and therefore its 7.02% alacrity. Cycles anchored on Incendiary Round; Supercharged Cell, Recharge Cells and the attack adrenal treated as off‑GCD; Full Auto budgeted at two GCDs. Supercharge totals are anchor-dependent — the same parse measured from Assault Plastique gives 9 of 20 rather than 8. Alacrity derived from five mechanics with known base values, the four 15 s probes agreeing to within 0.004. Energy amounts appear in neither log — only Spend and Restore events — so no energy simulation is attempted. Recharge Cells' cooldown is inferred from one interval and is worth confirming in game.</p>
+        <p>Ability icons are the in-game art, supplied by the user. Parse 2 detail log: 2,870 events, 245 activations, EnterCombat 0 to ExitCombat 299.451 s, Operations Training Dummy at 10,000,000 HP, death 299.472 s. Parse 3: 2,855 events, 220 activations, EnterCombat 0 to Death 285.153 s, same 10,000,000 HP dummy, 35,067 DPS — supplied the Serrated Bolt Supercharge correction and the Full Auto-fallback finding in section 03 and the closed list in section 09, traced by matching the raw Supercharge stack counter to the damage event landing at each instant. Parse 1: 241 events, 220 on‑GCD, span 321.81 s, assumed to share parse 2's gear and therefore its 7.02% alacrity. Cycles anchored on Incendiary Round; Supercharged Cell, Recharge Cells and the attack adrenal treated as off‑GCD; Full Auto budgeted at two GCDs. Supercharge totals are anchor-dependent — the same parse measured from Assault Plastique gives 9 of 20 rather than 8. Alacrity derived from five mechanics with known base values, the four 15 s probes agreeing to within 0.004. Energy amounts appear in neither log — only Spend and Restore events — so no energy simulation is attempted. Recharge Cells' cooldown is inferred from one interval and is worth confirming in game.</p>
       </footer>
 
       </div>

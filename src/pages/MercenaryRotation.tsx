@@ -199,7 +199,7 @@ export default function MercenaryRotation({ theme }: { theme?: 'dark' | 'light' 
       <div className="wrap">
 
       <div className="mast">
-        <p className="eyebrow">Mercenary / Innovative Ordnance · parse 2 as reference · 33,394 DPS</p>
+        <p className="eyebrow">Mercenary / Innovative Ordnance · parse 2 walkthrough · 33,394 DPS reference, 35,067 best (parse 3)</p>
         <h1>The rotation, and what it costs</h1>
         <p className="standfirst">An 11-GCD opener, then a <strong>ten-GCD cycle anchored on Incendiary Missile</strong> repeated twenty times. Seven slots are locked. Three are yours.</p>
         <dl className="facts">
@@ -209,6 +209,7 @@ export default function MercenaryRotation({ theme }: { theme?: 'dark' | 'light' 
           <div className="fact"><dt>Cycle</dt><dd>14.21<small>s med</small><span className="was">10 GCDs = 14.015</span></dd></div>
           <div className="fact"><dt>DoT uptime</dt><dd>100<small>%</small><span className="was">all five, zero gaps</span></dd></div>
           <div className="fact"><dt>Procs used</dt><dd>27/27<span className="was">none wasted</span></dd></div>
+          <div className="fact"><dt>Parse 3</dt><dd>35,067<span className="was">best seen — corrects §03's math</span></dd></div>
         </dl>
       </div>
 
@@ -223,7 +224,7 @@ export default function MercenaryRotation({ theme }: { theme?: 'dark' | 'light' 
         <div className="keyrow"><span className="ic" data-n="Thermal Detonator" role="img" aria-label="Thermal Detonator"><svg viewBox="0 0 50 50"><use href="#i-ap"/></svg></span><div><b>Thermal Detonator</b><span>Anchor · on cooldown</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Missile Blast" role="img" aria-label="Missile Blast"><svg viewBox="0 0 50 50"><use href="#i-er"/></svg></span><div><b>Missile Blast</b><span>Best filler · +2 Supercharge</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Rapid Shots" role="img" aria-label="Rapid Shots"><svg viewBox="0 0 50 50"><use href="#i-hs"/></svg></span><div><b>Rapid Shots</b><span>Heat breather · free</span></div></div>
-        <div className="keyrow"><span className="ic" data-n="Unload" role="img" aria-label="Unload"><svg viewBox="0 0 50 50"><use href="#i-fa"/></svg></span><div><b>Unload</b><span>Opener only · 2 GCDs</span></div></div>
+        <div className="keyrow"><span className="ic" data-n="Unload" role="img" aria-label="Unload"><svg viewBox="0 0 50 50"><use href="#i-fa"/></svg></span><div><b>Unload</b><span>Opener, plus a proc-down fallback · 2 GCDs</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Electro Net" role="img" aria-label="Electro Net"><svg viewBox="0 0 50 50"><use href="#i-en"/></svg></span><div><b>Electro Net</b><span>Cooldown · 84.55 s</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Supercharged Gas" role="img" aria-label="Supercharged Gas"><svg viewBox="0 0 50 50"><use href="#i-scc"/></svg></span><div><b>Supercharged Gas</b><span>Off-GCD · needs 10 stacks</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Vent Heat" role="img" aria-label="Vent Heat"><svg viewBox="0 0 50 50"><use href="#i-rc"/></svg></span><div><b>Vent Heat</b><span>Off-GCD · heat reset</span></div></div>
@@ -352,11 +353,11 @@ export default function MercenaryRotation({ theme }: { theme?: 'dark' | 'light' 
         <table>
           <thead><tr><th className="n">#</th><th colSpan={2}>Filler</th><th className="n">SC</th><th>Condition</th></tr></thead>
           <tbody>
-            <tr className="hi"><td className="n">1</td><td className="icc"><span className="ic" data-n="Missile Blast" role="img" aria-label="Missile Blast"><svg viewBox="0 0 50 50"><use href="#i-er"/></svg></span></td><td>Missile Blast</td><td className="n">+2</td><td>Whenever Volatile Warhead is up. <strong>Maximum two per cycle.</strong></td></tr>
+            <tr className="hi"><td className="n">1</td><td className="icc"><span className="ic" data-n="Missile Blast" role="img" aria-label="Missile Blast"><svg viewBox="0 0 50 50"><use href="#i-er"/></svg></span></td><td>Missile Blast</td><td className="n">+2</td><td>Whenever Volatile Warhead is up. <strong>Maximum two per cycle</strong> — landing even one already covers most of the flex requirement once Serrated Shot's own Supercharge is counted (section 03).</td></tr>
             <tr><td className="n">2</td><td className="icc"><span className="ic" data-n="Power Shot" role="img" aria-label="Power Shot"><svg viewBox="0 0 50 50"><use href="#i-cb"/></svg></span></td><td>Power Shot</td><td className="n">+1</td><td>The remaining slot, whenever heat allows it.</td></tr>
             <tr><td className="n">3</td><td className="icc"><span className="ic" data-n="Rapid Shots" role="img" aria-label="Rapid Shots"><svg viewBox="0 0 50 50"><use href="#i-hs"/></svg></span></td><td>Rapid Shots</td><td className="n">+1</td><td>The heat breather. Free, and keeps you out of the high-heat tier.</td></tr>
             <tr className="no"><td className="n">—</td><td className="icc"><span className="ic" data-n="Electro Net" role="img" aria-label="Electro Net"><svg viewBox="0 0 50 50"><use href="#i-en"/></svg></span></td><td>Electro Net</td><td className="n">0</td><td>On cooldown (84.55 s) only. Take the Rapid Shots slot, never an Missile Blast.</td></tr>
-            <tr className="no"><td className="n">—</td><td className="icc"><span className="ic" data-n="Unload" role="img" aria-label="Unload"><svg viewBox="0 0 50 50"><use href="#i-fa"/></svg></span></td><td>Unload</td><td className="n">0</td><td>Opener only. Two GCDs for zero Supercharge.</td></tr>
+            <tr><td className="n">4</td><td className="icc"><span className="ic" data-n="Unload" role="img" aria-label="Unload"><svg viewBox="0 0 50 50"><use href="#i-fa"/></svg></span></td><td>Unload</td><td className="n">0</td><td>Opener, or as a fallback when Volatile Warhead is down for both remaining flex slots at once — outdamages two ordinary proc-less fillers combined (section 03). Pair with Vent Heat for the cost.</td></tr>
           </tbody>
         </table>
         </div>
@@ -364,11 +365,11 @@ export default function MercenaryRotation({ theme }: { theme?: 'dark' | 'light' 
 
       {/* ===== 03 TWO-ER CEILING ===== */}
       <section>
-        <h2><span className="num">03</span> Why two Missile Blasts, never three</h2>
-        <p className="lede">Heat is the obvious limit. The Supercharge cap is the one that makes it unambiguous.</p>
+        <h2><span className="num">03</span> Correction: the locked total is six, not five</h2>
+        <p className="lede">A third parse — 35,067 DPS, the best of the three — reaches the Supercharge cap in 18 of 20 cycles instead of 8. It isn't landing more Missile Blasts. It's that Serrated Shot generates a stack of its own, which this section's math never counted.</p>
 
         <figure>
-          <svg viewBox="0 0 820 262" role="img" aria-label="Four filler combinations as stacked bars against the ten-stack cap. Three Missile Blasts reaches eleven and wastes one. Two Missile Blasts plus Rapid Shots or Power Shot reaches exactly ten. One Missile Blast reaches only nine.">
+          <svg viewBox="0 0 820 262" role="img" aria-label="Four filler combinations as stacked bars against the ten-stack cap, now including Serrated Shot's own contribution. Three Missile Blasts reaches twelve and wastes two. Two Missile Blasts plus Rapid Shots or Power Shot reaches eleven and wastes one. One Missile Blast plus two cheap fillers reaches exactly ten.">
             <line x1="680" y1="20" x2="680" y2="218" stroke="var(--brass)" strokeWidth="1.5" strokeDasharray="4 3"/>
             <text className="sv-label" x="680" y="14" textAnchor="middle" fill="var(--brass)">cap = 10</text>
 
@@ -385,37 +386,48 @@ export default function MercenaryRotation({ theme }: { theme?: 'dark' | 'light' 
             <g><title>Rapid Shots</title><use href="#i-hs" x="64" y="184" width="26" height="26"/></g>
             <g><title>Rapid Shots</title><use href="#i-hs" x="94" y="184" width="26" height="26"/></g>
 
-            <rect x="150" y="28" width="265" height="26" fill="currentColor" opacity=".2"/>
-            <rect x="415" y="28" width="106" height="26" fill="var(--er-f)"/>
-            <rect x="521" y="28" width="106" height="26" fill="var(--er-f)"/>
-            <rect x="627" y="28" width="106" height="26" fill="var(--er-f)"/>
-            <rect x="680" y="28" width="53" height="26" fill="var(--bad)" opacity=".62"/>
-            <text className="sv-numb" x="742" y="46" fill="var(--bad)">11</text>
+            <rect x="150" y="28" width="318" height="26" fill="currentColor" opacity=".2"/>
+            <rect x="468" y="28" width="106" height="26" fill="var(--er-f)"/>
+            <rect x="574" y="28" width="106" height="26" fill="var(--er-f)"/>
+            <rect x="680" y="28" width="106" height="26" fill="var(--bad)" opacity=".62"/>
+            <text className="sv-numb" x="800" y="46" fill="var(--bad)">12</text>
 
-            <rect x="150" y="80" width="265" height="26" fill="currentColor" opacity=".2"/>
-            <rect x="415" y="80" width="106" height="26" fill="var(--er-f)"/>
-            <rect x="521" y="80" width="106" height="26" fill="var(--er-f)"/>
-            <rect x="627" y="80" width="53" height="26" fill="var(--hs-f)"/>
-            <text className="sv-numb" x="742" y="98" fill="var(--good)">10</text>
+            <rect x="150" y="80" width="318" height="26" fill="currentColor" opacity=".2"/>
+            <rect x="468" y="80" width="106" height="26" fill="var(--er-f)"/>
+            <rect x="574" y="80" width="106" height="26" fill="var(--er-f)"/>
+            <rect x="680" y="80" width="53" height="26" fill="var(--bad)" opacity=".62"/>
+            <text className="sv-numb" x="745" y="98" fill="var(--bad)">11</text>
 
-            <rect x="150" y="132" width="265" height="26" fill="currentColor" opacity=".2"/>
-            <rect x="415" y="132" width="106" height="26" fill="var(--er-f)"/>
-            <rect x="521" y="132" width="106" height="26" fill="var(--er-f)"/>
-            <rect x="627" y="132" width="53" height="26" fill="var(--cb-f)"/>
-            <text className="sv-numb" x="742" y="150" fill="var(--good)">10</text>
+            <rect x="150" y="132" width="318" height="26" fill="currentColor" opacity=".2"/>
+            <rect x="468" y="132" width="106" height="26" fill="var(--er-f)"/>
+            <rect x="574" y="132" width="106" height="26" fill="var(--er-f)"/>
+            <rect x="680" y="132" width="53" height="26" fill="var(--bad)" opacity=".62"/>
+            <text className="sv-numb" x="745" y="150" fill="var(--bad)">11</text>
 
-            <rect x="150" y="184" width="265" height="26" fill="currentColor" opacity=".2"/>
-            <rect x="415" y="184" width="106" height="26" fill="var(--er-f)"/>
-            <rect x="521" y="184" width="53" height="26" fill="var(--hs-f)"/>
+            <rect x="150" y="184" width="318" height="26" fill="currentColor" opacity=".2"/>
+            <rect x="468" y="184" width="106" height="26" fill="var(--er-f)"/>
             <rect x="574" y="184" width="53" height="26" fill="var(--hs-f)"/>
-            <text className="sv-numb" x="742" y="202">9</text>
+            <rect x="627" y="184" width="53" height="26" fill="var(--hs-f)"/>
+            <text className="sv-numb" x="694" y="202" fill="var(--good)">10</text>
 
-            <text className="sv-note" x="282" y="46" textAnchor="middle">locked slots = 5</text>
-            <text className="sv-note" x="706" y="70" textAnchor="middle" fill="var(--bad)">1 wasted</text>
-            <text className="sv-label" x="150" y="244">Grey = Thermal Detonator 3 + Power Shot 1 + Power Shot 1</text>
+            <text className="sv-note" x="309" y="46" textAnchor="middle">locked slots = 6</text>
+            <text className="sv-note" x="733" y="70" textAnchor="middle" fill="var(--bad)">2 wasted</text>
+            <text className="sv-label" x="150" y="244">Grey = Thermal Detonator 3 + Power Shot 1 + Power Shot 1 + Serrated Shot 1</text>
           </svg>
-          <figcaption>A third Missile Blast pushes the cycle to <b>11 stacks against a cap of 10</b> — you pay the most expensive filler's heat for one usable stack, and lose the free slot that lets heat drop. <b>Two Missile Blasts plus one cheap filler is the only combination landing exactly on 10.</b></figcaption>
+          <figcaption>Counting Serrated Shot's own Supercharge stack, the locked total is <b>6</b>, not 5 — Thermal Detonator 3, one Power Shot each on the two fixed casts, and Serrated Shot's own 1. A single Missile Blast plus two ordinary fillers now lands exactly on <b>10</b>; a second Missile Blast already reaches the cap alone, and anything cast after that just overflows. <b>Two Missile Blasts is the ceiling worth avoiding now, not the target to aim for.</b></figcaption>
         </figure>
+
+        <div className="call flag">
+          <h4>What this overturned</h4>
+          <p>Every reading above assumed Serrated Shot's DoT recast was a zero-Supercharge action, like Incendiary Missile. It isn't. Tracing the raw Supercharge stack counter in a third, higher parse (35,067 DPS) against the damage event landing at that instant shows Serrated Shot granting exactly <b>+1 Supercharge on every measured cast</b> — clean, no exceptions.</p>
+          <p>It's also the reason that parse pops Supercharged Gas in <b>18 of 20 cycles (90%)</b> against this page's reference parse's 8 of 20 (40%) — despite averaging <em>fewer</em> Missile Blasts per cycle, not more. Supercharged Burn is that parse's single largest damage source, 21.8% of total damage, which makes this the biggest lever in the whole rotation.</p>
+          <p>Whether the two original parses show the same Serrated Shot tick is worth checking directly — their raw logs weren't available to re-verify here (see section 09). If they do, this section's math has undercounted since the page's first draft.</p>
+        </div>
+
+        <div className="call">
+          <h4>A fifth option: Unload when the proc is down</h4>
+          <p>That same parse fired a full Unload channel — both remaining flex slots at once — four times mid-fight, always with no Volatile Warhead proc up. Average damage across those four channels: <b>~56,000</b>, against roughly <b>~31,000</b> for what two ordinary proc-less fillers (Rapid Shots + Power Shot) would have done in the same window. Each was paired with a Vent Heat shortly after to cover the cost. Unload still contributes 0 Supercharge — this doesn't change the cap math above — but as a pure damage fallback for a proc-down cycle, it beats the filler table's other two picks.</p>
+        </div>
 
         <div className="call fix">
           <h4>Excess procs cost nothing to defer</h4>
@@ -666,19 +678,26 @@ export default function MercenaryRotation({ theme }: { theme?: 'dark' | 'light' 
           <p>Median 1.503 s against a 1.370 s floor already hit in this parse. About 2 GCDs.</p>
         </div>
 
+        <div className="call flag">
+          <h4>4 · Does Serrated Shot's Supercharge tick apply to parses 1 and 2?</h4>
+          <p>Confirmed directly in a third parse (35,067 DPS): every Serrated Shot cast grants +1 Supercharge, no exceptions (section 03). The original two parses' raw logs weren't available to re-check this. If they show the same tick, section 03's "5 locked" model has been under-counting since this page's first draft; if they don't, something about the third parse's gear or tactical is generating Supercharge Serrated Shot normally doesn't.</p>
+        </div>
+
         <h3>Closed — nothing left to win</h3>
         <ul>
-          <li><b>Volatile Warhead</b> — 27 procs, 27 Missile Blasts, none wasted, none expired.</li>
+          <li><b>Volatile Warhead</b> — 27 procs, 27 Missile Blasts, none wasted, none expired. Confirmed again in a third parse: 24/24.</li>
           <li><b>Innovative Particle Accelerator</b> — 42 of 43 Mag Shots free; the dead zone never entered in either parse.</li>
           <li><b>Speed to Burn</b> — 21 procs, all 21 on Power Shot. The documented desync never happened.</li>
           <li><b>DoT uptime</b> — 100% on all five, from effect events.</li>
           <li><b>Electro Net</b> — true cooldown 84.551 s; the best interval in the parse was 84.551 s.</li>
           <li><b>Cycle structure</b> — every cycle in both parses maps onto the same ten-GCD spine.</li>
+          <li><b>Unload as a proc-down fallback</b> — confirmed in a third parse: a full channel outdamages two ordinary fillers when Volatile Warhead has no proc up (~56,000 vs ~31,000), paired with Vent Heat for the heat cost (section 03).</li>
+          <li><b>Opener Adrenal</b> — the third parse fires an offensive Adrenal off-GCD in the opener, reused ~193 s later. Pure cooldown access, not a rotation decision, but worth slotting into your own opener if you have one available.</li>
         </ul>
       </section>
 
       <footer>
-        <p>Ability icons are the in-game art, supplied by the user. Parse 2 detail log: 2,870 events, 245 activations, EnterCombat 0 to ExitCombat 299.451 s, Operations Training Dummy at 10,000,000 HP, death 299.472 s. Parse 1: 241 events, 220 on‑GCD, span 321.81 s, assumed to share parse 2's gear and therefore its 7.02% alacrity. Cycles anchored on Incendiary Missile; Supercharged Gas, Vent Heat and the attack adrenal treated as off‑GCD; Unload budgeted at two GCDs. Supercharge totals are anchor-dependent — the same parse measured from Thermal Detonator gives 9 of 20 rather than 8. Alacrity derived from five mechanics with known base values, the four 15 s probes agreeing to within 0.004. Heat amounts appear in neither log — only Generate and Vent events — so no heat simulation is attempted. Vent Heat's cooldown is inferred from one interval and is worth confirming in game.</p>
+        <p>Ability icons are the in-game art, supplied by the user. Parse 2 detail log: 2,870 events, 245 activations, EnterCombat 0 to ExitCombat 299.451 s, Operations Training Dummy at 10,000,000 HP, death 299.472 s. Parse 3: 2,855 events, 220 activations, EnterCombat 0 to Death 285.153 s, same 10,000,000 HP dummy, 35,067 DPS — supplied the Serrated Shot Supercharge correction and the Unload-fallback finding in section 03 and the closed list in section 09, traced by matching the raw Supercharge stack counter to the damage event landing at each instant. Parse 1: 241 events, 220 on‑GCD, span 321.81 s, assumed to share parse 2's gear and therefore its 7.02% alacrity. Cycles anchored on Incendiary Missile; Supercharged Gas, Vent Heat and the attack adrenal treated as off‑GCD; Unload budgeted at two GCDs. Supercharge totals are anchor-dependent — the same parse measured from Thermal Detonator gives 9 of 20 rather than 8. Alacrity derived from five mechanics with known base values, the four 15 s probes agreeing to within 0.004. Heat amounts appear in neither log — only Generate and Vent events — so no heat simulation is attempted. Vent Heat's cooldown is inferred from one interval and is worth confirming in game.</p>
       </footer>
 
       </div>
