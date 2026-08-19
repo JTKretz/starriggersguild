@@ -63,12 +63,14 @@ const CSS = `
     transition:opacity .12s ease;z-index:60}
   .ic[data-n]:hover::after,.ic[data-n]:focus-visible::after{opacity:1}
   .ic .markflag{position:absolute;right:-7px;top:-3px;bottom:-3px;width:6px;border-radius:2px;
-    cursor:help;transition:transform .12s ease,box-shadow .12s ease;z-index:5}
-  .ic .markflag:hover{transform:scaleX(1.7)}
+    cursor:help;transition:box-shadow .12s ease;z-index:5}
+  .ic .markflag:hover{box-shadow:0 0 0 1px color-mix(in srgb,var(--ink) 45%,transparent),0 0 7px 1px color-mix(in srgb,currentColor 70%,transparent)}
   .ic.sccmark .markflag{background:var(--brass);box-shadow:0 0 0 1px color-mix(in srgb,var(--brass) 70%,transparent),0 0 5px 0 color-mix(in srgb,var(--brass) 55%,transparent)}
   .ic.rcmark .markflag{background:var(--cb-f);box-shadow:0 0 0 1px color-mix(in srgb,var(--cb-f) 70%,transparent),0 0 5px 0 color-mix(in srgb,var(--cb-f) 55%,transparent)}
-  .ic .markflag[data-n]::after{content:attr(data-n);position:absolute;top:calc(100% + 7px);left:50%;
-    transform:translateX(-50%);background:var(--ink);color:var(--bg);
+  .ic.sccmark .markflag:hover{color:var(--brass)}
+  .ic.rcmark .markflag:hover{color:var(--cb-f)}
+  .ic .markflag[data-n]::after{content:attr(data-n);position:absolute;left:calc(100% + 8px);top:50%;
+    transform:translateY(-50%);background:var(--ink);color:var(--bg);
     font-family:var(--font-display);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
     padding:4px 9px;border-radius:2px;white-space:nowrap;opacity:0;pointer-events:none;
     transition:opacity .12s ease;z-index:61}
@@ -366,7 +368,7 @@ export default function MercenaryRotation({ theme }: { theme?: 'dark' | 'light' 
             <tr><td className="n">2</td><td className="icc"><span className="ic" data-n="Power Shot" role="img" aria-label="Power Shot"><svg viewBox="0 0 50 50"><use href="#i-cb"/></svg></span></td><td>Power Shot</td><td className="n">+1</td><td>The remaining slot, whenever heat allows it.</td></tr>
             <tr><td className="n">3</td><td className="icc"><span className="ic" data-n="Rapid Shots" role="img" aria-label="Rapid Shots"><svg viewBox="0 0 50 50"><use href="#i-hs"/></svg></span></td><td>Rapid Shots</td><td className="n">+1</td><td>The heat breather. Free, and keeps you out of the high-heat tier.</td></tr>
             <tr className="no"><td className="n">—</td><td className="icc"><span className="ic" data-n="Electro Net" role="img" aria-label="Electro Net"><svg viewBox="0 0 50 50"><use href="#i-en"/></svg></span></td><td>Electro Net</td><td className="n">0</td><td>On cooldown (84.55 s) only. Take the Rapid Shots slot, never an Missile Blast.</td></tr>
-            <tr><td className="n">4</td><td className="icc"><span className="ic" data-n="Unload" role="img" aria-label="Unload"><svg viewBox="0 0 50 50"><use href="#i-fa"/></svg></span></td><td>Unload</td><td className="n">0</td><td>Opener, or as a fallback when Volatile Warhead is down for both remaining flex slots at once — outdamages two ordinary proc-less fillers combined (section 03). Pair with Vent Heat for the cost.</td></tr>
+            <tr><td className="n">4</td><td className="icc"><span className="ic" data-n="Unload" role="img" aria-label="Unload"><svg viewBox="0 0 50 50"><use href="#i-fa"/></svg></span></td><td>Unload</td><td className="n">0</td><td>Opener, or as a fallback when Volatile Warhead is down for both remaining flex slots at once — outdamages two ordinary proc-less fillers combined (section 03).</td></tr>
           </tbody>
         </table>
         </div>
@@ -435,7 +437,7 @@ export default function MercenaryRotation({ theme }: { theme?: 'dark' | 'light' 
 
         <div className="call">
           <h4>A fifth option: Unload when the proc is down</h4>
-          <p>That same parse fired a full Unload channel — both remaining flex slots at once — four times mid-fight, always with no Volatile Warhead proc up. Average damage across those four channels: <b>~56,000</b>, against roughly <b>~31,000</b> for what two ordinary proc-less fillers (Rapid Shots + Power Shot) would have done in the same window. Each was paired with a Vent Heat shortly after to cover the cost. Unload still contributes 0 Supercharge — this doesn't change the cap math above — but as a pure damage fallback for a proc-down cycle, it beats the filler table's other two picks.</p>
+          <p>That same parse fired a full Unload channel — both remaining flex slots at once — four times mid-fight, always with no Volatile Warhead proc up. Average damage across those four channels: <b>~56,000</b>, against roughly <b>~31,000</b> for what two ordinary proc-less fillers (Rapid Shots + Power Shot) would have done in the same window. Only one of the four coincides with a Vent Heat cast at all, and even that one lands at the exact instant Unload's channel finishes rather than before it starts (section 09) — this player pays the heat cost mostly unassisted. Unload still contributes 0 Supercharge — this doesn't change the cap math above — but as a pure damage fallback for a proc-down cycle, it beats the filler table's other two picks.</p>
         </div>
 
         <div className="call fix">
@@ -738,6 +740,12 @@ export default function MercenaryRotation({ theme }: { theme?: 'dark' | 'light' 
           <p>Confirmed directly in a third parse (35,067 DPS): every Serrated Shot cast grants +1 Supercharge, no exceptions (section 03). The original two parses' raw logs weren't available to re-check this. If they show the same tick, section 03's "5 locked" model has been under-counting since this page's first draft; if they don't, something about the third parse's gear or tactical is generating Supercharge Serrated Shot normally doesn't.</p>
         </div>
 
+        <div className="call flag">
+          <h4>5 · Vent Heat: a heat-budget reset, not an Unload combo</h4>
+          <p>The ability works as advertised — its buff zeroes heat generation and refunds extra on whatever's cast immediately next — confirmed directly from the buff's own apply/remove timestamps in a third parse. But across all three mid-fight Vent Heat casts there, that buff never once landed on Unload. It went to Incendiary Missile (the next cycle's opener), to Missile Blast (cast 1 ms later), and once to Thermal Detonator — because that Vent Heat was pressed at the exact instant Unload's own channel finished, a beat too late to help it. The commonly-cited advice to fire Vent Heat right before a channeled ability like Unload isn't what's happening in this log.</p>
+          <p>What the log does support: the two cycles immediately before the real Vent Heat casts run <b>zero Rapid Shots</b> in their flex slots — every filler pick in both is a heat-costly one. That fits a simpler model than a per-ability combo: treat Vent Heat as a periodic heat-budget reset rather than a setup move, and spend heat more freely in the run-up to it rather than holding a specific ability in reserve. Parse 3's own gaps (93.8 s, 101.0 s) land close to parse 2's independently-inferred 98.3 s interval above — three separate estimates converging on roughly a <b>95–100 s cooldown</b>, still worth confirming directly in-game. If you can see Vent Heat's cooldown ticking down, that's the moment to lean into Missile Blast and Power Shot over Rapid Shots, knowing the reset is close.</p>
+        </div>
+
         <h3>Closed — nothing left to win</h3>
         <ul>
           <li><b>Volatile Warhead</b> — 27 procs, 27 Missile Blasts, none wasted, none expired. Confirmed again in a third parse: 24/24.</li>
@@ -746,7 +754,7 @@ export default function MercenaryRotation({ theme }: { theme?: 'dark' | 'light' 
           <li><b>DoT uptime</b> — 100% on all five, from effect events.</li>
           <li><b>Electro Net</b> — true cooldown 84.551 s; the best interval in the parse was 84.551 s.</li>
           <li><b>Cycle structure</b> — every cycle in both parses maps onto the same ten-GCD spine.</li>
-          <li><b>Unload as a proc-down fallback</b> — confirmed in a third parse: a full channel outdamages two ordinary fillers when Volatile Warhead has no proc up (~56,000 vs ~31,000), paired with Vent Heat for the heat cost (section 03).</li>
+          <li><b>Unload as a proc-down fallback</b> — confirmed in a third parse: a full channel outdamages two ordinary fillers when Volatile Warhead has no proc up (~56,000 vs ~31,000). Not set up with Vent Heat, though — see item 5 above.</li>
           <li><b>Opener Adrenal</b> — the third parse fires an offensive Adrenal off-GCD in the opener, reused ~193 s later. Pure cooldown access, not a rotation decision, but worth slotting into your own opener if you have one available.</li>
         </ul>
       </section>
