@@ -6,6 +6,8 @@ import { Fury } from './pages/Fury'
 import { Concentration } from './pages/Concentration'
 import { Marksmanship } from './pages/Marksmanship'
 import { Sharpshooter } from './pages/Sharpshooter'
+import { Engineering } from './pages/Engineering'
+import { Saboteur } from './pages/Saboteur'
 import { Hatred } from './pages/Hatred'
 import { Serenity } from './pages/Serenity'
 import { HatredLeveling } from './pages/HatredLeveling'
@@ -20,6 +22,8 @@ export function App() {
       <Concentration path="/concentration" />
       <Marksmanship path="/marksmanship" />
       <Sharpshooter path="/sharpshooter" />
+      <Engineering path="/engineering" />
+      <Saboteur path="/saboteur" />
       <Hatred path="/hatred" />
       <Serenity path="/serenity" />
       <HatredLeveling path="/hatred-leveling" />
