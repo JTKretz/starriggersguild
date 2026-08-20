@@ -8,6 +8,8 @@ import { Marksmanship } from './pages/Marksmanship'
 import { Sharpshooter } from './pages/Sharpshooter'
 import { Engineering } from './pages/Engineering'
 import { Saboteur } from './pages/Saboteur'
+import { EngineeringLeveling } from './pages/EngineeringLeveling'
+import { SaboteurLeveling } from './pages/SaboteurLeveling'
 import { Hatred } from './pages/Hatred'
 import { Serenity } from './pages/Serenity'
 import { HatredLeveling } from './pages/HatredLeveling'
@@ -24,6 +26,8 @@ export function App() {
       <Sharpshooter path="/sharpshooter" />
       <Engineering path="/engineering" />
       <Saboteur path="/saboteur" />
+      <EngineeringLeveling path="/engineering-leveling" />
+      <SaboteurLeveling path="/saboteur-leveling" />
       <Hatred path="/hatred" />
       <Serenity path="/serenity" />
       <HatredLeveling path="/hatred-leveling" />
