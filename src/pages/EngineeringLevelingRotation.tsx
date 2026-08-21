@@ -180,37 +180,22 @@ export default function EngineeringLevelingRotation({ theme }: { theme?: 'dark' 
 
       <div className="mast">
         <p className="eyebrow">Sniper / Engineering · leveling &amp; non-BiS · priority list, not a measured parse</p>
-        <h1>Two three-GCD chunks, not a ten-slot cycle</h1>
-        <p className="standfirst">The <code>/engineering</code> page was built from three parses that all ran the same 7-fixed/3-flex, ten-slot cycle without exception — every flex slot got filled, every cycle, because none of those three players ever ran short on Energy. That's not a coincidence of skill; it's a specific piece of gear. Without the <strong>Energy Regulators Legendary Implant</strong> (which regenerates Energy while in cover), the normal rotation is not sustainable — you will run dry. This page is the guide-sourced fallback: a smaller two-chunk loop built to stay Energy-solvent using ability-tree picks and a tactical instead of that implant.</p>
+        <h1>One 18-second cycle, ten actions, no drift</h1>
+        <p className="standfirst">The <code>/engineering</code> page was built from three parses that all ran the same 7-fixed/3-flex, ten-slot cycle without exception — every flex slot got filled, every cycle, because none of those three players ever ran short on Energy. That's not a coincidence of skill; it's a specific piece of gear. Without the <strong>Energy Regulators Legendary Implant</strong> (which regenerates Energy while in cover), the normal rotation is not sustainable — you will run dry. This page is the guide-sourced fallback: a repeating 12-GCD cycle, built directly from your abilities' real cooldowns, that stays Energy-solvent using ability-tree picks instead of that implant.</p>
         <dl className="facts">
           <div className="fact"><dt>Energy Regulators</dt><dd>not equipped<small>yet</small><span className="was">the gear the /engineering shape quietly assumes</span></dd></div>
-          <div className="fact"><dt>Structure</dt><dd>2 chunks<small>× 3 GCDs</small><span className="was">not a fixed ten-slot cycle</span></dd></div>
-          <div className="fact"><dt>Source</dt><dd>guide<small>+ your unlocks</small><span className="was">no combat log behind this page</span></dd></div>
+          <div className="fact"><dt>Ruthless Interrogation</dt><dd>not equipped<small>yet</small><span className="was">the tactical that would auto-refresh Interrogation Probe</span></dd></div>
+          <div className="fact"><dt>Structure</dt><dd>1 cycle<small>× 12 GCD</small><span className="was">18s at base GCD, repeats with no drift</span></dd></div>
+          <div className="fact"><dt>Source</dt><dd>guide<small>+ your tooltips</small><span className="was">no combat log behind this page</span></dd></div>
         </dl>
       </div>
 
       {/* ===== LOOP AT A GLANCE ===== */}
       <section style={{ marginTop: '34px' }}>
-        <h3 style={{ marginTop: '0' }}>One full loop, at a glance</h3>
-        <p className="lede" style={{ marginBottom: '18px' }}>The two chunks from section 03, stitched into a single repeatable loop — same 10-slot count as the endgame page's measured cycle, filled by three tiers of certainty. The opener slot is a clean priority pick: Orbital Strike if it's up, Snipe otherwise. The two Fragmentation Grenade slots default to Fragmentation Grenade, with Snipe as a real but Energy-risky fallback the guide names explicitly — shown smaller and dimmed below. Everything else is a fixed ability, with situational omissions (not substitutions) covered in section 03's call-outs rather than shown here. Unlike the rest of this site, the timing below is extrapolated from GCD count, not measured from a combat log.</p>
+        <h3 style={{ marginTop: '0' }}>One repeating cycle, at a glance</h3>
+        <p className="lede" style={{ marginBottom: '18px' }}>Ten actions, 12 GCDs, 18 seconds at base GCD — and this is the guide's own sequence, not one derived from cooldowns alone. Reading forward from its opener until the pattern repeats gives exactly this order: Explosive Probe alone into Series of Shots, EMP Discharge paired with Corrosive Dart, a second Series of Shots, then one filler slot before the loop closes. That filler was Snipe in the guide's version, written for a character with the Ruthless Interrogation tactical, where Series of Shots keeps Interrogation Probe refreshed for free. Without that tactical, Interrogation Probe needs an explicit recast every loop — and this is exactly where it lands: applied at step 9, it's still up through the following loop's EMP Discharge at step 4, six GCDs later. The other filler slot (step 5) still defaults to Fragmentation Grenade, with Snipe as a real but Energy-risky fallback, and Orbital Strike replacing either whenever it's up. Unlike the rest of this site, the timing below is extrapolated from ability cooldowns, not measured from a combat log.</p>
         <div className="loopcard">
           <div className="loop">
-            <div className="step">
-              <div className="stack">
-                <span className="ic" data-p="1" data-n="1. Orbital Strike — if it's up" role="img" aria-label="Orbital Strike"><svg viewBox="0 0 50 50"><use href="#l-os" /></svg></span>
-                <span className="ic" data-p="2" data-n="2. Snipe — fallback" role="img" aria-label="Snipe"><svg viewBox="0 0 50 50"><use href="#l-sn" /></svg></span>
-              </div>
-              <small>flex</small>
-            </div>
-            <span className="arrow">→</span>
-            <div className="step">
-              <div className="stack fallback-stack">
-                <span className="ic" data-n="Fragmentation Grenade — default" role="img" aria-label="Fragmentation Grenade"><svg viewBox="0 0 50 50"><use href="#l-fg" /></svg></span>
-                <span className="ic fallback" data-n="Snipe — risky fallback, costs real Energy" role="img" aria-label="Snipe"><svg viewBox="0 0 50 50"><use href="#l-sn" /></svg></span>
-              </div>
-              <small>default</small>
-            </div>
-            <span className="arrow">→</span>
             <div className="step"><span className="ic" data-n="Explosive Probe" role="img" aria-label="Explosive Probe"><svg viewBox="0 0 50 50"><use href="#l-ep" /></svg></span><small>fixed</small></div>
             <span className="arrow">→</span>
             <div className="step"><span className="ic" data-n="Series of Shots — 2 GCD channel" role="img" aria-label="Series of Shots"><svg viewBox="0 0 50 50"><use href="#l-ss" /></svg></span><small>2 GCD</small></div>
@@ -224,7 +209,7 @@ export default function EngineeringLevelingRotation({ theme }: { theme?: 'dark' 
                 <span className="ic" data-n="Fragmentation Grenade — default" role="img" aria-label="Fragmentation Grenade"><svg viewBox="0 0 50 50"><use href="#l-fg" /></svg></span>
                 <span className="ic fallback" data-n="Snipe — risky fallback, costs real Energy" role="img" aria-label="Snipe"><svg viewBox="0 0 50 50"><use href="#l-sn" /></svg></span>
               </div>
-              <small>default</small>
+              <small>filler</small>
             </div>
             <span className="arrow">→</span>
             <div className="step"><span className="ic" data-n="Corrosive Dart" role="img" aria-label="Corrosive Dart"><svg viewBox="0 0 50 50"><use href="#l-cd" /></svg></span><small>fixed</small></div>
@@ -232,10 +217,20 @@ export default function EngineeringLevelingRotation({ theme }: { theme?: 'dark' 
             <div className="step"><span className="ic" data-n="Series of Shots — 2 GCD channel" role="img" aria-label="Series of Shots"><svg viewBox="0 0 50 50"><use href="#l-ss" /></svg></span><small>2 GCD</small></div>
             <span className="arrow">→</span>
             <div className="step"><span className="ic" data-n="Plasma Probe" role="img" aria-label="Plasma Probe"><svg viewBox="0 0 50 50"><use href="#l-pp" /></svg></span><small>fixed</small></div>
+            <span className="arrow">→</span>
+            <div className="step"><span className="ic" data-n="Interrogation Probe" role="img" aria-label="Interrogation Probe"><svg viewBox="0 0 50 50"><use href="#l-ip" /></svg></span><small>fixed</small></div>
+            <span className="arrow">→</span>
+            <div className="step">
+              <div className="stack fallback-stack">
+                <span className="ic" data-n="Fragmentation Grenade — default" role="img" aria-label="Fragmentation Grenade"><svg viewBox="0 0 50 50"><use href="#l-fg" /></svg></span>
+                <span className="ic fallback" data-n="Snipe — risky fallback, costs real Energy" role="img" aria-label="Snipe"><svg viewBox="0 0 50 50"><use href="#l-sn" /></svg></span>
+              </div>
+              <small>filler</small>
+            </div>
             <span className="arrow">↻</span>
           </div>
           <p style={{ marginTop: '18px', marginBottom: '0', fontSize: '13px', color: 'var(--ink-2)' }}>
-            <b>10 on-GCD slots · 11 GCD-equivalent</b> (the two Series of Shots channels count double) — the identical slot count to the <code>/engineering</code> page's measured cycle, just filled differently. At a rough 1.5 s base GCD with no alacrity, one full loop runs about <b>16.5 s</b>; the endgame parses' alacrity builds compressed the same 11 GCDs to 15.4–16.2 s, so expect somewhere in that neighborhood once your own alacrity is factored in. This figure is extrapolated from GCD count alone, not measured — see section 05 to verify against your own tooltips.
+            <b>10 actions · 12 GCD</b> (the two Series of Shots channels count double, eight single-GCD actions otherwise) — at a base 1.5 s GCD with no alacrity, one cycle runs exactly <b>18 s</b>, and repeats with no drift: Series of Shots and Explosive Probe both fall due right as their slot comes back around. This is a different shape than the endgame page's measured 10-slot, 15.4–16.2 s cycle — that page's alacrity compresses timings this page doesn't assume. This figure is derived from ability cooldowns, not measured — see section 05 to verify against your own tooltips.
           </p>
         </div>
       </section>
@@ -244,15 +239,15 @@ export default function EngineeringLevelingRotation({ theme }: { theme?: 'dark' 
       <section>
         <h3 style={{ marginTop: '0' }}>Ability key</h3>
         <div className="keygrid">
-        <div className="keyrow"><span className="ic" data-n="Interrogation Probe" role="img" aria-label="Interrogation Probe"><svg viewBox="0 0 50 50"><use href="#l-ip"/></svg></span><div><b>Interrogation Probe</b><span>DoT · reapply the instant it falls off, ahead of everything else</span></div></div>
-        <div className="keyrow"><span className="ic" data-n="Series of Shots" role="img" aria-label="Series of Shots"><svg viewBox="0 0 50 50"><use href="#l-ss"/></svg></span><div><b>Series of Shots</b><span>2-GCD channel · separates the two chunks, still used on cooldown</span></div></div>
-        <div className="keyrow"><span className="ic" data-n="Plasma Probe" role="img" aria-label="Plasma Probe"><svg viewBox="0 0 50 50"><use href="#l-pp"/></svg></span><div><b>Plasma Probe</b><span>Always immediately after Series of Shots, same as endgame</span></div></div>
-        <div className="keyrow"><span className="ic" data-n="Explosive Probe" role="img" aria-label="Explosive Probe"><svg viewBox="0 0 50 50"><use href="#l-ep"/></svg></span><div><b>Explosive Probe</b><span>Chunk 1, slot 3 · net Energy-positive, keep this one</span></div></div>
-        <div className="keyrow"><span className="ic" data-n="EMP Discharge" role="img" aria-label="EMP Discharge"><svg viewBox="0 0 50 50"><use href="#l-emp"/></svg></span><div><b>EMP Discharge</b><span>Chunk 2, slot 1 · needs Interrogation Probe up to use at all</span></div></div>
-        <div className="keyrow"><span className="ic" data-n="Corrosive Dart" role="img" aria-label="Corrosive Dart"><svg viewBox="0 0 50 50"><use href="#l-cd"/></svg></span><div><b>Corrosive Dart</b><span>Chunk 2, slot 3 · recast every lap</span></div></div>
-        <div className="keyrow"><span className="ic" data-n="Snipe" role="img" aria-label="Snipe"><svg viewBox="0 0 50 50"><use href="#l-sn"/></svg></span><div><b>Snipe</b><span>Chunk 1 fallback · risky here, costs real Energy you may not have</span></div></div>
-        <div className="keyrow"><span className="ic" data-n="Fragmentation Grenade" role="img" aria-label="Fragmentation Grenade"><svg viewBox="0 0 50 50"><use href="#l-fg"/></svg></span><div><b>Fragmentation Grenade</b><span>The Energy-management ability now, not just a filler — see section 03</span></div></div>
-        <div className="keyrow"><span className="ic" data-n="Orbital Strike" role="img" aria-label="Orbital Strike"><svg viewBox="0 0 50 50"><use href="#l-os"/></svg></span><div><b>Orbital Strike</b><span>Chunk 1, slot 1, whenever it's up — beats Snipe</span></div></div>
+        <div className="keyrow"><span className="ic" data-n="Interrogation Probe" role="img" aria-label="Interrogation Probe"><svg viewBox="0 0 50 50"><use href="#l-ip"/></svg></span><div><b>Interrogation Probe</b><span>10-GCD (15s) duration, no cooldown of its own · recast once a cycle at step 9 — the guide's own Snipe slot, repurposed without Ruthless Interrogation</span></div></div>
+        <div className="keyrow"><span className="ic" data-n="Series of Shots" role="img" aria-label="Series of Shots"><svg viewBox="0 0 50 50"><use href="#l-ss"/></svg></span><div><b>Series of Shots</b><span>6-GCD (9s) cooldown · twice a cycle, exactly on cooldown both times</span></div></div>
+        <div className="keyrow"><span className="ic" data-n="Plasma Probe" role="img" aria-label="Plasma Probe"><svg viewBox="0 0 50 50"><use href="#l-pp"/></svg></span><div><b>Plasma Probe</b><span>Always immediately after Series of Shots, refreshing its own 6-GCD buff</span></div></div>
+        <div className="keyrow"><span className="ic" data-n="Explosive Probe" role="img" aria-label="Explosive Probe"><svg viewBox="0 0 50 50"><use href="#l-ep"/></svg></span><div><b>Explosive Probe</b><span>12-GCD (18s) cooldown · opens the cycle at step 1, exactly on cooldown — the ability this cycle length is built around</span></div></div>
+        <div className="keyrow"><span className="ic" data-n="EMP Discharge" role="img" aria-label="EMP Discharge"><svg viewBox="0 0 50 50"><use href="#l-emp"/></svg></span><div><b>EMP Discharge</b><span>10-GCD (15s) cooldown · needs Interrogation Probe up (applied at step 9 the loop before), fires once a cycle with ~2 GCD of cooldown banked each time</span></div></div>
+        <div className="keyrow"><span className="ic" data-n="Corrosive Dart" role="img" aria-label="Corrosive Dart"><svg viewBox="0 0 50 50"><use href="#l-cd"/></svg></span><div><b>Corrosive Dart</b><span>10-GCD (15s) duration, no cooldown of its own · recast once a cycle, right after EMP Discharge — the guide's own pairing</span></div></div>
+        <div className="keyrow"><span className="ic" data-n="Snipe" role="img" aria-label="Snipe"><svg viewBox="0 0 50 50"><use href="#l-sn"/></svg></span><div><b>Snipe</b><span>Filler fallback · risky here, costs real Energy you may not have — also the guide's own step-9 slot if you do have Ruthless Interrogation</span></div></div>
+        <div className="keyrow"><span className="ic" data-n="Fragmentation Grenade" role="img" aria-label="Fragmentation Grenade"><svg viewBox="0 0 50 50"><use href="#l-fg"/></svg></span><div><b>Fragmentation Grenade</b><span>Default filler, twice a cycle · the Energy-management ability now, not just a filler — see section 03</span></div></div>
+        <div className="keyrow"><span className="ic" data-n="Orbital Strike" role="img" aria-label="Orbital Strike"><svg viewBox="0 0 50 50"><use href="#l-os"/></svg></span><div><b>Orbital Strike</b><span>Replaces either filler slot whenever it's up — beats both Fragmentation Grenade and Snipe</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Targeting Systems" role="img" aria-label="Targeting Systems"><svg viewBox="0 0 50 50"><use href="#l-ts"/></svg></span><div><b>Targeting Systems</b><span>Off-GCD · also grants Systems Upgrade, the Energy-regen buff this build runs on</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Adrenal" role="img" aria-label="Adrenal"><svg viewBox="0 0 50 50"><use href="#l-adr"/></svg></span><div><b>Adrenal</b><span>Off-GCD burst · opener only here, after Interrogation Probe lands</span></div></div>
         <div className="keyrow"><span className="ic" data-n="Suppressive Fire" role="img" aria-label="Suppressive Fire"><svg viewBox="0 0 50 50"><use href="#l-sf"/></svg></span><div><b>Suppressive Fire</b><span>AoE channel · expensive, only for the AoE rotation in section 04</span></div></div>
@@ -266,8 +261,14 @@ export default function EngineeringLevelingRotation({ theme }: { theme?: 'dark' 
         <p>Without Energy Regulators, it is. The guide is explicit about this: this build "does not offer enough DPS to be competitive with the Sustained DPS build, but is the only way to do sustained DPS before you get the Energy Regulators Legendary Implant, because you do not generate enough Energy to do the normal rotation without this build or that Implant." The fix on offer isn't a gear swap you can fake — it's a different ability-tree build (Efficient Systems, generating roughly 1 Energy per second while Systems Upgrade is active) plus deliberately skipping fillers you'd otherwise always take.</p>
 
         <div className="call flag">
-          <h4>The chunk shape is the same — what's different is what you're allowed to keep</h4>
-          <p>Chunk 1 below (flex ability, Fragmentation Grenade, Explosive Probe) is structurally the same slice the endgame page's own logs show — parse 1's "two flex slots then Explosive Probe" shape. Chunk 2 (EMP Discharge, Fragmentation Grenade, Corrosive Dart) matches the EMP-then-flex-then-Corrosive-Dart tail from parses 2 and 3. The BiS parses never had to cut anything from either chunk. This page's entire job is telling you which single ability to drop from a chunk when Energy won't cover all three — not to prescribe a different structure.</p>
+          <h4>Same cooldowns, a simpler shape</h4>
+          <p>The /engineering parses' 10-slot cycle nests a 7-fixed/3-flex pattern inside real alacrity, timed to run 15.4–16.2 s. This page's cycle is built from the same core cooldowns — Series of Shots at 6 GCD, EMP Discharge at 10 GCD, Explosive Probe at 12 GCD — but at base GCD (no alacrity assumed), so it settles into a fixed 12-GCD/18 s cycle that repeats identically forever instead of a variable flex-slot pattern. It's simpler to execute at a small cost: EMP Discharge fires with cooldown to spare each time, and Interrogation Probe / Corrosive Dart each go a few seconds without uptime before their slot comes back around. See the loop diagram above and section 03 for the full breakdown.</p>
+        </div>
+
+        <div className="call flag">
+          <h4>A second gear gap: no Ruthless Interrogation tactical</h4>
+          <p>Interrogation Probe and EMP Discharge are gated together — EMP Discharge needs Interrogation Probe up to use at all. The Ruthless Interrogation tactical would refresh Interrogation Probe automatically off Series of Shots ticks, so a geared character barely thinks about it. Without that tactical — also a common gap while leveling — Interrogation Probe simply runs its flat 10-GCD (15s) duration and drops on its own.</p>
+          <p>That's why the cycle above prices in a dedicated Interrogation Probe recast every single lap — at step 9, the guide's own Snipe slot for a fully-tacticaled character. Without Ruthless Interrogation, that GCD goes to Interrogation Probe instead of Snipe's extra damage; it isn't an emergency fallback, it's a permanent one-GCD tax versus a fully-tacticaled rotation.</p>
         </div>
       </section>
 
@@ -293,61 +294,48 @@ export default function EngineeringLevelingRotation({ theme }: { theme?: 'dark' 
           <li className="prow"><span className="n">14</span><span className="ic" data-n="Fragmentation Grenade" role="img" aria-label="Fragmentation Grenade"><svg viewBox="0 0 50 50"><use href="#l-fg"/></svg></span><div><b>Fragmentation Grenade</b></div></li>
           <li className="prow"><span className="n">15</span><span className="ic" data-n="Explosive Probe" role="img" aria-label="Explosive Probe"><svg viewBox="0 0 50 50"><use href="#l-ep"/></svg></span><div><b>Explosive Probe</b></div></li>
           <li className="prow"><span className="n">16</span><span className="ic" data-n="Series of Shots" role="img" aria-label="Series of Shots"><svg viewBox="0 0 50 50"><use href="#l-ss"/></svg></span><div><b>Series of Shots</b></div></li>
-          <li className="prow"><span className="n">17</span><span className="ic" data-n="Plasma Probe" role="img" aria-label="Plasma Probe"><svg viewBox="0 0 50 50"><use href="#l-pp"/></svg></span><div><b>Plasma Probe</b><span>Steady rotation begins — section 03</span></div></li>
+          <li className="prow"><span className="n">17</span><span className="ic" data-n="Plasma Probe" role="img" aria-label="Plasma Probe"><svg viewBox="0 0 50 50"><use href="#l-pp"/></svg></span><div><b>Plasma Probe</b><span>Steady 12-GCD cycle begins — section 03</span></div></li>
         </ol>
       </section>
 
       {/* ===== 03 THE ROTATION ===== */}
       <section>
-        <h2><span className="num">03</span> The single-target rotation — two chunks, one rule</h2>
-        <p className="lede">Two three-GCD chunks, each followed by Series of Shots then Plasma Probe. The one rule that actually moves your DPS: every chunk needs at least one ability that generates a stack of Electrified Railgun — Snipe, Takedown, Fragmentation Grenade, or Series of Shots — so you can hold 100% uptime on 3 stacks. Everything else here is secondary to that.</p>
+        <h2><span className="num">03</span> The single-target rotation — one 12-GCD cycle</h2>
+        <p className="lede">Ten actions, in the guide's own order — traced straight through from its opener (section 02) to where the pattern repeats, not derived from cooldowns alone. The guide's one filler slot (originally Snipe) is repurposed for Interrogation Probe's mandatory recast, since Series of Shots won't refresh it for you without Ruthless Interrogation. Every cooldown-gated ability still lands right as it comes off cooldown — that part checks out against the table above.</p>
 
-        <div className="chunks">
-          <div className="chunk">
-            <h4>Chunk 1</h4>
-            <ol>
-              <li><span className="ic" data-n="Snipe or Orbital Strike" role="img" aria-label="Snipe or Orbital Strike"><svg viewBox="0 0 50 50"><use href="#l-os"/></svg></span><div><b>Orbital Strike</b> when it's up, otherwise <b>Snipe</b></div></li>
-              <li><span className="ic" data-n="Fragmentation Grenade" role="img" aria-label="Fragmentation Grenade"><svg viewBox="0 0 50 50"><use href="#l-fg"/></svg></span><div><b>Fragmentation Grenade</b></div></li>
-              <li><span className="ic" data-n="Explosive Probe" role="img" aria-label="Explosive Probe"><svg viewBox="0 0 50 50"><use href="#l-ep"/></svg></span><div><b>Explosive Probe</b></div></li>
-            </ol>
-          </div>
-          <div className="chunk">
-            <h4>Chunk 2</h4>
-            <ol>
-              <li><span className="ic" data-n="EMP Discharge" role="img" aria-label="EMP Discharge"><svg viewBox="0 0 50 50"><use href="#l-emp"/></svg></span><div><b>EMP Discharge</b></div></li>
-              <li><span className="ic" data-n="Fragmentation Grenade" role="img" aria-label="Fragmentation Grenade"><svg viewBox="0 0 50 50"><use href="#l-fg"/></svg></span><div><b>Fragmentation Grenade</b></div></li>
-              <li><span className="ic" data-n="Corrosive Dart" role="img" aria-label="Corrosive Dart"><svg viewBox="0 0 50 50"><use href="#l-cd"/></svg></span><div><b>Corrosive Dart</b></div></li>
-            </ol>
-          </div>
-        </div>
-        <div className="chunk-connector">
-          <span className="ic" data-n="Series of Shots" role="img" aria-label="Series of Shots"><svg viewBox="0 0 50 50"><use href="#l-ss"/></svg></span>
-          <span>Series of Shots</span>
-          <span className="ic" data-n="Plasma Probe" role="img" aria-label="Plasma Probe"><svg viewBox="0 0 50 50"><use href="#l-pp"/></svg></span>
-          <span>Plasma Probe → other chunk → repeat</span>
-        </div>
+        <ol className="plist" style={{ listStyle: 'none' }}>
+          <li className="prow"><span className="n">1</span><span className="ic" data-n="Explosive Probe" role="img" aria-label="Explosive Probe"><svg viewBox="0 0 50 50"><use href="#l-ep"/></svg></span><div><b>Explosive Probe</b><span>12-GCD cooldown, lands exactly on time — the anchor the guide builds this loop around</span></div></li>
+          <li className="prow"><span className="n">2</span><span className="ic" data-n="Series of Shots" role="img" aria-label="Series of Shots"><svg viewBox="0 0 50 50"><use href="#l-ss"/></svg></span><div><b>Series of Shots</b><span>2-GCD channel · 6-GCD cooldown, lands exactly on time</span></div></li>
+          <li className="prow"><span className="n">3</span><span className="ic" data-n="Plasma Probe" role="img" aria-label="Plasma Probe"><svg viewBox="0 0 50 50"><use href="#l-pp"/></svg></span><div><b>Plasma Probe</b><span>Refreshes its 6-GCD buff right after the channel</span></div></li>
+          <li className="prow"><span className="n">4</span><span className="ic" data-n="EMP Discharge" role="img" aria-label="EMP Discharge"><svg viewBox="0 0 50 50"><use href="#l-emp"/></svg></span><div><b>EMP Discharge</b><span>10-GCD cooldown, used once a cycle with 2 GCD banked · needs Interrogation Probe up, applied at step 9 the loop before</span></div></li>
+          <li className="prow"><span className="n">5</span><span className="ic" data-n="Fragmentation Grenade" role="img" aria-label="Fragmentation Grenade"><svg viewBox="0 0 50 50"><use href="#l-fg"/></svg></span><div><b>Fragmentation Grenade</b><span>Filler — Snipe if you need the extra damage and can spend the Energy, Orbital Strike if it's up</span></div></li>
+          <li className="prow"><span className="n">6</span><span className="ic" data-n="Corrosive Dart" role="img" aria-label="Corrosive Dart"><svg viewBox="0 0 50 50"><use href="#l-cd"/></svg></span><div><b>Corrosive Dart</b><span>Paired right after EMP Discharge — the guide's own sequence</span></div></li>
+          <li className="prow"><span className="n">7</span><span className="ic" data-n="Series of Shots" role="img" aria-label="Series of Shots"><svg viewBox="0 0 50 50"><use href="#l-ss"/></svg></span><div><b>Series of Shots</b><span>Second cast, exactly 6 GCD after the first</span></div></li>
+          <li className="prow"><span className="n">8</span><span className="ic" data-n="Plasma Probe" role="img" aria-label="Plasma Probe"><svg viewBox="0 0 50 50"><use href="#l-pp"/></svg></span><div><b>Plasma Probe</b></div></li>
+          <li className="prow"><span className="n">9</span><span className="ic" data-n="Interrogation Probe" role="img" aria-label="Interrogation Probe"><svg viewBox="0 0 50 50"><use href="#l-ip"/></svg></span><div><b>Interrogation Probe</b><span>Recast here — the guide's own Snipe slot. Stays up through step 4's EMP Discharge next loop, six GCD later</span></div></li>
+          <li className="prow"><span className="n">10</span><span className="ic" data-n="Fragmentation Grenade" role="img" aria-label="Fragmentation Grenade"><svg viewBox="0 0 50 50"><use href="#l-fg"/></svg></span><div><b>Fragmentation Grenade</b><span>Filler, same rule as step 5 — then the cycle repeats at step 1</span></div></li>
+        </ol>
 
         <div className="call">
-          <h4>Fragmentation Grenade goes second in each chunk on purpose</h4>
-          <p>Putting Fragmentation Grenade in the middle slot of each chunk minimizes the chance Electrified Railgun falls off if the rotation gets disrupted mid-chunk — there's always a Railgun-refreshing GCD close to the front. It's also risky to reach for Snipe over an <em>unprocced</em> Fragmentation Grenade here: Snipe costs real Energy you may not have, where Fragmentation Grenade is close to Energy-neutral once its own refund passives are accounted for.</p>
-          <p>If Explosive Probe's cooldown resets early or Orbital Strike comes up before its normal slot and there are adds worth hitting, drop Fragmentation Grenade from that chunk in favor of the bigger hit instead — but that's the only planned substitution. Everything else is "use the chunk as written unless Energy forces a cut."</p>
+          <h4>Two honest trade-offs for a cycle that never drifts</h4>
+          <p>Locking this to a fixed 12-GCD shape costs a little: EMP Discharge (10-GCD cooldown) is used once a cycle with about 2 GCD of cooldown left on the table each time, and Interrogation Probe / Corrosive Dart (10-GCD durations) each go roughly 2 GCD — about 3 seconds — without uptime before their slot comes back around at step 9 or step 6. That's the price of a rotation you can run on autopilot instead of a tighter priority list that recovers that DPS but never repeats identically. If you'd rather squeeze that back out, the fix is a true priority system (use each cooldown the instant it's up, fill everything else with Fragmentation Grenade/Snipe) rather than this fixed cycle — worth revisiting once you're comfortable with the shape below.</p>
         </div>
 
         <div className="call flag">
-          <h4>If Interrogation Probe falls off, it jumps the entire priority list</h4>
-          <p>Reapplying it is more important than finishing either chunk. Omit Fragmentation Grenade from that chunk — or Snipe, if that's what's queued — to pay for the reapplication, then keep going with the rest of the chunk as normal. Don't stop DPSing to "reset" back to the top of the rotation; picking back up mid-chunk is fine.</p>
+          <h4>If the cycle gets knocked out of sync, Interrogation Probe jumps the queue</h4>
+          <p>Movement, an interrupt, or a missed GCD can push you off the fixed 12-GCD shape. If that happens and Interrogation Probe is down, reapplying it is more important than finishing the cycle as written — EMP Discharge is dead weight without it. Skip whatever filler was queued to pay for the reapplication, then pick the cycle back up from wherever you land; don't stop DPSing to "reset" to step 1.</p>
         </div>
 
         <div className="call">
           <h4>The general principle: some DPS beats zero DPS</h4>
-          <p>The guide is blunt about this: using any damaging ability is better than standing there deciding. If you mess up a chunk, don't stop to recover the "correct" sequence — just keep going. The only things that should ever stop your Engineering rotation are fight mechanics that genuinely prevent damage, not aggro concerns or a desire to get back on script.</p>
+          <p>The guide is blunt about this: using any damaging ability is better than standing there deciding. If you mess up the cycle, don't stop to recover the "correct" sequence — just keep going. The only things that should ever stop your Engineering rotation are fight mechanics that genuinely prevent damage, not aggro concerns or a desire to get back on script.</p>
         </div>
       </section>
 
       {/* ===== 04 AOE ===== */}
       <section>
-        <h2><span className="num">04</span> AoE — same chunk shape, Suppressive Fire takes a chunk's place</h2>
-        <p className="lede">Suppressive Fire is expensive enough, and the rest of the AoE kit interdependent enough, that AoE still runs on the same two-chunk-plus-Series-of-Shots structure as single target — a full Suppressive Fire channel just counts as one chunk on its own. Snipe and Corrosive Dart drop out entirely here; they're too expensive for what they add to AoE damage.</p>
+        <h2><span className="num">04</span> AoE — same cycle shape, Suppressive Fire takes a slot's place</h2>
+        <p className="lede">Suppressive Fire is expensive enough, and the rest of the AoE kit interdependent enough, that AoE still runs on the same 12-GCD-cycle structure as single target — a full Suppressive Fire channel just occupies one cycle's worth of slots on its own. Snipe and Corrosive Dart drop out entirely here; they're too expensive for what they add to AoE damage.</p>
 
         <div className="call">
           <h4>EMP Discharge's AoE has two prerequisites</h4>
@@ -370,7 +358,8 @@ export default function EngineeringLevelingRotation({ theme }: { theme?: 'dark' 
             <tr><td>Efficient Systems regen</td><td>~1 Energy/second while Systems Upgrade is active — watch your Energy tick up during a Targeting Systems window and compare against standing still with it down.</td></tr>
             <tr><td>Systems Upgrade uptime</td><td>Calculated Measures + System Kick are supposed to keep it near 100%. If it's lapsing regularly, the Efficient Systems regen isn't actually always-on for you and the whole build's math shifts.</td></tr>
             <tr><td>Improved Targeting Implant</td><td>Guide says not required for 100% Targeting Systems uptime, just insurance if it falls off early. Confirm you're not missing meaningful uptime without it before spending a slot on it.</td></tr>
-            <tr><td>Ruthless Interrogation</td><td>Same tactical the endgame page assumes — confirm Interrogation Probe is refreshing off Series of Shots ticks for you the same way it does in the three logged parses.</td></tr>
+            <tr><td>Ruthless Interrogation</td><td>Same tactical the endgame page assumes. If you don't have it (see section 01), confirm Interrogation Probe's duration and EMP Discharge's cooldown against your own tooltips — this page assumes 10 GCD/15s for both.</td></tr>
+            <tr><td>Explosive Probe's raw cooldown</td><td>This page assumes 12 GCD/18s unbuffed. Confirm your own tooltip shows the same before-alacrity number — if it's lower, you have more room in the cycle than assumed here.</td></tr>
             <tr><td>Energy Regulators + Efficient Systems together</td><td>Guide flags this combo as "excessive" for single-target — only worth it if you're expecting to run Suppressive Fire for an entire fight. Not a single-target consideration.</td></tr>
           </tbody>
         </table>
@@ -382,9 +371,10 @@ export default function EngineeringLevelingRotation({ theme }: { theme?: 'dark' 
         <h2><span className="num">06</span> What not to chase yet</h2>
         <ul>
           <li><b>The /engineering page's measured DPS numbers</b> (29,100–30,900) — those describe three parses that never had to cut a filler for Energy. Nothing on this page is meant to be compared against them directly.</li>
-          <li><b>The ten-slot, 7-fixed/3-flex framing</b> — that describes what Energy Regulators enables. Without it, you're working from the two-chunk model above, not that shape.</li>
+          <li><b>The ten-slot, 7-fixed/3-flex framing</b> — that describes what Energy Regulators enables. Without it, you're working from the 12-GCD cycle above, not that shape.</li>
           <li><b>Suppressive Fire spam</b> — only sensible once you have both Energy Regulators and Efficient Systems, and only for fights where you're on AoE duty the entire time.</li>
-          <li><b>Takedown-driven chunk tweaks</b> — the endgame page's parses show Takedown swapping into a flex slot below 30% target health in two of three logs. That's a real-log finding about a fully-geared rotation, not guidance for this build; treat it as out of scope until you're back on the normal cycle.</li>
+          <li><b>Takedown-driven rotation tweaks</b> — the endgame page's parses show Takedown swapping into a flex slot below 30% target health in two of three logs. That's a real-log finding about a fully-geared rotation, not guidance for this build; treat it as out of scope until you're back on the normal cycle.</li>
+          <li><b>Chasing 100% Interrogation Probe / Corrosive Dart uptime</b> — the ~3 s gap each cycle (section 03) is a structural side effect of a 10-GCD duration inside a 12-GCD cycle, not a timing mistake. Recasting earlier just moves the gap, it doesn't remove it — that needs Ruthless Interrogation or enough alacrity to shrink the cycle itself.</li>
         </ul>
       </section>
 
